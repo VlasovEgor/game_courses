@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class ProductShower : MonoBehaviour,IConstructListener
-{
+{   
     private PopupManager _popupManager;
     private ProductPresentationModelFactory _presenerFactory;
 
@@ -17,5 +17,6 @@ public class ProductShower : MonoBehaviour,IConstructListener
     {
         var presentationModel = _presenerFactory.CreatePresenter(product);
         _popupManager.ShowPopup(PopupName.PRODUCT, presentationModel);
+        
     }
 }

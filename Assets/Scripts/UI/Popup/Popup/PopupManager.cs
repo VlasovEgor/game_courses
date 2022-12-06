@@ -3,21 +3,18 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PopupManager : MonoBehaviour, Popup.ICallback //https://www.youtube.com/watch?v=ljCMn4DI1zw видео, хорошо поясняющее что я чувствую смотря на этот класс
-{
-    [SerializeField]
-    private PopupHolder[] allPopups;
-
+public class PopupManager : MonoBehaviour, Popup.ICallback
+{ 
+   [SerializeField] private PopupHolder[] allPopups;
 
     private readonly Dictionary<PopupName, Popup> _activePopups = new();
 
     private void Awake()
     {
-        foreach (var popupHolder in this.allPopups)
+        foreach (var popupHolder in allPopups)
         {
             popupHolder.popup.gameObject.SetActive(false);
         }
-
     }
 
     [Button]
@@ -51,15 +48,14 @@ public class PopupManager : MonoBehaviour, Popup.ICallback //https://www.youtube
     [Button]
     public bool IsPopupActive(PopupName name)
     {
-        return this._activePopups.ContainsKey(name);
+        return _activePopups.ContainsKey(name);
     }
 
     void Popup.ICallback.OnClose(Popup popup)
     {
-        var name = this.FindName(popup);
-        this.HidePopup(name);
+        var name = FindName(popup);
+        HidePopup(name);
     }
-
 
     private PopupName FindName(Popup popup)
     {
@@ -76,7 +72,7 @@ public class PopupManager : MonoBehaviour, Popup.ICallback //https://www.youtube
 
     private Popup FindPopup(PopupName name)
     {
-        foreach (var holder in this.allPopups)
+        foreach (var holder in allPopups)
         {
             if (holder.name == name)
             {
@@ -96,6 +92,4 @@ public class PopupManager : MonoBehaviour, Popup.ICallback //https://www.youtube
         [SerializeField]
         public Popup popup;
     }
-
-
 }

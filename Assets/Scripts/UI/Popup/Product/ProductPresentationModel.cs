@@ -16,18 +16,19 @@ public class ProductPresentationModel: IProductPresentationModel
         _moneyStorage = moneyStorage;
         _product = product;
     }
+
     public void Start()
     {
         _moneyStorage.OnMoneyChanged += OnMoneyChanged;
     }
+
     public void Stop()
     {
         _moneyStorage.OnMoneyChanged -= OnMoneyChanged;
     }
 
-    private void OnMoneyChanged(BigNumber money)
+    private void OnMoneyChanged(int money)
     {
-        Debug.Log("OnMoneyChanged");
         var canBuy = _productBuyer.CanBuy(_product);
         OnBuyButtonStateChanged?.Invoke(canBuy);
     }

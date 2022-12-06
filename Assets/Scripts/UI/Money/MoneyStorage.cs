@@ -4,24 +4,32 @@ using Sirenix.OdinInspector;
 
 public class MoneyStorage : MonoBehaviour
 {
-    public event Action<BigNumber> OnMoneyChanged;
+    public event Action<int> OnMoneyChanged;
 
-    private BigNumber _money;
-
-    public BigNumber Money 
+    public int Money
     {
         get { return _money; }
     }
 
+    [ReadOnly]
+    [ShowInInspector]
+    private int _money;
+
     [Button]
-    public void AddMoney(BigNumber range)
+    public void SetupMoney(int money)
+    {
+        _money = money;
+    }
+
+    [Button]
+    public void AddMoney(int range)
     {
         _money += range;
         OnMoneyChanged?.Invoke(_money);
     }
 
     [Button]
-    public void SpendMoney(BigNumber range)
+    public void SpendMoney(int range)
     {
         _money -= range;
         OnMoneyChanged?.Invoke(_money);

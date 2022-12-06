@@ -5,6 +5,11 @@ public sealed class ProductBuyer : MonoBehaviour, IConstructListener
 {
     private MoneyStorage moneyStorage;
 
+    void IConstructListener.Construct(GameContext context)
+    {
+        moneyStorage = context.GetService<MoneyStorage>();
+    }
+
     [Button]
     public bool CanBuy(ProductInfo product)
     {
@@ -24,10 +29,4 @@ public sealed class ProductBuyer : MonoBehaviour, IConstructListener
             Debug.LogWarning($"<color=red>Not enough money for product {product.Title}!</color>");
         }
     }
-
-    void IConstructListener.Construct(GameContext context)
-    {
-        moneyStorage = context.GetService<MoneyStorage>();
-    }
 }
-

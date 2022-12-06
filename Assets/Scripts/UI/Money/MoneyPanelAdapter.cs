@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class MoneyPanelAdapter : MonoBehaviour,IConstructListener,IStartGameListener,IFinishGameListener
@@ -23,11 +22,8 @@ public class MoneyPanelAdapter : MonoBehaviour,IConstructListener,IStartGameList
         _moneyStorage.OnMoneyChanged -= OnMoneyChanged;
     }
 
-    private void OnMoneyChanged(BigNumber money)
+    private void OnMoneyChanged(int money)
     {
         _moneyPanel.UpdateMoney(money.ToString());
-        Debug.Log(money);
     }
-
-
 }

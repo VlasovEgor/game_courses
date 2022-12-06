@@ -1,7 +1,7 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-[CreateAssetMenu (fileName = "ProductInfo", menuName = "Gameplay/ NewProduct")]
+[CreateAssetMenu (fileName = "ProductInfo", menuName = "Gameplay/ PopupProduct")]
 public class ProductInfo : ScriptableObject
 {
     [PreviewField] [SerializeField] public Sprite Icon;
@@ -10,6 +10,6 @@ public class ProductInfo : ScriptableObject
 
     [SerializeField] public string Description;
 
-    [SerializeField] public BigNumber Price;
+    [SerializeField] public int Price;
 
 }

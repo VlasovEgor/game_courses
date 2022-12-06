@@ -14,9 +14,11 @@ public class Popup : MonoBehaviour
     {
         OnHide();
     }
+
     protected virtual void OnShow(object args)
     {
     }
+
     protected virtual void OnHide()
     {
     }
