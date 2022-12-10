@@ -19,6 +19,7 @@ public class MoneyStorage : MonoBehaviour
     public void SetupMoney(int money)
     {
         _money = money;
+        OnMoneyChanged?.Invoke(_money);
     }
 
     [Button]
@@ -34,4 +35,5 @@ public class MoneyStorage : MonoBehaviour
         _money -= range;
         OnMoneyChanged?.Invoke(_money);
     }
+
 }

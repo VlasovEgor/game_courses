@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerPresentationModel : IPlayerPresentationModel
 {
     public event Action<bool> OnBuyButtonStateChanged;
+    public event Action OnLevelUp;
 
     private readonly PlayerInfo _player;
     private readonly PlayerUpgrader _playerUpgrader;
@@ -19,19 +20,14 @@ public class PlayerPresentationModel : IPlayerPresentationModel
     public void Start()
     {
         _moneyStorage.OnMoneyChanged += OnMoneyChanged;
-        _playerUpgrader.OnPlayerUpgraded += OnPlayerUpgraded;
-    }
-
-    private void OnPlayerUpgraded()
-    {
-        //тут должен быть прикол с обновлением данныхв в popup'e
     }
 
     public void Stop()
     {
         _moneyStorage.OnMoneyChanged -= OnMoneyChanged;
-        _playerUpgrader.OnPlayerUpgraded += OnPlayerUpgraded;
     }
+
+
 
     private void OnMoneyChanged(int obj)
     {
@@ -72,6 +68,7 @@ public class PlayerPresentationModel : IPlayerPresentationModel
     void IPlayerPresentationModel.OnBuyClicked()
     {
         _playerUpgrader.Upgrade(_player);
+        OnLevelUp?.Invoke();
     }
 
     bool IPlayerPresentationModel.CanBuy()

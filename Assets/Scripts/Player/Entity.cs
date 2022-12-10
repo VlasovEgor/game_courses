@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class Entity : MonoBehaviour, IEntity
 {
     [SerializeField] private MonoBehaviour[] _components;
 

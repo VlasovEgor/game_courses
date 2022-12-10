@@ -28,29 +28,30 @@ public class PlayerPopup : Popup
         }
 
         _presenter = presenter;
-        UpdatePLayerStats(presenter);
+        _presenter.OnBuyButtonStateChanged += OnBuyButtonStateChanged;
+        _presenter.Start();
+        _presenter.OnLevelUp += UpdatePLayerStats;
+         UpdatePLayerStats();
         _buyButton.AddListener(OnBuyButtonClicked);
     }
 
-    private void UpdatePLayerStats(IPlayerPresentationModel presenter)
+    private void UpdatePLayerStats()
     {
-        _presenter.OnBuyButtonStateChanged += OnBuyButtonStateChanged;
-        _presenter.Start();
+        _playerName.text = _presenter.GetPlayerName();
+        _levelText.text = _presenter.GetLevel();
+        _healthPointsText.text = _presenter.GetHealthPoints();
+        _damageText.text = _presenter.GetDamage();
+        _iconImage.sprite = _presenter.GetIcon();
 
-        _playerName.text = presenter.GetPlayerName();
-        _levelText.text = presenter.GetLevel();
-        _healthPointsText.text = presenter.GetHealthPoints();
-        _damageText.text = presenter.GetDamage();
-        _iconImage.sprite = presenter.GetIcon();
-
-        _buyButton.SetPrice(presenter.GetPrice());
-        _buyButton.SetAvailable(presenter.CanBuy());
+        _buyButton.SetPrice(_presenter.GetPrice());
+        _buyButton.SetAvailable(_presenter.CanBuy());
     }
 
     protected override void OnHide()
     {
         _buyButton.RemoveListener(OnBuyButtonClicked);
         _presenter.OnBuyButtonStateChanged -= OnBuyButtonStateChanged;
+        _presenter.OnLevelUp -= UpdatePLayerStats;
         _presenter.Stop();
     }
 

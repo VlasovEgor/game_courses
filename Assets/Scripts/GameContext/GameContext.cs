@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameContext : MonoBehaviour
+public class GameContext : MonoBehaviour, IGameContext
 {
 
     [ReadOnly] [ShowInInspector] private List<object> _listeners = new List<object>();
