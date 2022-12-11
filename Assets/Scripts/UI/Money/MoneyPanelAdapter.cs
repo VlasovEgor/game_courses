@@ -5,7 +5,7 @@ public class MoneyPanelAdapter : MonoBehaviour,IConstructListener,IStartGameList
     [SerializeField] private MoneyPanel _moneyPanel;
 
     private MoneyStorage _moneyStorage;
-
+    
     public void Construct(GameContext context)
     {
         _moneyStorage = context.GetService<MoneyStorage>();

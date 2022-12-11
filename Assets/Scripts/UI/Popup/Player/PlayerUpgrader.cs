@@ -24,18 +24,23 @@ public class PlayerUpgrader : MonoBehaviour, IConstructListener
     {
         if (CanUpgrade(player))
         {
-            player.Level++; //тут это можно было сделать и покрасивее 
-            player.Damage++;
-            player.HealthPoints++;
-            player.Price++;
-
+            UpdateStats(player);
             _moneyStorage.SpendMoney(player.Price);
             OnPlayerUpgraded?.Invoke();
+
             Debug.Log($"<color=green>Player {player.Name} successfully upgraded!</color>");
         }
         else
         {
             Debug.LogWarning($"<color=red>Not enough money for upgrade {player.Name}!</color>");
         }
+    }
+
+    private void UpdateStats(PlayerInfo player)
+    {
+        player.Level++; 
+        player.Damage++;
+        player.HealthPoints++;
+        player.Price++;
     }
 }

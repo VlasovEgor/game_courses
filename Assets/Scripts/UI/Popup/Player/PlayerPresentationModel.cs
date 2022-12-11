@@ -27,8 +27,6 @@ public class PlayerPresentationModel : IPlayerPresentationModel
         _moneyStorage.OnMoneyChanged -= OnMoneyChanged;
     }
 
-
-
     private void OnMoneyChanged(int obj)
     {
         var canBuy = _playerUpgrader.CanUpgrade(_player);

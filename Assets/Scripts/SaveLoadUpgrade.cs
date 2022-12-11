@@ -1,8 +1,11 @@
 using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 
 public class SaveLoadUpgrade : MonoBehaviour
 {
+    public Action OnLoadUpgrade;
+    
     [SerializeField] private PlayerInfo _playerInfo;
 
     private UpgradesMediator _upgadesMediator;
@@ -25,5 +28,6 @@ public class SaveLoadUpgrade : MonoBehaviour
     public void Load()
     {
         _upgadesMediator.LoadData(_playerInfo);
+        OnLoadUpgrade?.Invoke();
     }
 }

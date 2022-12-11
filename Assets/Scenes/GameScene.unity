@@ -8908,6 +8908,7 @@ GameObject:
   - component: {fileID: 1654388003}
   - component: {fileID: 1654388005}
   - component: {fileID: 1654388006}
+  - component: {fileID: 1654388007}
   m_Layer: 0
   m_Name: SaveLoad
   m_TagString: Untagged
@@ -8936,7 +8937,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654388002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.0868752, y: -17.549276, z: 7.075445}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8970,6 +8971,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInfo: {fileID: 11400000, guid: a4bf298bf107943428567dfd8d561c08, type: 2}
+--- !u!114 &1654388007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654388002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8986ba4102bd3d4eb1684d8420d2e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerPopup: {fileID: 1315404301}
+  _saveLoadUpgrade: {fileID: 1654388006}
 --- !u!1 &1663626368
 GameObject:
   m_ObjectHideFlags: 0

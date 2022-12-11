@@ -35,6 +35,11 @@ public class PlayerPopup : Popup
         _buyButton.AddListener(OnBuyButtonClicked);
     }
 
+    public void UpdatingStatsAfterLoading()
+    {
+        UpdatePLayerStats();
+    }
+
     private void UpdatePLayerStats()
     {
         _playerName.text = _presenter.GetPlayerName();
