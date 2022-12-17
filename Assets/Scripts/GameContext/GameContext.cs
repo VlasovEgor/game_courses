@@ -85,4 +85,18 @@ public class GameContext : MonoBehaviour, IGameContext
 
         Debug.Log("Game finished");
     }
+
+    [Button]
+    public void LoadGame()
+    {
+        foreach (var listener in _listeners)
+        {
+            if (listener is ILoadGameListener loadListener)
+            {
+                loadListener.OnLoadGame();
+            }
+        }
+
+        Debug.Log("Game loaded");
+    }
 }

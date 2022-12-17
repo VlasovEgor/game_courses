@@ -11,29 +11,25 @@ using UnityEngine;
 public class ServicePack : ScriptableObject
 {
 #if UNITY_EDITOR
-    [SerializeField]
-    private bool editorMode;
+    [SerializeField] private bool _editorMode;
 
-    [SerializeField]
-    private MonoScript[] releaseScripts;
+    [SerializeField] private MonoScript[] _releaseScripts;
 
-    [SerializeField]
-    private MonoScript[] editorScripts;
+    [SerializeField] private MonoScript[] _editorScripts;
 #endif
-    [SerializeField]
-    private string[] releaseClassNames;
+    [SerializeField] private string[] _releaseClassNames;
 
     public object[] LoadServices()
     {
         object[] result;
 #if UNITY_EDITOR
-        if (this.editorMode)
+        if (_editorMode)
         {
-            result = LoadServicesInEditor(this.editorScripts);
+            result = LoadServicesInEditor(_editorScripts);
         }
         else
         {
-            result = LoadServicesInEditor(this.releaseScripts);
+            result = LoadServicesInEditor(_releaseScripts);
         }
 
 #else
@@ -53,7 +49,7 @@ public class ServicePack : ScriptableObject
             var script = scripts[i];
             if (script == null)
             {
-                Debug.LogWarning($"Missing script in service pack {this.name}");
+                Debug.LogWarning($"Missing script in service pack {name}");
                 continue;
             }
 
@@ -94,11 +90,11 @@ public class ServicePack : ScriptableObject
 #if UNITY_EDITOR
     public void PrepareServicesForBuild()
     {
-        var length = this.releaseScripts.Length;
+        var length = _releaseScripts.Length;
         var classNames = new List<string>(length);
         for (var i = 0; i < length; i++)
         {
-            var script = this.releaseScripts[i];
+            var script = _releaseScripts[i];
             if (script != null)
             {
                 var className = script.GetClass().FullName;
@@ -106,7 +102,7 @@ public class ServicePack : ScriptableObject
             }
         }
 
-        this.releaseClassNames = classNames.ToArray();
+        _releaseClassNames = classNames.ToArray();
         EditorUtility.SetDirty(this);
     }
 #endif

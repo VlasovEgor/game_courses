@@ -15,5 +15,7 @@ public interface IGameContext
 
     public void StartGame();
 
+    public void LoadGame();
+
     public void FinishGame();
 }
