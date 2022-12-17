@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour, IEntity
@@ -19,6 +20,21 @@ public class Entity : MonoBehaviour, IEntity
 
         throw new Exception($"Component of type {typeof(T).Name} is not found!");
     }
+
+    public T[] GetAll<T>()
+    {
+        var result = new List<T>();
+        for (int i = 0; i < _components.Length; i++)
+        {
+            if (_components[i] is T element)
+            {
+                result.Add(element);
+            }
+        }
+
+        return result.ToArray();
+    }
+    
 
     public bool TryGet<T>(out T result)
     {
