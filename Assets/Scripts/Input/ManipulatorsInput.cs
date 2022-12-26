@@ -4,6 +4,8 @@ using UnityEngine;
 public class ManipulatorsInput : MonoBehaviour,IStartGameListener,IFinishGameListener
 {
     public event Action<Vector3> OnMove;
+    public event Action<Vector3> OnRotate;
+
     public event Action OnJump;
     public event Action OnShoot;
 
@@ -27,6 +29,7 @@ public class ManipulatorsInput : MonoBehaviour,IStartGameListener,IFinishGameLis
         HandleMoveKeyboard();
         HandleJumpKeyboard();
         ProcessingMouseClicks();
+        Rotate();
     }
 
     private void ProcessingMouseClicks()
@@ -51,6 +54,12 @@ public class ManipulatorsInput : MonoBehaviour,IStartGameListener,IFinishGameLis
     private void Move(Vector3 inputVector)
     {
         OnMove?.Invoke(inputVector);
+    }
+
+    private void Rotate()
+    {
+        Vector3 rotateVector = new Vector3(0, Input.GetAxis("Mouse X"), 0);
+        OnRotate?.Invoke(rotateVector);
     }
 
     private void HandleJumpKeyboard()

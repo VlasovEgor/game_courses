@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
 
     private void OnMoving(Vector3 inputVector)
     {
-        _rigidbody.velocity = new Vector3(inputVector.x * _speed.Value, _rigidbody.velocity.y, inputVector.z * _speed.Value);
+         _rigidbody.velocity = new Vector3(inputVector.x * _speed.Value, _rigidbody.velocity.y, inputVector.z * _speed.Value);
+
     }
 }
