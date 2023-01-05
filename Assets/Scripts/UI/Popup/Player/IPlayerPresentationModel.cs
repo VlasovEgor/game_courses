@@ -4,7 +4,7 @@ using UnityEngine;
 public interface IPlayerPresentationModel
 {
     event Action<bool> OnBuyButtonStateChanged;
-
+    event Action OnLevelUp;
     string GetPlayerName();
 
     string GetLevel();
