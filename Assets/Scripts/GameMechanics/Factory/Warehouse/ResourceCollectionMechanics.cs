@@ -5,15 +5,15 @@ public class ResourceCollectionMechanics : MonoBehaviour
 {
     [SerializeField] private Warehouse _warehouse;
 
-    private IWarehouseComponent[] _unloadComponents;
+    private IStorageComponent[] _unloadComponents;
 
     private void Awake()
     {
-        _unloadComponents = _warehouse.GetComponent<Entity>().GetAll<IWarehouseComponent>();
+        _unloadComponents = _warehouse.GetComponent<Entity>().GetAll<IStorageComponent>();
     }
 
     [Button]
-    private void TakeResources(Ingredients type, int amount)
+    public void TakeResources(Ingredients type, int amount)
     {
         for (int i = 0; i < _unloadComponents.Length; i++)
         {

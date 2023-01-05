@@ -25,7 +25,7 @@ public class ConveyorMechanics : MonoBehaviour
     }
 
     [Button]
-    private void TryStartWork(Recipes recipes)
+    public void TryStartWork(Recipe recipe)
     {
         if (_outputStorage.IsLimit || _workTimer.IsPlaying)
         {
@@ -33,19 +33,8 @@ public class ConveyorMechanics : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < _conveyorRecipes._Recipes.Length; i++)
-        {
-            if(recipes == _conveyorRecipes._Recipes[i].RecipeType)
-            {
-                _currentRecipe = _conveyorRecipes._Recipes[i];
-                _ingredientDeliverer.RequestIngredients?.Invoke(_conveyorRecipes._Recipes[i]);
-                
-                Debug.Log($"<color=green>RECIPE TYPE {recipes}  FOUND</color>");
-                return;
-            }
-        }
-
-        Debug.Log($"<color=red>RECIPE TYPE {recipes} NOT FOUND</color>");
+        _currentRecipe = recipe;
+        _ingredientDeliverer.RequestIngredients?.Invoke(recipe);
     }
 
     public void StartWork()

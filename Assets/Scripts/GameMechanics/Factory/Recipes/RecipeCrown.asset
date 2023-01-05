@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecipeType: 2
   _productMaterial: {fileID: 2100000, guid: c91bbe7a7a03883409cb4b052163cb4a, type: 2}
+  _iconImage: {fileID: 21300000, guid: b881dfde087c2f5498fdc22d3abc9194, type: 3}
   _productionTime: 3

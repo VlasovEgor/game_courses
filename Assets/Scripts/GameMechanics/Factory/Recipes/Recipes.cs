@@ -1,7 +1,7 @@
 public enum Recipes
 {
     AXE,
-    RAILS,
+    MAGICSTAFF,
     CROWN,
-    WORKBENCH,
+    ARMOR,
 }

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9af05cc0f7ea21947b22a41a4af61d1f, type: 3}
-  m_Name: RecipeWorkbench
+  m_Name: RecipeArmor
   m_EditorClassIdentifier: 
   RecipeType: 3
   _productMaterial: {fileID: 2100000, guid: 3fe262f3a104a844bb6f61994e589bdc, type: 2}
+  _iconImage: {fileID: 21300000, guid: 75aac59eceadcad489397eabe7dce69b, type: 3}
   _productionTime: 2

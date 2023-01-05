@@ -1,15 +1,9 @@
 
+using System.Collections.Generic;
+
 public interface IWarehouseComponent
 {
-    public Ingredients Type { get; }
+    public void TakeResource(Ingredients Type, int Amount);
 
-    bool CanLoad();
-
-    void Load(int resources);
-
-    bool CanUnload();
-
-    int Unload(int amount);
-
-    int UnloadAll();
+    public void GiveResource(Recipe recipe, Dictionary<Ingredients, WarehouseCollector> resourcesDictionary);
 }

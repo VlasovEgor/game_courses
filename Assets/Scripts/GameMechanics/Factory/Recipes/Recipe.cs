@@ -1,6 +1,7 @@
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "Gameplay/ Recipe")]
 public class Recipe : ScriptableObject
@@ -10,6 +11,7 @@ public class Recipe : ScriptableObject
 
     [Space]
     [SerializeField] private Material _productMaterial;
+    [SerializeField] private Sprite _iconImage;
     [SerializeField] private float _productionTime;
 
     public Material GetMaterial()
@@ -18,8 +20,16 @@ public class Recipe : ScriptableObject
     }
 
     public float ProductionTime()
-    { 
-        return _productionTime; 
+    {
+        return _productionTime;
+    }
+
+    public Sprite IconImage
+    {
+        get
+        {
+            return _iconImage;
+        }
     }
 
     [Button]

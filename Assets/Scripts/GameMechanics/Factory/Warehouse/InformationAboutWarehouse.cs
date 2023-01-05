@@ -17,7 +17,7 @@ public class InformationAboutWarehouse : MonoBehaviour, IInformationAboutWarehou
 
     public void CheckingIngredients(Recipe recipe)
     {
-        if(_warehouse.EnoughIngredients(recipe) ==false)
+        if(_warehouse.EnoughIngredients(recipe) == false)
         {
             Debug.Log("ÈÍÃĞÅÄÈÅÍÒÎÂ ÍÅÒ È ÒÎ×ÊÀ");
         }
