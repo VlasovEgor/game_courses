@@ -1,24 +1,27 @@
-using UnityEngine;
 
-public class UpgradesMediator : MonoBehaviour
+using Zenject;
+
+public class UpgradesMediator : IGameDataLoader, IGameDataSaver
 {
     private UpgradesRepository _upgradesRepository;
-    private UpgradesConverter _upgradesConverter = new UpgradesConverter();
+    private UpgradesConverter _upgradesConverter;
 
+    [Inject]
     public void Construct(UpgradesRepository repository)
     {
         _upgradesRepository = repository;
     }
 
-    public void LoadData(PlayerInfo playerUpgrade)
+    public void LoadData(IGameContext context)
     {
-        _upgradesRepository.TryLoadStats(out UpgradesPlayerData data);
-        _upgradesConverter.SetupStats(playerUpgrade, data);
+        var playerUpgrade = context.GetService<UpgradesManager>().PlayerUpgrade;
+       _upgradesRepository.TryLoadStats(out UpgradesPlayerData data);
+       _upgradesConverter.SetupStats(playerUpgrade, data);
     }
 
-
-    public void SaveData(PlayerInfo playerUpgrade)
+    public void SaveData(IGameContext context)
     {
+        var playerUpgrade = context.GetService<UpgradesManager>().PlayerUpgrade;
         var data = _upgradesConverter.ConvertToData(playerUpgrade);
         _upgradesRepository.SaveStats(data);
     }

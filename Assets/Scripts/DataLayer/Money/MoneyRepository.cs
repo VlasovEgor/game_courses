@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoneyRepository : MonoBehaviour
+public class MoneyRepository
 {
     private const string PLAYER_PREFS_KEY = "MoneyData";
 

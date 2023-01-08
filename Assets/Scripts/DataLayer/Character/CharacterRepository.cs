@@ -13,10 +13,6 @@ public class CharacterRepository
             Debug.Log($"<color=orange>LOAD CHARACTER DATA {json}</color>");
             return true;
         }
-        else
-        {
-            Debug.Log("lox");
-        }
 
         data = default;
         return false;

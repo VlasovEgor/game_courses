@@ -1,9 +1,12 @@
 
-public class MoneyMediator
+using Zenject;
+
+public class MoneyMediator : IGameDataLoader, IGameDataSaver
 {
     private MoneyRepository _moneyRepository;
-    private MoneyConverter _moneyConverter = new MoneyConverter();
+    private MoneyConverter _moneyConverter;
 
+    [Inject]
     public void Construct(MoneyRepository repository)
     {
         _moneyRepository = repository;

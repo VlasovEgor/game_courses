@@ -5,6 +5,14 @@ public class PlayersGroup : MonoBehaviour
 {
     [SerializeField] private PlayerConfig[] _players;
 
+    public PlayerConfig[] Players
+    { 
+        get 
+        { 
+            return _players;
+        } 
+    }
+
     private void Awake()
     {
         _players = FindObjectsOfType<PlayerConfig>();
@@ -19,11 +27,6 @@ public class PlayersGroup : MonoBehaviour
         }
     }
 
-    public PlayerConfig[] GetAllPlayers()
-    {
-        return _players;
-    }
-
     public PlayerConfig FindPlayer(int id)
     {
         for (var i = 0; i < _players.Length; i++)
@@ -36,5 +39,19 @@ public class PlayersGroup : MonoBehaviour
         }
 
         throw new Exception($"Player with {id} is not found!");
+    }
+
+    public int CheckId(int numberInArray)
+    {
+        for (var i = 0; i < _players.Length; i++)
+        {
+            var config = _players[i];
+            if (i == numberInArray)
+            {
+                return config.PlayerID;
+            }
+        }
+
+        throw new Exception($"Player with {numberInArray} is not found!");
     }
 }

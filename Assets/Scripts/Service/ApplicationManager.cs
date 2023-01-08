@@ -16,14 +16,14 @@ public class ApplicationManager : MonoBehaviour
     {
         if (!_applicationLoaded)
         {
-            LoadRoutine();
+            StartCoroutine(LoadRoutine());
         }
     }
 
-    private void LoadRoutine()
+    private IEnumerator LoadRoutine()
     {
         InstallServices();
-        LoadGameScene();
+        yield return LoadGameScene();
         LoadGameData();
         StartGame();
 
@@ -33,22 +33,25 @@ public class ApplicationManager : MonoBehaviour
     private void InstallServices()
     {
         _serviceInstaller.InstallServices();
+        
     }
 
-    private void LoadGameScene()
+    private IEnumerator LoadGameScene()
     {
-
         SceneManager.LoadScene("GameScene");
+        yield return new WaitForEndOfFrame();
+
         _gameContext = FindObjectOfType<GameContext>();
         _gameContext.LoadGame();
     }
 
     private void LoadGameData()
     {
-        var dataLoader = ServiceLocator.GetService<IGameDataLoader>();
-
-        dataLoader.LoadData(_gameContext);
-        
+        var dataLoaders = ServiceLocator.GetServices<IGameDataLoader>();
+        foreach (var dataLoader in dataLoaders)
+        {
+            dataLoader.LoadData(_gameContext);
+        }
     }
 
     private void StartGame()
@@ -75,8 +78,12 @@ public class ApplicationManager : MonoBehaviour
         {
             return;
         }
-        var dataSaver = ServiceLocator.GetService<IGameDataSaver>();
-        dataSaver.SaveData(_gameContext);
-        
+
+        var dataSavers = ServiceLocator.GetServices<IGameDataSaver>();
+        foreach (var dataSaver in dataSavers)
+        {
+            dataSaver.SaveData(_gameContext);
+        }
+
     }
 }

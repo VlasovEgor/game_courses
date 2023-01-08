@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UpgradesRepository : MonoBehaviour
+public class UpgradesRepository
 {
     private const string PLAYER_PREFS_KEY = "UpgradesData";
 
