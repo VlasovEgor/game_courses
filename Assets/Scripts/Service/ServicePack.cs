@@ -3,21 +3,32 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+#if !UNITY_EDITOR
+using System.Linq;
+using System.Reflection;
+#endif
+
+// ReSharper disable NotAccessedField.Local
+
+
 [CreateAssetMenu(
     fileName = "ServicePack",
     menuName = "Service Locator/New ServicePack"
 )]
-
-public class ServicePack : ScriptableObject
+public sealed class ServicePack : ScriptableObject
 {
 #if UNITY_EDITOR
-    [SerializeField] private bool _editorMode;
+    [SerializeField]
+    private bool _editorMode;
 
-    [SerializeField] private MonoScript[] _releaseScripts;
+    [SerializeField]
+    private MonoScript[] _releaseScripts;
 
-    [SerializeField] private MonoScript[] _editorScripts;
+    [SerializeField]
+    private MonoScript[] _editorScripts;
 #endif
-    [SerializeField] private string[] _releaseClassNames;
+    [SerializeField]
+    private string[] _releaseClassNames;
 
     public object[] LoadServices()
     {
@@ -107,5 +118,3 @@ public class ServicePack : ScriptableObject
     }
 #endif
 }
-
-

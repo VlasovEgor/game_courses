@@ -1,15 +1,15 @@
-
-using Zenject;
+using Services;
 
 public class MoneyMediator : IGameDataLoader, IGameDataSaver
 {
     private MoneyRepository _moneyRepository;
     private MoneyConverter _moneyConverter;
 
-    [Inject]
-    public void Construct(MoneyRepository repository)
+    [ServiceInject]
+    public void Construct(MoneyRepository repository,MoneyConverter moneyConverter)
     {
         _moneyRepository = repository;
+        _moneyConverter = moneyConverter;
     }
 
     public void LoadData(IGameContext context)
@@ -19,7 +19,6 @@ public class MoneyMediator : IGameDataLoader, IGameDataSaver
         MoneyStorage moneyStorage = context.GetService<MoneyStorage>();
 
         _moneyConverter.SetupMoney(moneyStorage, data);
-
     }
 
     public void SaveData(IGameContext context)

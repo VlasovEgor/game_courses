@@ -1,15 +1,15 @@
-
-using Zenject;
+using Services;
 
 public class UpgradesMediator : IGameDataLoader, IGameDataSaver
 {
     private UpgradesRepository _upgradesRepository;
     private UpgradesConverter _upgradesConverter;
 
-    [Inject]
-    public void Construct(UpgradesRepository repository)
+    [ServiceInject]
+    public void Construct(UpgradesRepository repository,UpgradesConverter upgradesConverter)
     {
         _upgradesRepository = repository;
+        _upgradesConverter = upgradesConverter;
     }
 
     public void LoadData(IGameContext context)

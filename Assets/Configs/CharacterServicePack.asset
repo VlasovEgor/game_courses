@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94636011a1b7101459d50992e7f04a1f, type: 3}
-  m_Name: MoneyServicePack
+  m_Name: CharacterServicePack
   m_EditorClassIdentifier: 
   _editorMode: 0
   _releaseScripts:
-  - {fileID: 11500000, guid: e2d66ee03e2c4c044bbe2c7f5ab46464, type: 3}
-  - {fileID: 11500000, guid: 95212a77d2ae92f4a8d5cd45f81a948a, type: 3}
+  - {fileID: 11500000, guid: 75c7e69b8065fa54891f9f6ed7b896cf, type: 3}
+  - {fileID: 11500000, guid: ff3a758dbb7324949a8bedb2e6e815b7, type: 3}
+  - {fileID: 11500000, guid: 4afddeb0549e91341a3c6c6177da47d2, type: 3}
   _editorScripts: []
   _releaseClassNames: []

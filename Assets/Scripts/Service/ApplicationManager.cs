@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Services;
 public class ApplicationManager : MonoBehaviour
 {
     [SerializeField] private ServiceInstaller _serviceInstaller;
@@ -38,7 +38,7 @@ public class ApplicationManager : MonoBehaviour
 
     private IEnumerator LoadGameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("GameScene",LoadSceneMode.Additive);
         yield return new WaitForEndOfFrame();
 
         _gameContext = FindObjectOfType<GameContext>();
@@ -48,6 +48,7 @@ public class ApplicationManager : MonoBehaviour
     private void LoadGameData()
     {
         var dataLoaders = ServiceLocator.GetServices<IGameDataLoader>();
+        
         foreach (var dataLoader in dataLoaders)
         {
             dataLoader.LoadData(_gameContext);

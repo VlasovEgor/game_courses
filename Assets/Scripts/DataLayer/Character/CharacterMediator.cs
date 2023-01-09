@@ -1,42 +1,47 @@
+using Services;
 
-using Zenject;
-
-public class CharacterMediator: IGameDataLoader,IGameDataSaver
+public class CharacterMediator : IGameDataLoader, IGameDataSaver
 {
     private CharacterRepository _characterRepository;
     private CharacterConverter _characterConverter;
     private PlayersGroup _playersGroup;
 
-    [Inject]
-    public void Construct(CharacterRepository repository)
+    [ServiceInject]
+    public void Construct(CharacterRepository repository,CharacterConverter characterConverter)
     {
-        _characterRepository= repository;
+        _characterRepository = repository;
+        _characterConverter = characterConverter;
     }
 
-    public void LoadData(IGameContext context)
-    {   
+
+    void IGameDataLoader.LoadData(IGameContext context)
+    {
         _playersGroup = context.GetService<PlayersGroup>();
 
         for (int i = 0; i < _playersGroup.Players.Length; i++)
-        {   
+        {
+            ServiceInjector.ResolveDependencies();
             int id = _playersGroup.CheckId(i);
-            _characterRepository.TryLoadStats(out CharacterData data, id);
-            IEntity character = _playersGroup.FindPlayer(id).GetEntity();
-            _characterConverter.SetupStats(character, data);
+            if (_characterRepository.TryLoadStats(out CharacterData data, id))
+            {
+                IEntity character = _playersGroup.FindPlayer(id).GetEntity();
+                _characterConverter.SetupStats(character, data);
+            }
+
         }
     }
 
-    public void SaveData(IGameContext context)
+    void IGameDataSaver.SaveData(IGameContext context)
     {
         _playersGroup = context.GetService<PlayersGroup>();
 
         for (int i = 0; i < _playersGroup.Players.Length; i++)
-        {   
-            int id= _playersGroup.CheckId(i);
+        {
+            int id = _playersGroup.CheckId(i);
             IEntity character = _playersGroup.FindPlayer(id).GetEntity();
             var data = _characterConverter.ConvertToData(character);
 
             _characterRepository.SaveStats(data, i);
         }
     }
-} 
+}
