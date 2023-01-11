@@ -5,8 +5,7 @@ public class Attack : MonoBehaviour
    [SerializeField] private EventReceiver _attackReceiver;
    [SerializeField] private TimerBehaviour _countdown;
    [SerializeField] private IntBehaviour _damage;
-
-  // [SerializeField] private Enemy _enemy;
+   [SerializeField] private BoolBehavior _isAttack;
 
     private void OnEnable()
     {
@@ -20,13 +19,16 @@ public class Attack : MonoBehaviour
 
     private void OnRequiestAttack()
     {
+        if (_isAttack.Value)
+        {
+            return;
+        }
         if (_countdown.IsPlaying)
         {
             return;
         }
 
-       // _enemy.TakeDamage(_damage.Value);
-
+        _isAttack.AssignTrue();
         _countdown.ResetTime();
         _countdown.Play();
     }
