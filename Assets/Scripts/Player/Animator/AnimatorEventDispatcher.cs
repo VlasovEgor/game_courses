@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-public class AnimatorEventDispatcher : MonoBehaviour
+
+public sealed class AnimatorEventDispatcher : MonoBehaviour
 {
     public event Action<string> OnEventReceived;
 
@@ -9,5 +10,4 @@ public class AnimatorEventDispatcher : MonoBehaviour
     {
         OnEventReceived?.Invoke(key);
     }
-
 }

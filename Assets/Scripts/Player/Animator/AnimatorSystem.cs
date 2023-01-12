@@ -12,9 +12,7 @@ public class AnimatorSystem : MonoBehaviour
     }
 
     [SerializeField] private Animator _animator;
-
     [SerializeField] private AnimatorEventDispatcher _eventDispatcher;
-
     [SerializeField] private AnimatorStateMachine _stateMachine;
 
     public void SwitchState(AnimatorStateType stateType)

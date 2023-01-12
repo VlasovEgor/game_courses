@@ -33,7 +33,7 @@ public class Shot : MonoBehaviour
             return;
         }
 
-        _engine.Shoot();
+       // _engine.Shoot();
         ShootStarted?.Invoke();
         _isAttack.AssignTrue();
         _countdown.ResetTime();

@@ -24,7 +24,7 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
-        if(_grounded.IsGrounded == true && _isJump.Value==false)
+        if (_grounded.IsGrounded == true && _isJump.Value==false)
         {
             OnLended();
         }
@@ -32,15 +32,11 @@ public class Jump : MonoBehaviour
 
     public void OnJump()
     {
-        if (_isJump.Value==true)
-        {
-            return;
-        }
-
-        if (_grounded.IsGrounded == true)
+        if (_grounded.IsGrounded == true && _isJump.Value == false)
         {
             _rigidbody.velocity = new Vector3(0, _jumpPower.Value, 0);
             Jumped.Invoke();
+            _isJump.AssignTrue();
         }
     }
 

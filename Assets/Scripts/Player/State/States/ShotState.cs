@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackState : Elementary.State
+public class ShotState : Elementary.State
 {
     [SerializeField] private EventReceiver _shot;
     [SerializeField] private ShootEngine _shootEngine;
@@ -10,7 +10,7 @@ public class AttackState : Elementary.State
         _shot.OnEvent += Shoot;
     }
 
-    public override void Exit() 
+    public override void Exit()
     {
         _shot.OnEvent -= Shoot;
     }

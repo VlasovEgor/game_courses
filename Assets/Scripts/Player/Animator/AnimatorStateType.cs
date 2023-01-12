@@ -1,9 +1,10 @@
 
-
 public enum AnimatorStateType
-{ 
-    IDLE=1,
-    RUN=2,
-    JUMP=3,
-    SHOT=4
+{
+    IDLE = 0,
+    RUN = 1,
+    JUMP = 2,
+    SHOT = 3,
+    OnGROUND = 4,
+    InAIR = 5
 }
