@@ -11,8 +11,8 @@ public class PlayerConfig : MonoBehaviour
         set { _id = value; }
     }
 
-    public Entity GetEntity()
+    public Entity Entity
     {
-        return _entity;
+        get { return _entity; }
     }
 }

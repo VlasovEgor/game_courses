@@ -1,22 +1,27 @@
 
 public class CharacterConverter 
 {
-   public void SetupStats(IEntity character,CharacterData data)
+   public void SetupStats(PlayerConfig character,CharacterData data)
    {
-        character.Get<SetDamageComponent>().SetDamage(data.Damage);
-        character.Get<SetHealthPointComponent>().SetHealthPoint(data.CurrentHealthPoints);
-        character.Get<SetLevelComponent>().SetLevel(data.Level);
-        character.Get<SetSpeedComponent>().SetSpedd(data.MoveSpeed);
+        var entity = character.Entity;
+
+        entity.Get<SetDamageComponent>().SetDamage(data.Damage);
+        entity.Get<SetHealthPointComponent>().SetHealthPoint(data.CurrentHealthPoints);
+        entity.Get<SetLevelComponent>().SetLevel(data.Level);
+        entity.Get<SetSpeedComponent>().SetSpedd(data.MoveSpeed);
    }
 
-    public CharacterData ConvertToData(IEntity character)
+    public CharacterData ConvertToData(PlayerConfig character)
     {
+        var entity = character.Entity;
+
         var data = new CharacterData
         {
-            CurrentHealthPoints = character.Get<HealthPointComponent>().Value(),
-            Level = character.Get<LevelComponent>().Value(),
-            Damage = character.Get<PlayerDamageComponent>().Value(),
-            MoveSpeed = character.Get<GetSpeedComponent>().Value()
+            id = character.PlayerID,
+            CurrentHealthPoints = entity.Get<HealthPointComponent>().Value(),
+            Level = entity.Get<LevelComponent>().Value(),
+            Damage = entity.Get<PlayerDamageComponent>().Value(),
+            MoveSpeed = entity.Get<GetSpeedComponent>().Value()
         };
 
         return data;

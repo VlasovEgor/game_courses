@@ -13,21 +13,18 @@ public class CharacterMediator : IGameDataLoader, IGameDataSaver
         _characterConverter = characterConverter;
     }
 
-
     void IGameDataLoader.LoadData(IGameContext context)
     {
         _playersGroup = context.GetService<PlayersGroup>();
 
         for (int i = 0; i < _playersGroup.Players.Length; i++)
         {
-            ServiceInjector.ResolveDependencies();
-            int id = _playersGroup.CheckId(i);
-            if (_characterRepository.TryLoadStats(out CharacterData data, id))
+            var player = _playersGroup.Players[i];
+            if (_characterRepository.TryLoadStats(out CharacterData data, player.PlayerID))
             {
-                IEntity character = _playersGroup.FindPlayer(id).GetEntity();
+                var character = _playersGroup.Players[i];
                 _characterConverter.SetupStats(character, data);
             }
-
         }
     }
 
@@ -37,8 +34,7 @@ public class CharacterMediator : IGameDataLoader, IGameDataSaver
 
         for (int i = 0; i < _playersGroup.Players.Length; i++)
         {
-            int id = _playersGroup.CheckId(i);
-            IEntity character = _playersGroup.FindPlayer(id).GetEntity();
+            var character = _playersGroup.Players[i];
             var data = _characterConverter.ConvertToData(character);
 
             _characterRepository.SaveStats(data, i);

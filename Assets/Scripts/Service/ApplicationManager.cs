@@ -33,7 +33,7 @@ public class ApplicationManager : MonoBehaviour
     private void InstallServices()
     {
         _serviceInstaller.InstallServices();
-        
+        ServiceInjector.ResolveDependencies();
     }
 
     private IEnumerator LoadGameScene()
