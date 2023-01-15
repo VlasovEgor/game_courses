@@ -9,7 +9,7 @@ public class Shot : MonoBehaviour
     [SerializeField] private EventReceiver _shotReceiver;
     [SerializeField] private TimerBehaviour _countdown;
     [SerializeField] private ShootEngine _engine;
-    [SerializeField] private BoolBehavior _isAttack;
+    [SerializeField] private BoolBehavior _isShot;
 
     private void OnEnable()
     {
@@ -21,9 +21,18 @@ public class Shot : MonoBehaviour
         _shotReceiver.OnEvent -= Shoot;
     }
 
-    private void Shoot()
+    private void Update()
     {
-        if (_isAttack.Value)
+        if (_countdown.IsPlaying==false)
+        {
+            ShootEnded?.Invoke();
+            _isShot.AssignFalse();
+        }
+    }
+
+    public void Shoot()
+    {
+        if (_isShot.Value)
         {
             return;
         }
@@ -33,9 +42,9 @@ public class Shot : MonoBehaviour
             return;
         }
 
-       // _engine.Shoot();
+        _engine.Shoot();
         ShootStarted?.Invoke();
-        _isAttack.AssignTrue();
+        _isShot.AssignTrue();
         _countdown.ResetTime();
         _countdown.Play();
     }

@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class ShotState : Elementary.State
 {
-    [SerializeField] private EventReceiver _shot;
-    [SerializeField] private ShootEngine _shootEngine;
+    [SerializeField] private EventReceiver _shotReceiver;
+    [SerializeField] private Shot _shot;
 
     public override void Enter()
     {
-        _shot.OnEvent += Shoot;
+        _shotReceiver.OnEvent += Shoot;
     }
 
     public override void Exit()
     {
-        _shot.OnEvent -= Shoot;
+        _shotReceiver.OnEvent -= Shoot;
     }
 
     private void Shoot()
     {
-        _shootEngine.Shoot();
+        _shot.Shoot();
     }
 }

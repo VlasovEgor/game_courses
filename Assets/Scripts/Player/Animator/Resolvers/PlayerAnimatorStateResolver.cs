@@ -22,11 +22,11 @@ public class PlayerAnimatorStateResolver : AnimatorStateResolver
     {
         if (isGround == true)
         {
-            _animator.SwitchState(AnimatorStateType.OnGROUND);
+           // _animator.SwitchState(AnimatorStateType.OnGROUND);
         }
         else
         {
-            _animator.SwitchState(AnimatorStateType.InAIR);
+            //_animator.SwitchState(AnimatorStateType.InAIR);
         }
     }
 
@@ -38,7 +38,7 @@ public class PlayerAnimatorStateResolver : AnimatorStateResolver
         }
         else
         {
-            _animator.SwitchState(AnimatorStateType.OnGROUND);
+           // _animator.SwitchState(AnimatorStateType.OnGROUND);
         }
     }
 }

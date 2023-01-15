@@ -2,23 +2,21 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    [SerializeField] private VectorEventReceiver _rotateReceiver;
     [SerializeField] private IntBehaviour _rotationSercetivity;
     [SerializeField] private Transform _transformRotate;
+    [SerializeField] private MoveInDirectionEngine _moveEngine;
 
-    private void OnEnable()
+    private void Update()
     {
-        _rotateReceiver.OnEvent += OnRotating;
+        if (_moveEngine.IsMoving)
+        {
+            OnRotating(_moveEngine.Direction);
+        }
     }
 
-    private void OnDisable()
+    void OnRotating(Vector3 direction)
     {
-        _rotateReceiver.OnEvent -= OnRotating;
-    }
-
-    void OnRotating(Vector3 rotateVector)
-    {
-        Debug.Log("MAY DAY" + rotateVector);
-        _transformRotate.Rotate(rotateVector*_rotationSercetivity.Value);
+        var dirextionXZ = new Vector3(direction.x, 0, direction.z);
+        _transformRotate.rotation = Quaternion.Lerp(_transformRotate.rotation, Quaternion.LookRotation(dirextionXZ), Time.deltaTime * _rotationSercetivity.Value);
     }
 }

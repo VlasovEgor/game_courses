@@ -24,24 +24,34 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
-        if (_grounded.IsGrounded == true && _isJump.Value==false)
-        {
-            OnLended();
-        }
+        CheckingPosition();
     }
 
     public void OnJump()
     {
-        if (_grounded.IsGrounded == true && _isJump.Value == false)
+        if (_grounded.IsGrounded == true)
         {
             _rigidbody.velocity = new Vector3(0, _jumpPower.Value, 0);
-            Jumped.Invoke();
+            Jumped?.Invoke();
             _isJump.AssignTrue();
         }
     }
 
-    private void OnLended()
+    private void CheckingPosition()
     {
-        Lended.Invoke();
+        if (_grounded.IsGrounded == true)
+        {
+            _isJump.AssignFalse();
+        }
+        else
+        {
+            _isJump.AssignTrue();
+        }
     }
+
+   // private void OnLended()
+   // {
+   //     Lended?.Invoke();
+   //     _isJump.AssignFalse();
+   // }
 }

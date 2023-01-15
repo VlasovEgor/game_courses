@@ -17,9 +17,8 @@ public class MoveInDirectionMechanics : MonoBehaviour
 
     private void MoveTransform(Vector3 direction)
     {
+        
         var velocity= direction *(_speed.Value*Time.deltaTime);
         _transform.position += velocity;
-
-        transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
     }
 }
