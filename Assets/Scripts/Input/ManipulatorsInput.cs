@@ -8,6 +8,7 @@ public class ManipulatorsInput : MonoBehaviour,IStartGameListener,IFinishGameLis
 
     public event Action OnJump;
     public event Action OnShoot;
+    public event Action OnMeleeAttack;
 
     private void Awake()
     {
@@ -38,11 +39,19 @@ public class ManipulatorsInput : MonoBehaviour,IStartGameListener,IFinishGameLis
         {
             Shoot();
         }
+        if(Input.GetMouseButtonDown(1))
+        {
+            MeleeAttack();
+        }
     }
-
     private void Shoot()
     {
         OnShoot?.Invoke();
+    }
+
+    private void MeleeAttack()
+    {
+        OnMeleeAttack?.Invoke();
     }
 
     private void HandleMoveKeyboard()

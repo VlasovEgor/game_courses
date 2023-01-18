@@ -4,16 +4,16 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     [SerializeField] private EventReceiver _deathReceiver;
-    [SerializeField] private IntBehaviour _hitPoints;
+    [SerializeField] private IntBehaviour _healthPoints;
 
     private void OnEnable()
     {
-        _hitPoints.OnValueChanged += OnHitPointsChanged;
+        _healthPoints.OnValueChanged += OnHitPointsChanged;
     }
 
     private void OnDisable()
     {
-        _hitPoints.OnValueChanged -= OnHitPointsChanged;
+        _healthPoints.OnValueChanged -= OnHitPointsChanged;
     }
 
     private void OnHitPointsChanged(int newHitPoints)

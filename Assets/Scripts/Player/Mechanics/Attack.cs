@@ -2,19 +2,30 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-   [SerializeField] private EventReceiver _attackReceiver;
-   [SerializeField] private TimerBehaviour _countdown;
-   [SerializeField] private IntBehaviour _damage;
-   [SerializeField] private BoolBehavior _isAttack;
+    public IntEventReceiver Hit;
 
-    private void OnEnable()
+    [SerializeField] private TimerBehaviour _countdown;
+    [SerializeField] private IntBehaviour _damage;
+    [SerializeField] private BoolBehavior _isAttack;
+    [SerializeField] private BoolBehavior _canAttack;
+
+
+    private void Update()
     {
-        _attackReceiver.OnEvent += OnRequiestAttack;
+        if (_countdown.IsPlaying == false)
+        {
+            _isAttack.AssignFalse();
+        }
+
+        TryAttack();
     }
 
-    private void OnDisable()
+    private void TryAttack()
     {
-        _attackReceiver.OnEvent -= OnRequiestAttack;
+        if (_canAttack.Value == true)
+        {
+            OnRequiestAttack();
+        }
     }
 
     private void OnRequiestAttack()
@@ -23,13 +34,16 @@ public class Attack : MonoBehaviour
         {
             return;
         }
+
         if (_countdown.IsPlaying)
         {
             return;
         }
 
+        Hit.Call(_damage.Value);
         _isAttack.AssignTrue();
         _countdown.ResetTime();
         _countdown.Play();
+
     }
 }

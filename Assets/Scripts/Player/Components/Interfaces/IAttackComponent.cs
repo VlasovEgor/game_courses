@@ -1,8 +1,7 @@
 
-using UnityEngine;
-
 public interface IAttackComponent
 {
-    void Attack();
+    void StartAttack();
 
+    void StopAttack();
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public sealed class TakeDamage : MonoBehaviour
 {
     [SerializeField] private IntEventReceiver _takeDamageReceiver;
-    [SerializeField] private IntBehaviour _hitPoints;
+    [SerializeField] private IntBehaviour _healthPoints;
 
     private void OnEnable()
     {
@@ -18,7 +18,7 @@ public sealed class TakeDamage : MonoBehaviour
 
     private void OnDamageTaken(int damage)
     {
-        _hitPoints.Value -= damage;
+        _healthPoints.Value -= damage;
     }
 }
 

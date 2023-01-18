@@ -5,7 +5,7 @@ using UnityEngine;
 public class SaveLoadUpgrade : MonoBehaviour
 {
     public Action OnLoadUpgrade;
-    
+
     [SerializeField] private PlayerInfo _playerInfo;
 
     private UpgradesMediator _upgadesMediator;

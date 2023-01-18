@@ -6,5 +6,5 @@ public interface IEntity
 
     public bool TryGet<T>(out T result);
 
-
+    T[] GetAll<T>();
 }
