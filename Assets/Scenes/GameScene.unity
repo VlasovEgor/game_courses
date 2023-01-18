@@ -899,9 +899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 286469626}
-  - component: {fileID: 286469628}
   - component: {fileID: 286469627}
-  - component: {fileID: 286469629}
   m_Layer: 0
   m_Name: Hands
   m_TagString: Untagged
@@ -916,7 +914,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286469625}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -935,22 +933,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 286469625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e13fa7e677d205240b13507b2ae3578d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 286469629}
-  _shot: {fileID: 649755329}
-  _shotBehavior: {fileID: 649755332}
---- !u!114 &286469628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286469625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e344c43c3fab5048ae61942836f09c9, type: 3}
+  m_Script: {fileID: 11500000, guid: c586d1e13c3a03a478b96312f14125ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enterOnEnable: 1
@@ -959,23 +942,8 @@ MonoBehaviour:
   states:
   - mode: 0
     state: {fileID: 977327847}
-  - mode: 3
+  - mode: 1
     state: {fileID: 827161525}
---- !u!114 &286469629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286469625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eaca6eaa8e3daf43be20343145ba178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 767658614}
-  _eventDispatcher: {fileID: 767658616}
-  _stateMachine: {fileID: 286469628}
 --- !u!1 &298341110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,7 +1874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd261858c8f3f240ae2ced637db16d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 1
+  _duration: 1.8
   _currentTime: 0
 --- !u!114 &649755331
 MonoBehaviour:
@@ -2513,7 +2481,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2580111574402439894, guid: be3649f23ee2b6c488a7dcdd498dc750, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.000002390836
+      value: 0.0000025044778
       objectReference: {fileID: 0}
     - target: {fileID: 2693902077360407948, guid: be3649f23ee2b6c488a7dcdd498dc750, type: 3}
       propertyPath: arrowOnHand
@@ -2613,7 +2581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 782220609}
-  - component: {fileID: 782220611}
+  - component: {fileID: 782220614}
   - component: {fileID: 782220613}
   m_Layer: 0
   m_Name: Animator
@@ -2621,7 +2589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &782220609
 Transform:
   m_ObjectHideFlags: 0
@@ -2639,26 +2607,6 @@ Transform:
   m_Father: {fileID: 752987961}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &782220611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782220608}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e344c43c3fab5048ae61942836f09c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enterOnEnable: 1
-  exitOnDisable: 1
-  mode: 2
-  states:
-  - mode: 0
-    state: {fileID: 1109836798}
-  - mode: 3
-    state: {fileID: 286469628}
 --- !u!114 &782220613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2666,15 +2614,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782220608}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b08e07ff0dfa174c8bc3b59fb1c86c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  OnGround: {fileID: 1945494068}
-  OnShooting: {fileID: 649755332}
+  _animator: {fileID: 782220614}
+  _groundBehaviour: {fileID: 1103520441}
+  _moveEngine: {fileID: 1349418000}
+  _isShot: {fileID: 649755332}
   _shot: {fileID: 649755329}
+--- !u!114 &782220614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782220608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eaca6eaa8e3daf43be20343145ba178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 767658614}
+  _eventDispatcher: {fileID: 767658616}
+  _baseStateMachine: {fileID: 1109836798}
+  _handsStateMachine: {fileID: 286469627}
 --- !u!1 &814062060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,8 +2651,6 @@ GameObject:
   - component: {fileID: 814062061}
   - component: {fileID: 814062065}
   - component: {fileID: 814062064}
-  - component: {fileID: 814062063}
-  - component: {fileID: 814062062}
   m_Layer: 0
   m_Name: Jump
   m_TagString: Untagged
@@ -2710,64 +2673,6 @@ Transform:
   m_Father: {fileID: 1109836796}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &814062062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814062060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b33883d0a6e8c24193b9b435959aea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animatorSystem: {fileID: 0}
-  _animationEventID: jump_end
-  _unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1945494068}
-        m_TargetAssemblyTypeName: BoolBehavior, Assembly-CSharp
-        m_MethodName: AssignTrue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &814062063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814062060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b33883d0a6e8c24193b9b435959aea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animatorSystem: {fileID: 0}
-  _animationEventID: jump_start
-  _unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1945494068}
-        m_TargetAssemblyTypeName: BoolBehavior, Assembly-CSharp
-        m_MethodName: AssignFalse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &814062064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2796,8 +2701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateComponents:
   - {fileID: 814062064}
-  - {fileID: 814062063}
-  - {fileID: 814062062}
 --- !u!1 &827161520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2809,9 +2712,7 @@ GameObject:
   - component: {fileID: 827161521}
   - component: {fileID: 827161525}
   - component: {fileID: 827161524}
-  - component: {fileID: 827161526}
   - component: {fileID: 827161523}
-  - component: {fileID: 827161522}
   m_Layer: 0
   m_Name: Shot
   m_TagString: Untagged
@@ -2826,7 +2727,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827161520}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2834,35 +2735,6 @@ Transform:
   m_Father: {fileID: 286469626}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &827161522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 827161520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b33883d0a6e8c24193b9b435959aea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animatorSystem: {fileID: 0}
-  _animationEventID: attack_end
-  _unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 649755332}
-        m_TargetAssemblyTypeName: BoolBehavior, Assembly-CSharp
-        m_MethodName: AssignFalse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &827161523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2875,7 +2747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b33883d0a6e8c24193b9b435959aea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animatorSystem: {fileID: 0}
+  _animatorSystem: {fileID: 782220614}
   _animationEventID: attack_hit
   _unityEvent:
     m_PersistentCalls:
@@ -2921,49 +2793,6 @@ MonoBehaviour:
   stateComponents:
   - {fileID: 827161524}
   - {fileID: 827161523}
-  - {fileID: 827161522}
-  - {fileID: 827161526}
---- !u!114 &827161526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 827161520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b33883d0a6e8c24193b9b435959aea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animatorSystem: {fileID: 0}
-  _animationEventID: attack_start
-  _unityEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 649755329}
-        m_TargetAssemblyTypeName: Shot, Assembly-CSharp
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 649755332}
-        m_TargetAssemblyTypeName: BoolBehavior, Assembly-CSharp
-        m_MethodName: AssignTrue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &840379351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,7 +3061,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977327844}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3597,14 +3426,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102108400}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.58, z: 2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 566006627}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1103520437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,8 +3546,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1109836796}
   - component: {fileID: 1109836798}
-  - component: {fileID: 1109836797}
-  - component: {fileID: 1109836799}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -3744,21 +3571,6 @@ Transform:
   m_Father: {fileID: 782220609}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1109836797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109836795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225d6c815d3c2874a933b19d8a8d0b82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 1109836799}
-  _moveInDirectionEngine: {fileID: 1349418000}
-  OnJump: {fileID: 1945494068}
 --- !u!114 &1109836798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3781,21 +3593,6 @@ MonoBehaviour:
     state: {fileID: 1451550975}
   - mode: 2
     state: {fileID: 814062065}
---- !u!114 &1109836799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109836795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eaca6eaa8e3daf43be20343145ba178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 767658614}
-  _eventDispatcher: {fileID: 767658616}
-  _stateMachine: {fileID: 286469628}
 --- !u!1 &1184747933
 GameObject:
   m_ObjectHideFlags: 0
@@ -5240,7 +5037,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451550972}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5507,7 +5304,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592814384}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

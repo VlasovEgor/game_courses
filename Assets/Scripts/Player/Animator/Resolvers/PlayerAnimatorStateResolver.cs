@@ -2,43 +2,38 @@ using UnityEngine;
 
 public class PlayerAnimatorStateResolver : AnimatorStateResolver
 {
-    [SerializeField] private BoolBehavior OnGround;
-    [SerializeField] private BoolBehavior OnShooting;
+    [SerializeField] private GroundBehaviour _groundBehaviour;
+    [SerializeField] private MoveInDirectionEngine _moveEngine;
+    [SerializeField] private BoolBehavior _isShot;
     [SerializeField] private Shot _shot;
 
-
-    protected override void OnEnable()
+    private void Update()
     {
-        OnGround.OnValueChanged += CheckingPosition;
-        OnShooting.OnValueChanged += CheckShoot;
-    }
-
-    protected override void OnDisable()
-    {
-        OnGround.OnValueChanged -= CheckingPosition;
-    }
-
-    private void CheckingPosition(bool isGround)
-    {
-        if (isGround == true)
+        if (_groundBehaviour.IsGrounded == true)
         {
-           // _animator.SwitchState(AnimatorStateType.OnGROUND);
+            if (_moveEngine.IsMoving == true)
+            {
+                _animator.SwitchBaseState(AnimatorBaseStateType.RUN);
+            }
+            else
+            {
+                _animator.SwitchBaseState(AnimatorBaseStateType.IDLE);
+            }
         }
         else
         {
-            //_animator.SwitchState(AnimatorStateType.InAIR);
+            _animator.SwitchBaseState(AnimatorBaseStateType.JUMP);
         }
+
+       if(_isShot.Value==true)
+       {
+           _animator.SwitchHandsState(AnimatorHandsStateType.SHOT);
+       }
+       else
+       {
+            _animator.SwitchHandsState(AnimatorHandsStateType.IDLE);
+       }
     }
 
-    private void CheckShoot(bool isShoot)
-    {
-        if (isShoot == true)
-        {
-            _animator.SwitchState(AnimatorStateType.SHOT);
-        }
-        else
-        {
-           // _animator.SwitchState(AnimatorStateType.OnGROUND);
-        }
-    }
+    
 }

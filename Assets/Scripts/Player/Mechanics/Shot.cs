@@ -42,7 +42,7 @@ public class Shot : MonoBehaviour
             return;
         }
 
-        _engine.Shoot();
+       //_engine.Shoot();
         ShootStarted?.Invoke();
         _isShot.AssignTrue();
         _countdown.ResetTime();

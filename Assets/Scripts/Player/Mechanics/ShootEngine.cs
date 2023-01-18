@@ -7,8 +7,8 @@ public class ShootEngine : MonoBehaviour
     [SerializeField] private IntBehaviour _bulletSpeed;
 
     public void Shoot()
-    {
+    {   
         GameObject newBullet = Instantiate(_bulletPrefab, _placeShot.position, Quaternion.identity);
-        newBullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * _bulletSpeed.Value, ForceMode.Impulse);
+        newBullet.GetComponent<Rigidbody>().AddForce(_placeShot.forward * _bulletSpeed.Value, ForceMode.Impulse);
     }
 }
