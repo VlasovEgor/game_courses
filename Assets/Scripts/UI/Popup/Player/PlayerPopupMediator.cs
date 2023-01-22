@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerPopupMediator : MonoBehaviour,IStartGameListener,IFinishGameListener
 {
     [SerializeField] private PlayerPopup _playerPopup;
-    [SerializeField] private SaveLoadUpgrade _saveLoadUpgrade;
+   // [SerializeField] private SaveLoadUpgrade _saveLoadUpgrade;
 
     private void LevelUpdate()
     {
@@ -12,11 +12,11 @@ public class PlayerPopupMediator : MonoBehaviour,IStartGameListener,IFinishGameL
 
     public void OnStartGame()
     {
-        _saveLoadUpgrade.OnLoadUpgrade += LevelUpdate;
+       // _saveLoadUpgrade.OnLoadUpgrade += LevelUpdate;
     }
 
     public void OnFinishGame()
     {
-        _saveLoadUpgrade.OnLoadUpgrade -= LevelUpdate;
+       // _saveLoadUpgrade.OnLoadUpgrade -= LevelUpdate;
     }
 }

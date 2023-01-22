@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 public class ConveyorMechanics : MonoBehaviour
 {
     [SerializeField] private TimerBehaviour _workTimer;
+    [SerializeField] private FloatBehaviour _workTimeMultiplication;
     [SerializeField] private LimitedIntBehavior _outputStorage;
     [SerializeField] private ConveyorRecipes _conveyorRecipes;
     [SerializeField] private IngredientDeliverer _ingredientDeliverer;
@@ -40,7 +41,7 @@ public class ConveyorMechanics : MonoBehaviour
     public void StartWork()
     {
         _workTimer.ResetTime();
-        _workTimer.Duration = _currentRecipe.ProductionTime();
+        _workTimer.Duration = _currentRecipe.ProductionTime() / _workTimeMultiplication.Value;
         _workTimer.Play();
         
         Debug.Log("–¿¡Œ“¿ Õ¿◊¿“¿");

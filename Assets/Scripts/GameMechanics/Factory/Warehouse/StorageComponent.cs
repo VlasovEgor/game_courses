@@ -7,6 +7,8 @@ public class StorageComponent : MonoBehaviour, IStorageComponent
 
     [SerializeField] private LimitedIntBehavior _storage;
 
+    private int _id;
+
     public Ingredients Type
     {
         get
@@ -32,6 +34,22 @@ public class StorageComponent : MonoBehaviour, IStorageComponent
         get
         {
             return _storage.MaxValue;
+        }
+        set
+        {
+            _storage.MaxValue = value;
+        }
+    }
+
+    public int IdStorage
+    {
+        get 
+        {
+            return _id; 
+        }
+        set 
+        {
+            _id= value; 
         }
     }
 
