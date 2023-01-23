@@ -1,17 +1,16 @@
 using UnityEngine;
 
-public class VisitEnemyController : MonoBehaviour,IConstructListener,IStartGameListener,IFinishGameListener
+public class VisitEnemyObserver : MonoBehaviour, IConstructListener, IStartGameListener, IFinishGameListener
 {
     private IEntity _hero;
     private CollisionComponent _heroComponent;
-    private FightWithEnemy _fight;
-
+    private FightWithEnemyProcessor _fight;
 
     public void Construct(GameContext context)
     {
         _hero = context.GetService<CharacterService>().GetCharacter();
         _heroComponent = _hero.Get<CollisionComponent>();
-        _fight=context.GetService<FightWithEnemy>();
+        _fight = context.GetService<FightWithEnemyProcessor>();
     }
 
     public void OnStartGame()
@@ -28,10 +27,12 @@ public class VisitEnemyController : MonoBehaviour,IConstructListener,IStartGameL
 
     private void OnHeroEntered(Collision collision)
     {
-        if (collision.collider.TryGetComponent(out IEntity entity) && entity.TryGet(out ComponentObjectType typeComponent) && typeComponent.ObjectType==ObjectType.ENEMY)
+        if (collision.collider.TryGetComponent(out IEntity entity) &&
+            entity.TryGet(out ComponentObjectType typeComponent) &&
+            typeComponent.ObjectType == ObjectType.ENEMY)
         {
 
-            if(_fight.CanFight(entity))
+            if (_fight.CanFight(entity))
             {
                 _fight.StartFight(entity);
             }
@@ -40,9 +41,11 @@ public class VisitEnemyController : MonoBehaviour,IConstructListener,IStartGameL
 
     private void OnHeroExited(Collision collision)
     {
-        if (collision.collider.TryGetComponent(out IEntity entity) && entity.TryGet(out ComponentObjectType typeComponent) && typeComponent.ObjectType == ObjectType.ENEMY)
+        if (collision.collider.TryGetComponent(out IEntity entity) && 
+            entity.TryGet(out ComponentObjectType typeComponent) && 
+            typeComponent.ObjectType == ObjectType.ENEMY)
         {
-            _fight.CanselFight();
+            _fight.CancelFight();
         }
     }
 }

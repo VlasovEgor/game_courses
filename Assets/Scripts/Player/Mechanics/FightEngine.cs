@@ -6,21 +6,23 @@ public class FightEngine : MonoBehaviour
 {
     public event Action<FightWihtEnemyOperation> OnStarted;
     public event Action<FightWihtEnemyOperation> OnFinished;
+    public event Action<FightWihtEnemyOperation> OnCanceled;
 
-    [SerializeField] private IntEventReceiver _attack;
-    [SerializeField] private BoolBehavior _attackBehavior;
-
-    [SerializeReference] private List< IFigthWithEnemyCondition > _preconditions = new();
-    [SerializeReference] private List<IFigthWithEnemyAction> _preactions = new();
-
-    private TakeDamageComponent _enemyTakeDamageComponent;
-    private DeathComponent _enemyDeathComponent;
+    [SerializeReference] private List <IFigthWithEnemyCondition> _preconditions = new();
+    [SerializeReference] private List <IFigthWithEnemyAction> _preactions = new();
 
     private FightWihtEnemyOperation _operation;
+    private DeathComponent _enemyDeathComponent;
 
     public bool IsFighting 
     {
         get { return _operation != null; }
+    }
+
+
+    public FightWihtEnemyOperation CurrentOperation
+    {
+        get { return _operation; }
     }
 
     public bool CanFight(FightWihtEnemyOperation operation)
@@ -52,14 +54,10 @@ public class FightEngine : MonoBehaviour
         DoPreactions(operation);
 
         _operation = operation;
-       
-        _enemyTakeDamageComponent = operation.TargetEnemy.Get<TakeDamageComponent>();
-        _enemyDeathComponent = operation.TargetEnemy.Get<DeathComponent>();
 
-        _attack.OnEvent += Fight;
-        _enemyDeathComponent.OnDeathReceived += StopFight;
+        _enemyDeathComponent = _operation.TargetEnemy.Get<DeathComponent>();
+        _enemyDeathComponent.OnDeathReceived += FinishFight;
 
-        _attackBehavior.AssignTrue();
         Debug.Log("Start FIGHT");
 
         OnStarted?.Invoke(operation);
@@ -74,42 +72,29 @@ public class FightEngine : MonoBehaviour
         }
     }
 
-    public void Fight(int damage)
+    public void FinishFight()
     {
-        Debug.Log(" FIGHT");
-        
-        _enemyTakeDamageComponent.TakeDamage(damage);
-    }
-
-    public void StopFight()
-    {
-        Debug.Log("Stop FIGHT");
-
-        _attack.OnEvent -= Fight;
-        _enemyDeathComponent.OnDeathReceived -= StopFight;
+        Debug.Log("FIGHT Finish");
 
         _operation.IsCompleted = true;
         var operation= _operation;
-
         _operation = null;
 
-        _attackBehavior.AssignFalse();
+        _enemyDeathComponent.OnDeathReceived -= FinishFight;
+
         OnFinished?.Invoke(operation);
     }
 
-    public void CanselFight()
+    public void CancelFight()
     {
-        Debug.Log("Fight CANSEL");
-
-        _attack.OnEvent -= Fight;
-        _enemyDeathComponent.OnDeathReceived -= StopFight;
+        Debug.Log("Fight CANCEL");
 
         _operation.IsCompleted = false;
         var operation = _operation;
-
         _operation = null;
 
-        _attackBehavior.AssignFalse();
-        OnFinished?.Invoke(operation);
+        _enemyDeathComponent.OnDeathReceived -= FinishFight;
+
+        OnCanceled?.Invoke(operation);
     }
 }

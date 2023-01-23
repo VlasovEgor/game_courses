@@ -1,9 +1,10 @@
 using System;
 
-public interface IFIghtWithEnemyComponent
+public interface IFightWithEnemyComponent
 {
     event Action<FightWihtEnemyOperation> OnStarted;
     event Action<FightWihtEnemyOperation> OnFinished;
+    event Action<FightWihtEnemyOperation> OnCanceled;
 
     bool IsFighting { get; }
 
@@ -11,9 +12,7 @@ public interface IFIghtWithEnemyComponent
 
     void StartFight(FightWihtEnemyOperation operation);
 
-    void Fight(int damage);
-
     void StopFight();
 
-    void CanselFight();
+    void CancelFight();
 }

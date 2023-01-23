@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public IntEventReceiver Hit;
+    [SerializeField] private IntEventReceiver _hit;
 
     [SerializeField] private TimerBehaviour _countdown;
     [SerializeField] private IntBehaviour _damage;
     [SerializeField] private BoolBehavior _isAttack;
-    [SerializeField] private BoolBehavior _canAttack;
+    [SerializeField] private FightEngine _fightEngine;
 
 
     private void Update()
@@ -22,7 +22,7 @@ public class Attack : MonoBehaviour
 
     private void TryAttack()
     {
-        if (_canAttack.Value == true)
+        if (_fightEngine.IsFighting == true)
         {
             OnRequiestAttack();
         }
@@ -40,7 +40,7 @@ public class Attack : MonoBehaviour
             return;
         }
 
-        Hit.Call(_damage.Value);
+        _hit.Call(_damage.Value);
         _isAttack.AssignTrue();
         _countdown.ResetTime();
         _countdown.Play();

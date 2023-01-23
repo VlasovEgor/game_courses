@@ -1,5 +1,5 @@
 
 public interface IHidingComponent 
 {
-    bool isHiding();
+    bool IsHiding();
 }

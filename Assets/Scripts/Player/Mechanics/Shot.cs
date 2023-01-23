@@ -3,13 +3,21 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour
 {
-    public event Action ShootStarted;
-    public event Action ShootEnded;
+    //public event Action ShootStarted;
+    //public event Action ShootEnded;
 
     [SerializeField] private EventReceiver _shotReceiver;
     [SerializeField] private TimerBehaviour _countdown;
     [SerializeField] private ShootEngine _engine;
     [SerializeField] private BoolBehavior _isShot;
+
+    public BoolBehavior IsShot
+    { 
+        get 
+        {
+            return _isShot; 
+        }  
+    }
 
     private void OnEnable()
     {
@@ -23,9 +31,9 @@ public class Shot : MonoBehaviour
 
     private void Update()
     {
-        if (_countdown.IsPlaying==false)
+        if (_countdown.IsPlaying==false && _isShot.Value==true)
         {
-            ShootEnded?.Invoke();
+            //ShootEnded?.Invoke();
             _isShot.AssignFalse();
         }
     }
@@ -43,7 +51,7 @@ public class Shot : MonoBehaviour
         }
 
         _engine.Shoot();
-        ShootStarted?.Invoke();
+        //ShootStarted?.Invoke();
         _isShot.AssignTrue();
         _countdown.ResetTime();
         _countdown.Play();

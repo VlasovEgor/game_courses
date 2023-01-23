@@ -3,26 +3,50 @@ using UnityEngine;
 public class StateHandsResolver : StateResolver
 {
     [SerializeField] private Shot _shot;
+    [SerializeField] private FightEngine _fightEngine;
 
     protected override void OnEnable()
     {
-        _shot.ShootStarted += OnShootStarted;
-        _shot.ShootEnded += OnShootEnded;
+        _shot.IsShot.OnValueChanged += OnShoot;
+
+        _fightEngine.OnStarted += OnFightStarted;
+        _fightEngine.OnFinished += OnFightFinished;
+        _fightEngine.OnCanceled += OnFightCanceled;
     }
 
-    protected  override void OnDisable()
+    protected override void OnDisable()
     {
-        _shot.ShootStarted -= OnShootStarted;
-        _shot.ShootEnded -= OnShootEnded;
+        _shot.IsShot.OnValueChanged += OnShoot;
+
+        _fightEngine.OnStarted -= OnFightStarted;
+        _fightEngine.OnFinished -= OnFightFinished;
+        _fightEngine.OnCanceled -= OnFightCanceled;
     }
 
-    private void OnShootStarted()
+    private void OnShoot(bool isShoot)
     {
-        _machine.SwitchState(StateType.SHOT); ;
+        if (isShoot==true)
+        {
+            _machine.SwitchState(StateType.SHOT);
+        }
+        else
+        {
+            _machine.SwitchState(StateType.IDLE);
+        }
     }
 
-    private void OnShootEnded()
+    private void OnFightStarted(FightWihtEnemyOperation obj)
     {
-        _machine.SwitchState(StateType.IDLE); ;
+        _machine.SwitchState(StateType.MELEE_ATTACK);
+    }
+
+    private void OnFightFinished(FightWihtEnemyOperation obj)
+    {
+        _machine.SwitchState(StateType.IDLE);
+    }
+
+    private void OnFightCanceled(FightWihtEnemyOperation obj)
+    {   
+        _machine.SwitchState(StateType.IDLE);
     }
 }

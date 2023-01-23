@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class AttackComponent : MonoBehaviour, IAttackComponent
 {
-    [SerializeField] private EventReceiver _attackBegun;
-    [SerializeField] private EventReceiver _attackOver;
+   // [SerializeField] private EventReceiver _attackBegun;
+   // [SerializeField] private EventReceiver _attackOver;
     [SerializeField] private IntEventReceiver _attackIsDone;
 
     public void StartAttack()
     {
-        _attackBegun.Call();
+       // _attackBegun.Call();
     }
 
     public void StopAttack()
     {
-        _attackOver.Call();
+       // _attackOver.Call();
     }
 
     public event Action<int> OnAttackIsDone

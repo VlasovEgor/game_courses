@@ -4,4 +4,5 @@ public enum StateType
     RUN = 1,
     JUMP=2,
     SHOT=3,
+    MELEE_ATTACK=4
 }

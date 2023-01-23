@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class FIghtWithEnemyComponent : MonoBehaviour, IFIghtWithEnemyComponent
+public class FightWithEnemyComponent : MonoBehaviour, IFightWithEnemyComponent
 {
     public event Action<FightWihtEnemyOperation> OnStarted
     {
@@ -17,6 +17,12 @@ public class FIghtWithEnemyComponent : MonoBehaviour, IFIghtWithEnemyComponent
 
     [SerializeField] private FightEngine _fightEngine;
 
+    public event Action<FightWihtEnemyOperation> OnCanceled
+    {
+        add { _fightEngine.OnCanceled += value; }
+        remove { _fightEngine.OnCanceled -= value; }
+    }
+
     public bool IsFighting { get; }
 
     public bool CanFight(FightWihtEnemyOperation operation)
@@ -29,18 +35,13 @@ public class FIghtWithEnemyComponent : MonoBehaviour, IFIghtWithEnemyComponent
         _fightEngine.StartFight(operation);
     }
 
-    public void Fight(int damage)
-    {
-        _fightEngine.Fight(damage);
-    }
-
     public void StopFight()
     {
-        _fightEngine.StopFight();
+        _fightEngine.FinishFight();
     }
 
-    public void CanselFight()
+    public void CancelFight()
     {
-        _fightEngine.CanselFight();
+        _fightEngine.CancelFight();
     }
 }

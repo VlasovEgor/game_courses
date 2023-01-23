@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class FightWithEnemy : MonoBehaviour, IConstructListener ,IStartGameListener,IFinishGameListener
+public class FightWithEnemyProcessor : MonoBehaviour, IConstructListener ,IStartGameListener,IFinishGameListener
 {
     public bool IsFighting
     {
         get { return _heroComponent.IsFighting; } 
     } 
 
-    private IFIghtWithEnemyComponent _heroComponent;
+    private IFightWithEnemyComponent _heroComponent;
 
     void IConstructListener.Construct(GameContext context)
     {
-        _heroComponent=context.GetService<CharacterService>().GetCharacter().Get<IFIghtWithEnemyComponent>();
+        _heroComponent=context.GetService<CharacterService>().GetCharacter().Get<IFightWithEnemyComponent>();
     }
 
     void IStartGameListener.OnStartGame()
@@ -26,7 +26,7 @@ public class FightWithEnemy : MonoBehaviour, IConstructListener ,IStartGameListe
 
     public bool CanFight(IEntity enemy)
     {
-        if(enemy.Get<HidingComponent>().isHiding()==true)
+        if(enemy.Get<IHidingComponent>().IsHiding() == true)
         {
             return true;
         }
@@ -38,7 +38,7 @@ public class FightWithEnemy : MonoBehaviour, IConstructListener ,IStartGameListe
             return true;
         }
 
-        if(IsFighting==false)
+        if(IsFighting == false)
         {
             return true;
         }
@@ -56,17 +56,17 @@ public class FightWithEnemy : MonoBehaviour, IConstructListener ,IStartGameListe
 
     private  void FinishFight(FightWihtEnemyOperation operation)
     {   
-        if(operation.IsCompleted==true)
+        if(operation.IsCompleted == true)
         {
             Debug.Log("Victory");
             //do smth
         }
     }
 
-    public void CanselFight()
+    public void CancelFight()
     {
         Debug.Log("Cancel");
-        _heroComponent.CanselFight();
+        _heroComponent.CancelFight();
         //do smth
     }
 }

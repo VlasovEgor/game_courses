@@ -18,7 +18,6 @@ public class StateMachine: Elementary.State
         {
             Enter();
         }
-
     }
 
     private void OnDisable()
@@ -27,6 +26,14 @@ public class StateMachine: Elementary.State
         {
             Exit();
         }
+    }
+
+    public StateType CurrentState
+    { 
+        get 
+        { 
+            return _currentStateType;
+        } 
     }
 
     public override void Enter()

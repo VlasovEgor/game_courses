@@ -349,6 +349,7 @@ Transform:
   m_Children:
   - {fileID: 652014645}
   - {fileID: 1088782973}
+  - {fileID: 1568694167}
   m_Father: {fileID: 752987961}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -366,6 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _machine: {fileID: 65874951}
   _shot: {fileID: 649755329}
+  _fightEngine: {fileID: 732066242}
 --- !u!114 &65874951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +387,8 @@ MonoBehaviour:
     State: {fileID: 1088782977}
   - Type: 0
     State: {fileID: 652014648}
+  - Type: 4
+    State: {fileID: 1568694168}
   _currentStateType: 0
 --- !u!1 &103374009
 GameObject:
@@ -2164,7 +2168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _takeDamageReceiver: {fileID: 645598471}
-  _healthPoints: {fileID: 0}
+  _healthPoints: {fileID: 130219678}
 --- !u!114 &645598471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2724,8 +2728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154e4d157b0d9054484f9a3d446b0283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attack: {fileID: 1198898218}
-  _attackBehavior: {fileID: 1198898215}
   _preconditions:
   - rid: 8982471640762810368
   _preactions:
@@ -3869,8 +3871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7e62cda85bdd94c91b7f710b73bb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackBegun: {fileID: 1198898217}
-  _attackOver: {fileID: 1198898216}
   _attackIsDone: {fileID: 1198898218}
 --- !u!1 &963194225
 GameObject:
@@ -4706,9 +4706,6 @@ GameObject:
   - component: {fileID: 1198898210}
   - component: {fileID: 1198898211}
   - component: {fileID: 1198898213}
-  - component: {fileID: 1198898215}
-  - component: {fileID: 1198898217}
-  - component: {fileID: 1198898216}
   - component: {fileID: 1198898218}
   m_Layer: 0
   m_Name: Attack
@@ -4745,11 +4742,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33f32125c6b5b04d85fd730e91c481c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hit: {fileID: 1198898218}
+  _hit: {fileID: 1198898218}
   _countdown: {fileID: 1198898211}
   _damage: {fileID: 343386970}
   _isAttack: {fileID: 1198898213}
-  _canAttack: {fileID: 1198898215}
+  _fightEngine: {fileID: 732066242}
 --- !u!114 &1198898211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4777,43 +4774,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
---- !u!114 &1198898215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198898208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f7f513103a9df4597d219bdb87ecf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 0
---- !u!114 &1198898216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198898208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2743f1de72ebf444298d783bc0ad4c1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1198898217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198898208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2743f1de72ebf444298d783bc0ad4c1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1198898218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5146,9 +5106,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1252786106}
-  - component: {fileID: 1252786107}
+  - component: {fileID: 1252786108}
   m_Layer: 0
-  m_Name: FightWithEnemy
+  m_Name: FightWithEnemyProcessor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5169,7 +5129,7 @@ Transform:
   m_Father: {fileID: 1960813549}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1252786107
+--- !u!114 &1252786108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5178,7 +5138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1252786105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91598a94e199a604c86b74e8368601a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 623b9c3ba1783374296f0fc74d453802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1259886169
@@ -5719,7 +5679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1365599018}
-  - component: {fileID: 1365599017}
+  - component: {fileID: 1365599019}
   m_Layer: 0
   m_Name: VisitEnemyController
   m_TagString: Untagged
@@ -5727,18 +5687,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1365599017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365599016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb04fb531cf8b446b025f292ebf01dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1365599018
 Transform:
   m_ObjectHideFlags: 0
@@ -5754,6 +5702,18 @@ Transform:
   m_Father: {fileID: 1960813549}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1365599019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365599016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86dd5e800d57f49a33c83f3f150d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1366587714
 GameObject:
   m_ObjectHideFlags: 0
@@ -6378,6 +6338,67 @@ Transform:
   m_Father: {fileID: 752987961}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1568694166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1568694167}
+  - component: {fileID: 1568694168}
+  - component: {fileID: 1568694169}
+  m_Layer: 0
+  m_Name: MeleeAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1568694167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568694166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 65874949}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1568694168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568694166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f08ef68e21402f94f7e0eb335257b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateComponents:
+  - {fileID: 1568694169}
+--- !u!114 &1568694169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568694166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49fc7b7471634a14781b87eab4c0d068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentEngine: {fileID: 732066242}
+  _dealDamageEvent: {fileID: 1198898218}
 --- !u!1 &1579658563
 GameObject:
   m_ObjectHideFlags: 0
@@ -7466,7 +7487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _context: {fileID: 1960813548}
   _listeners:
-  - {fileID: 1365599017}
+  - {fileID: 1365599019}
   - {fileID: 394723542}
   - {fileID: 394723541}
   - {fileID: 2093403799}
@@ -7481,7 +7502,7 @@ MonoBehaviour:
   - {fileID: 1687563680}
   - {fileID: 1663626370}
   - {fileID: 394723544}
-  - {fileID: 1252786107}
+  - {fileID: 1252786108}
   _services:
   - {fileID: 1259886171}
   - {fileID: 717304094}
@@ -7493,8 +7514,8 @@ MonoBehaviour:
   - {fileID: 1663626370}
   - {fileID: 1687563680}
   - {fileID: 1956144881}
-  - {fileID: 1365599017}
-  - {fileID: 1252786107}
+  - {fileID: 1252786108}
+  - {fileID: 1365599019}
 --- !u!114 &1960813548
 MonoBehaviour:
   m_ObjectHideFlags: 0
