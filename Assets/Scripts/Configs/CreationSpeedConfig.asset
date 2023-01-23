@@ -16,4 +16,4 @@ MonoBehaviour:
   MaxLevel: 5
   _platformTable:
     _startAmount: 1
-    _upgradeStep: 0.2
+    _upgradeStep: 0.25

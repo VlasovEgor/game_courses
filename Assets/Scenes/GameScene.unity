@@ -21822,8 +21822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2f33de885957f4090bd1af4843c2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameContext: {fileID: 1960813548}
-  _id: 0
 --- !u!4 &1654388004
 Transform:
   m_ObjectHideFlags: 0
@@ -21851,8 +21849,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a5b844c9030e14db9875422a49be9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameContext: {fileID: 1960813548}
-  _moneyRepository: {fileID: 0}
 --- !u!114 &1654388006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21865,9 +21861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076ac7d8a69edab439154952cf8e77d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInfo: {fileID: 11400000, guid: a4bf298bf107943428567dfd8d561c08, type: 2}
-  _upgadesMediator: {fileID: 0}
-  _upgradesRepository: {fileID: 0}
 --- !u!114 &1654388007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28644,7 +28637,7 @@ GameObject:
   - component: {fileID: 2119910977}
   - component: {fileID: 2119910979}
   m_Layer: 0
-  m_Name: PopupFactory
+  m_Name: PopupConveyor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

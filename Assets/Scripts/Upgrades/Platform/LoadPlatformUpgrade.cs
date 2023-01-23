@@ -15,12 +15,7 @@ public class LoadPlatformUpgrade : Upgrade,IConstructListener
     public void Construct(GameContext context)
     {
         _factory=context.GetService<IEntity>().Get<Storages>();
-
-        var amount = _upgradeConfig._platformTable.GetAmount(Level);
-        for (int i = 0; i < _factory.StorageComponents.Length; i++)
-        {
-            _factory.StorageComponents[i].MaxValue = amount;
-        }
+        OnUpgrade(Level);
     }
 
     protected override void OnUpgrade(int level)
