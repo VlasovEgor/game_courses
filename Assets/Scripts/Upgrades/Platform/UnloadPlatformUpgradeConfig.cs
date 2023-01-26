@@ -7,7 +7,7 @@ using UnityEngine;
    )]
 public class UnloadPlatformUpgradeConfig: UpgradeConfig
 {
-    [SerializeField] public PlatformUpgradeTable _platformTable;
+    [SerializeField] public PlatformUpgradeTable PlatformTable;
 
     public override Upgrade InstantiateUpgrade()
     {
@@ -17,6 +17,6 @@ public class UnloadPlatformUpgradeConfig: UpgradeConfig
     protected override void OnValidate()
     {
         base.OnValidate();
-        _platformTable.OnValidate(MaxLevel);
+        PlatformTable.OnValidate(MaxLevel);
     }
 }

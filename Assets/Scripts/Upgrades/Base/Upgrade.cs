@@ -2,6 +2,8 @@ using System;
 
 public abstract class Upgrade
 {
+    public event Action OnLevelUp;
+
     public string Id
     {
         get
@@ -22,8 +24,8 @@ public abstract class Upgrade
         }
     }
 
-    public int MaxLevel 
-    { 
+    public int MaxLevel
+    {
         get
         {
             return _upgradeConfig.MaxLevel;
@@ -40,13 +42,32 @@ public abstract class Upgrade
         }
     }
 
+    public UpgradeInfo UpgradeInfo
+    {
+        get
+        {
+            return _upgradeInfo;
+        }
+    }
+
+    public int NextPrice
+    {
+        get { return _upgradeConfig.PriceTable.GetPrice(Level + 1); }
+    }
+
+    public abstract string NextImprovement { get; }
+
+    public abstract string CurrentStats { get; }
+
     private int _currentLevel;
+    private UpgradeInfo _upgradeInfo;
     private readonly UpgradeConfig _upgradeConfig;
 
     public Upgrade(UpgradeConfig config)
     {
         _currentLevel = 1;
-        _upgradeConfig= config;
+        _upgradeConfig = config;
+        _upgradeInfo = _upgradeConfig.UpgradeInfo;
     }
 
     public void LevelUp()
@@ -57,6 +78,7 @@ public abstract class Upgrade
         }
 
         _currentLevel++;
+        OnLevelUp?.Invoke();
         OnUpgrade(_currentLevel);
     }
 

@@ -6,7 +6,7 @@
    )]
 public class LoadPlatformUpgradeConfig : UpgradeConfig
 {
-    [SerializeField] public PlatformUpgradeTable _platformTable;
+    [SerializeField] public PlatformUpgradeTable PlatformTable;
 
     public override Upgrade InstantiateUpgrade()
     {
@@ -16,7 +16,7 @@ public class LoadPlatformUpgradeConfig : UpgradeConfig
     protected override void OnValidate()
     {
         base.OnValidate();
-        _platformTable.OnValidate(MaxLevel);
+        PlatformTable.OnValidate(MaxLevel);
     }
 }
 

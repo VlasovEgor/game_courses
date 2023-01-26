@@ -1,6 +1,4 @@
-﻿
-
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UnloadPlatformUpgrade : Upgrade, IConstructListener
 {
@@ -8,6 +6,16 @@ public class UnloadPlatformUpgrade : Upgrade, IConstructListener
 
     private IEntity _conveyor;
     private readonly UnloadPlatformUpgradeConfig _upgradeConfig;
+
+    public override string CurrentStats
+    {
+        get { return _upgradeConfig.PlatformTable.GetAmount(Level).ToString(); }
+    }
+
+    public override string NextImprovement
+    {
+        get { return _upgradeConfig.PlatformTable.UpgradeStep.ToString(); }
+    }
 
     public UnloadPlatformUpgrade(UnloadPlatformUpgradeConfig config) : base(config)
     {
@@ -22,7 +30,7 @@ public class UnloadPlatformUpgrade : Upgrade, IConstructListener
 
     protected override void OnUpgrade(int level)
     {
-        var amount = _upgradeConfig._platformTable.GetAmount(level);
+        var amount = _upgradeConfig.PlatformTable.GetAmount(level);
         _conveyor.Get<UnloadZoneComponent>().MaxValue= amount;
     }
 }

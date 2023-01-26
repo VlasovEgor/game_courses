@@ -36,4 +36,8 @@ public class MoneyStorage : MonoBehaviour
         OnMoneyChanged?.Invoke(_money);
     }
 
+    public bool CanSpendMoney(int amount)
+    {
+        return _money >= amount;
+    }
 }

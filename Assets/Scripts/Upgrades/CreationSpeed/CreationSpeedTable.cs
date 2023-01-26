@@ -9,10 +9,16 @@ public class CreationSpeedTable
         get { return _upgradeStep; }
     }
 
+    public float CurrentStats
+    {
+        get { return _currentStats; }
+    }
+
     [SerializeField] private float _startAmount = 1;
     [SerializeField] private float _upgradeStep = 0.2f;
 
     private float[] _levels;
+    private float _currentStats;
 
     public float GetAmount(int level)
     {
@@ -23,12 +29,12 @@ public class CreationSpeedTable
     public void OnValidate(int maxLevel)
     {
         _levels = new float[maxLevel];
-
-        var currentAmount = _startAmount;
+        
+        _currentStats = _startAmount;
         for (var i = 0; i < maxLevel; i++)
         {
-            _levels[i] = currentAmount;
-            currentAmount += _upgradeStep;
+            _levels[i] = _currentStats;
+            _currentStats += _upgradeStep;
         }
     }
 }

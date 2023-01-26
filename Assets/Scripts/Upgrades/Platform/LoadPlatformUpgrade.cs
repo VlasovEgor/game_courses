@@ -2,10 +2,18 @@
 
 public class LoadPlatformUpgrade : Upgrade,IConstructListener
 {   
-    [SerializeField] private int _upgradeStep;
-
     private Storages _factory;
     private readonly LoadPlatformUpgradeConfig _upgradeConfig;
+
+    public override string CurrentStats
+    {
+        get {return _upgradeConfig.PlatformTable.GetAmount(Level).ToString(); }
+    }
+
+    public override string NextImprovement
+    {
+        get { return _upgradeConfig.PlatformTable.UpgradeStep.ToString(); }
+    }
 
     public LoadPlatformUpgrade(LoadPlatformUpgradeConfig config) : base(config)
     {
@@ -20,7 +28,7 @@ public class LoadPlatformUpgrade : Upgrade,IConstructListener
 
     protected override void OnUpgrade(int level)
     {
-        var amount = _upgradeConfig._platformTable.GetAmount(level);
+        var amount = _upgradeConfig.PlatformTable.GetAmount(level);
 
         for (int i = 0; i < _factory.StorageComponents.Length; i++)
         {

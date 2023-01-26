@@ -6,7 +6,7 @@ using UnityEngine;
    )]
 public class CreationSpeedUpgradeConfig :  UpgradeConfig
 {
-    [SerializeField] public CreationSpeedTable _platformTable;
+    [SerializeField] public CreationSpeedTable CreationSpeedTable;
 
     public override Upgrade InstantiateUpgrade()
     {
@@ -16,6 +16,6 @@ public class CreationSpeedUpgradeConfig :  UpgradeConfig
     protected override void OnValidate()
     {
         base.OnValidate();
-        _platformTable.OnValidate(MaxLevel);
+        CreationSpeedTable.OnValidate(MaxLevel);
     }
 }

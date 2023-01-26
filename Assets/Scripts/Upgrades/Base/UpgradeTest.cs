@@ -1,11 +1,10 @@
-﻿
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class UpgradeTest:MonoBehaviour
+public class UpgradeTest: MonoBehaviour
 {
     [SerializeField] private UpgradeConfig _config;
-    [SerializeField] GameContext _context;
+    [SerializeField] private GameContext _context;
 
     private Upgrade _upgrade;
 

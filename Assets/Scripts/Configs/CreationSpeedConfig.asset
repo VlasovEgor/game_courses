@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aee26719ad07e046900ff26e5238427, type: 3}
   m_Name: CreationSpeedConfig
   m_EditorClassIdentifier: 
-  Id: 
+  Id: 1
   MaxLevel: 5
-  _platformTable:
+  PriceTable:
+    _basePrice: 0
+    _levels: 0000000001000000020000000300000004000000
+  UpgradeInfo: {fileID: 11400000, guid: 418c68eda7611c64e83bd7dfe02e19f7, type: 2}
+  CreationSpeedTable:
     _startAmount: 1
     _upgradeStep: 0.25

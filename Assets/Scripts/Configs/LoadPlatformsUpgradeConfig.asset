@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071842fd8de34ab4b9b6902f95f567d0, type: 3}
   m_Name: LoadPlatformsUpgradeConfig
   m_EditorClassIdentifier: 
-  Id: 
+  Id: 2
   MaxLevel: 5
-  _platformTable:
+  PriceTable:
+    _basePrice: 0
+    _levels: 020000000400000006000000080000000a000000
+  UpgradeInfo: {fileID: 11400000, guid: 2e508d4f525b9dd4bb84369980217783, type: 2}
+  PlatformTable:
     _startAmount: 2
     _upgradeStep: 2

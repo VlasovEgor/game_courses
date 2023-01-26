@@ -1,3 +1,4 @@
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class CreationSpeedUpgrade : Upgrade, IConstructListener
@@ -6,6 +7,19 @@ public class CreationSpeedUpgrade : Upgrade, IConstructListener
 
     private IEntity _conveyor;
     private readonly CreationSpeedUpgradeConfig _upgradeConfig;
+
+    public override string CurrentStats
+    {
+        get
+        {
+            return _upgradeConfig.CreationSpeedTable.GetAmount(Level).ToString();
+        }
+    }
+
+    public override string NextImprovement
+    {
+        get { return _upgradeConfig.CreationSpeedTable.UpgradeStep.ToString(); }
+    }
 
     public CreationSpeedUpgrade(CreationSpeedUpgradeConfig config) : base(config)
     {
@@ -20,7 +34,7 @@ public class CreationSpeedUpgrade : Upgrade, IConstructListener
 
     protected override void OnUpgrade(int level)
     {
-        var amount = _upgradeConfig._platformTable.GetAmount(level);
+        var amount = _upgradeConfig.CreationSpeedTable.GetAmount(level);
         _conveyor.Get<TimeMultiplicationComponent>().SetMultiplier(amount);
     }
 }

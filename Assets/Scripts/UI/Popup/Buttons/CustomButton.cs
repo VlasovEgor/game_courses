@@ -62,5 +62,6 @@ public abstract class CustomButton : MonoBehaviour
     {
         AVAILABLE,
         LOCKED,
+        MAX
     }
 }

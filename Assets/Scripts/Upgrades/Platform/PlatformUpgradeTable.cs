@@ -11,10 +11,16 @@ public class PlatformUpgradeTable
         get { return _upgradeStep; }
     }
 
+    public int CurrentStats
+    { 
+        get { return _currentStats; } 
+    }
+
     [SerializeField] private int _startAmount = 1;
     [SerializeField] private int _upgradeStep = 2;
 
     private int[] _levels;
+    private int _currentStats;
 
     public int GetAmount(int level)
     {
@@ -32,6 +38,7 @@ public class PlatformUpgradeTable
             _levels[i] = currentAmount;
             currentAmount += _upgradeStep;
         }
+        _currentStats = currentAmount;
     }
 }
 
