@@ -12,13 +12,11 @@ public class FightEngine : MonoBehaviour
     [SerializeReference] private List <IFigthWithEnemyAction> _preactions = new();
 
     private FightWihtEnemyOperation _operation;
-    private DeathComponent _enemyDeathComponent;
-
+    
     public bool IsFighting 
     {
         get { return _operation != null; }
     }
-
 
     public FightWihtEnemyOperation CurrentOperation
     {
@@ -55,9 +53,6 @@ public class FightEngine : MonoBehaviour
 
         _operation = operation;
 
-        _enemyDeathComponent = _operation.TargetEnemy.Get<DeathComponent>();
-        _enemyDeathComponent.OnDeathReceived += FinishFight;
-
         Debug.Log("Start FIGHT");
 
         OnStarted?.Invoke(operation);
@@ -80,8 +75,6 @@ public class FightEngine : MonoBehaviour
         var operation= _operation;
         _operation = null;
 
-        _enemyDeathComponent.OnDeathReceived -= FinishFight;
-
         OnFinished?.Invoke(operation);
     }
 
@@ -92,8 +85,6 @@ public class FightEngine : MonoBehaviour
         _operation.IsCompleted = false;
         var operation = _operation;
         _operation = null;
-
-        _enemyDeathComponent.OnDeathReceived -= FinishFight;
 
         OnCanceled?.Invoke(operation);
     }
