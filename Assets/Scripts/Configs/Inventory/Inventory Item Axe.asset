@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e597bcef8f958846a4ca50c04a08361, type: 3}
+  m_Name: Inventory Item Axe
+  m_EditorClassIdentifier: 
+  Protatype:
+    _name: Axe
+    _flags: 12
+    _metadata:
+      Title: Axe
+      Description: Do smth
+      Icon: {fileID: 21300000, guid: 0a793f0be0d7a344a839f045eec23b1a, type: 3}
+    _components:
+    - rid: 5652697137635393536
+    - rid: 5652697137635393538
+  references:
+    version: 2
+    RefIds:
+    - rid: 5652697137635393536
+      type: {class: EquipTypeComponent, ns: , asm: Assembly-CSharp}
+      data:
+        _type: 2
+    - rid: 5652697137635393538
+      type: {class: GetEffectComponent, ns: , asm: Assembly-CSharp}
+      data:
+        _effect:
+          rid: 5652697137635393539
+    - rid: 5652697137635393539
+      type: {class: Effect, ns: , asm: Assembly-CSharp}
+      data:
+        parameters:
+        - rid: 5652697181793550336
+    - rid: 5652697181793550336
+      type: {class: IntEffectParameter, ns: , asm: Assembly-CSharp}
+      data:
+        _name: 0
+        _value: 5

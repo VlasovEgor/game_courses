@@ -4,9 +4,6 @@ public class Attack : MonoBehaviour
 {
    [SerializeField] private EventReceiver _attackReceiver;
    [SerializeField] private TimerBehaviour _countdown;
-   [SerializeField] private IntBehaviour _damage;
-
-  // [SerializeField] private Enemy _enemy;
 
     private void OnEnable()
     {
@@ -24,8 +21,6 @@ public class Attack : MonoBehaviour
         {
             return;
         }
-
-       // _enemy.TakeDamage(_damage.Value);
 
         _countdown.ResetTime();
         _countdown.Play();

@@ -1,9 +1,11 @@
+using Elementary;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
     [SerializeField] private VectorEventReceiver _movingReceiver;
     [SerializeField] private IntBehaviour _speed;
+    [SerializeField] private FloatBehaviour _speedMultiplier;
     [SerializeField] private Rigidbody _rigidbody;
 
     private void OnEnable()
@@ -18,6 +20,7 @@ public class Movement : MonoBehaviour
 
     private void OnMoving(Vector3 inputVector)
     {
-        _rigidbody.velocity = new Vector3(inputVector.x * _speed.Value, _rigidbody.velocity.y, inputVector.z * _speed.Value);
+        var currentSpeed = _speed.Value * _speedMultiplier.Value;
+        _rigidbody.velocity = new Vector3(inputVector.x * currentSpeed, _rigidbody.velocity.y, inputVector.z * currentSpeed);
     }
 }
