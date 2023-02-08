@@ -1,0 +1,5 @@
+
+interface IInitGameListener
+{
+    void Initialization();
+}

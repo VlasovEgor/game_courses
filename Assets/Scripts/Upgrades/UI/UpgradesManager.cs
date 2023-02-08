@@ -2,7 +2,6 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 [Serializable]
 public class UpgradesManager
@@ -10,33 +9,53 @@ public class UpgradesManager
     public event Action<Upgrade> OnLevelUp;
 
     [ReadOnly, ShowInInspector]
-    private Dictionary<string, Upgrade> _upgrades = new();
+    private Upgrade[][] _upgrades;
 
     private MoneyStorage _moneyStorage;
+    private FactoryUpgradeCatalog[] _catalogs;
 
-    public void Construct(MoneyStorage moneyStorage)
+    public void Construct(MoneyStorage moneyStorage, FactoryUpgradeCatalog[] catalogs)
     {
         _moneyStorage = moneyStorage;
+        _catalogs = catalogs;
     }
 
-    public void Setup(Upgrade[] upgrades)
+    public void Setup(Upgrade[][] upgrades)
     {
-        _upgrades = new Dictionary<string, Upgrade>();
-        for (int i = 0, count = upgrades.Length; i < count; i++)
+        _upgrades = new Upgrade[_catalogs.Length][];
+
+        for (int i = 0; i < _upgrades.Length; i++)
         {
-            var upgrade = upgrades[i];
-            _upgrades[upgrade.Id] = upgrade;
+            for (int j = 0; j < _upgrades[i].Length; j++)
+            {
+                var upgrade = upgrades[i][j];
+                _upgrades[i][upgrade.Id] = upgrade;
+            }
         }
     }
 
-    public Upgrade GetUpgrade(string id)
+    public Upgrade GetUpgrades(int factoryId,int upgradeId)
     {
-        return _upgrades[id];
+        return _upgrades[factoryId][upgradeId];
     }
 
-    public Upgrade[] GetAllUpgrades()
+    public Upgrade[] GetAllUpgrades(int factoryId)
     {
-        return _upgrades.Values.ToArray<Upgrade>();
+        return _upgrades[factoryId].ToArray();
+    }
+
+    [Button]
+    public bool CanLevelUp(int factoryId,int upgradeId)
+    {   
+        var upgrade = _upgrades[factoryId][upgradeId];
+        return CanLevelUp(upgrade);
+    }
+
+    [Button]
+    public void LevelUp(int factoryId, int upgradeId)
+    {
+        var upgrade = _upgrades[factoryId][upgradeId];
+        LevelUp(upgrade);
     }
 
     public bool CanLevelUp(Upgrade upgrade)
@@ -63,4 +82,6 @@ public class UpgradesManager
         upgrade.LevelUp();
         OnLevelUp?.Invoke(upgrade);
     }
+
+   
 }

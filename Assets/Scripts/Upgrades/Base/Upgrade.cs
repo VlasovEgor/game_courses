@@ -4,7 +4,7 @@ public abstract class Upgrade
 {
     public event Action OnLevelUp;
 
-    public string Id
+    public int Id
     {
         get
         {

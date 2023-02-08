@@ -2,7 +2,7 @@
 
 public abstract class UpgradeConfig: ScriptableObject
 {
-    [SerializeField] public string Id;
+    [SerializeField] public int Id;
     [SerializeField] public int MaxLevel;
     [SerializeField] public PriceTable PriceTable;
     [SerializeField] public UpgradeInfo UpgradeInfo;

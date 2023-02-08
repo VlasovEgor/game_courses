@@ -5,7 +5,7 @@ using UnityEngine;
        fileName = "PlatformUpgradeConfig",
        menuName = "Upgrade/New UnloadPlatformUpgradeConfig"
    )]
-public class UnloadPlatformUpgradeConfig: UpgradeConfig
+public class UnloadPlatformUpgradeConfig: FactoryUpgradeConfig
 {
     [SerializeField] public PlatformUpgradeTable PlatformTable;
 

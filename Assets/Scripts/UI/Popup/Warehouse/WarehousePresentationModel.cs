@@ -10,7 +10,7 @@ public class WarehousePresentationModel : IWarehousePresentationModel
 
     private readonly WarehouseAdder _warehouseAdder;
     private readonly IWarehouseComponent _warehouseComponent;
-    private StorageComponent _storage;
+    private Storage _storage;
 
     public WarehousePresentationModel(WarehouseAdder warehouseAdder, IWarehouseComponent warehouseComponent)
     {
@@ -34,9 +34,9 @@ public class WarehousePresentationModel : IWarehousePresentationModel
         OnStatsChanged?.Invoke();
     }
 
-    public void OnButtonSelectionClicked(StorageComponent component)
+    public void OnButtonSelectionClicked(Storage storage)
     {   
-        _storage = component;
+        _storage = storage;
         OnStatsChanged?.Invoke();
     }
 
@@ -66,5 +66,4 @@ public class WarehousePresentationModel : IWarehousePresentationModel
     {
         return _warehouseAdder.CanAdd(_storage);
     }
-    
 }

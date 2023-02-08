@@ -2,11 +2,12 @@ using System;
 using TMPro;
 using UnityEngine;
 
+
 public class ScrollStorageElement : MonoBehaviour
 {
-    public StorageComponent StorageComponent;
+    public Storage Storage;
 
-    public event Action<StorageComponent> OnStorageSelected;
+    public event Action<Storage> OnStorageSelected;
 
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _value;
@@ -24,7 +25,7 @@ public class ScrollStorageElement : MonoBehaviour
     
     private void StorageSelected()
     {
-        OnStorageSelected?.Invoke(StorageComponent);
+        OnStorageSelected?.Invoke(Storage);
     }
 
     private void Start()
@@ -34,7 +35,7 @@ public class ScrollStorageElement : MonoBehaviour
 
     public void UpdateStats()
     {
-        _nameText.text = StorageComponent.Type.ToString();
-        _value.text = StorageComponent.Value.ToString();
+        _nameText.text = Storage.Type.ToString();
+        _value.text = Storage.Value.ToString();
     }
 }

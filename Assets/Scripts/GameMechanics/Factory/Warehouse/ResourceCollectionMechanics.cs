@@ -5,25 +5,17 @@ public class ResourceCollectionMechanics : MonoBehaviour
 {
     [SerializeField] private Warehouse _warehouse;
 
-    private IStorageComponent[] _unloadComponents;
+    private IFactoryStoragesComponent _storagesComponent;
 
     private void Awake()
     {
-        _unloadComponents = _warehouse.GetComponent<Entity>().GetAll<IStorageComponent>();
+        _storagesComponent = _warehouse.GetComponent<Entity>().Get<IFactoryStoragesComponent>();
     }
 
     [Button]
     public void TakeResources(Ingredients type, int amount)
     {
-        for (int i = 0; i < _unloadComponents.Length; i++)
-        {
-            if (_unloadComponents[i].Type == type && _unloadComponents[i].CanUnload())
-            {
-                var extractedResources = _unloadComponents[i].Unload(amount);
-                _warehouse.AddingResources(_unloadComponents[i].Type, extractedResources);
-
-                Debug.Log($"Extracted resources {extractedResources}");
-            }
-        }
+        var extractedResources = _storagesComponent.Unload(type, amount);
+        _warehouse.AddingResources(type, extractedResources);
     }
 }

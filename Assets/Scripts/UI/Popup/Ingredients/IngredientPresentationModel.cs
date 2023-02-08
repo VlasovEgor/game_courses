@@ -8,10 +8,10 @@ public class IngredientPresentationModel : IIngredientPresentationModel
 
     public event Action OnStatsChanged;
 
-    private readonly StorageComponent _storage;
+    private readonly Storage _storage;
     private readonly IngredientAdder _ingredientAdder;
 
-    public IngredientPresentationModel(StorageComponent storage, IngredientAdder ingredientAdder)
+    public IngredientPresentationModel(Storage storage, IngredientAdder ingredientAdder)
     {
         _storage = storage;
         _ingredientAdder = ingredientAdder;

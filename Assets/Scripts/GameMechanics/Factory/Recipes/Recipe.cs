@@ -7,7 +7,8 @@ using UnityEngine.UIElements;
 public class Recipe : ScriptableObject
 {
     public Recipes RecipeType;
-    public Dictionary<Ingredients, WarehouseCollector> RecipeDictionary = new Dictionary<Ingredients, WarehouseCollector>();
+    
+    [ShowInInspector] public Dictionary<Ingredients, WarehouseCollector> RecipeDictionary = new();
 
     [Space]
     [SerializeField] private Material _productMaterial;
@@ -50,11 +51,11 @@ public class Recipe : ScriptableObject
             amountIngredient.AmountIngredient = quantity;
             RecipeDictionary[type] = amountIngredient;
         }
-
-
+    
+    
         Debug.Log($"»Õ√–»ƒ»≈Õ“¿ {RecipeDictionary[type].TypeIngredient} ¬ –≈÷≈œ“≈ {RecipeDictionary[type].AmountIngredient}  ÿ“” ");
     }
-
+    
     [Button]
     public void TryRemoveIngredient(Ingredients type)
     {
@@ -68,7 +69,7 @@ public class Recipe : ScriptableObject
             Debug.Log("“¿ Œ√Œ »Õ√–»ƒ»≈Õ“¿ » Õ≈ ¡€ÀŒ");
         }
     }
-
+    
     [Button]
     public void ShowIngredients()
     {

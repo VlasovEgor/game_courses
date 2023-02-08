@@ -21,19 +21,19 @@ public class RecipeCreator : MonoBehaviour
         _recipeArmor.SettingQuantityIngredient(Ingredients.IRON, 3);
         _recipeArmor.SettingQuantityIngredient(Ingredients.WOOD, 1);
     }
-
+   
     private void CreateAxeRecipe()
     {
         _recipeAxe.SettingQuantityIngredient(Ingredients.WOOD, 2);
         _recipeAxe.SettingQuantityIngredient(Ingredients.STONE, 3);
     }
-
+   
     private void CreateCrownRecipe()
     {
         _recipeCrown.SettingQuantityIngredient(Ingredients.GOLD, 4);
         _recipeCrown.SettingQuantityIngredient(Ingredients.DIAMOND, 2);
     }
-
+   
     private void CreateMagikStaffRecipe()
     {
         _recipeMagikStaff.SettingQuantityIngredient(Ingredients.WOOD, 2);

@@ -4,7 +4,7 @@
        fileName = "PlatformsUpgradeConfig",
        menuName = "Upgrade/New LoadPlatformsUpgradeConfig"
    )]
-public class LoadPlatformUpgradeConfig : UpgradeConfig
+public class LoadPlatformUpgradeConfig : FactoryUpgradeConfig
 {
     [SerializeField] public PlatformUpgradeTable PlatformTable;
 

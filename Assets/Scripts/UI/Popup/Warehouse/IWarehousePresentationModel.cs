@@ -18,7 +18,7 @@ public interface IWarehousePresentationModel
 
     bool CanAdd();
 
-    void OnButtonSelectionClicked(StorageComponent component);
+    void OnButtonSelectionClicked(Storage storage);
 
     void OnIncreaseClicked();
 

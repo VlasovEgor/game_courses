@@ -4,7 +4,7 @@ using UnityEngine;
        fileName = "CreationSpeedConfig",
        menuName = "Upgrade/New LoadCreationSpeedConfig"
    )]
-public class CreationSpeedUpgradeConfig :  UpgradeConfig
+public class CreationSpeedUpgradeConfig : FactoryUpgradeConfig
 {
     [SerializeField] public CreationSpeedTable CreationSpeedTable;
 

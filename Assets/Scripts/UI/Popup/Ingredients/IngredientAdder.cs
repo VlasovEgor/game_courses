@@ -6,8 +6,7 @@ public class IngredientAdder : MonoBehaviour
 
     private int _numberChanges=1;
 
-
-    public void Add(StorageComponent storage)
+    public void Add(Storage storage)
     {
         if (CanAdd(storage))
         {
@@ -15,12 +14,12 @@ public class IngredientAdder : MonoBehaviour
         }
     }
 
-    public bool CanAdd(StorageComponent storage)
+    public bool CanAdd(Storage storage)
     {
         return storage.CanLoad() && CanIncrease(storage) && CanDecrease();
     }
 
-    public void Increase(StorageComponent storage)
+    public void Increase(Storage storage)
     {
         if(CanIncrease(storage)) 
         {
@@ -28,7 +27,7 @@ public class IngredientAdder : MonoBehaviour
         }
     }
 
-    public bool CanIncrease(StorageComponent storage)
+    public bool CanIncrease(Storage storage)
     {
         return Amount <= (storage.MaxValue - storage.Value);
     }

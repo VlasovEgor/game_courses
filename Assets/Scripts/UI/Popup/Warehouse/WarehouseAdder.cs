@@ -5,7 +5,7 @@ public class WarehouseAdder : MonoBehaviour
     private int _amount;
 
     private int _numberChanges = 1;
-    private StorageComponent _storageComponent;
+    private Storage _storageComponent;
 
     public int Amount
     { 
@@ -15,21 +15,21 @@ public class WarehouseAdder : MonoBehaviour
         }
     }
 
-    public void Increase(StorageComponent storage)
+    public void Increase(Storage storage)
     {
-        _storageComponent=storage;
+        _storageComponent = storage;
         if (CanIncrease(_storageComponent))
         {
             _amount += _numberChanges;
         }
     }
 
-    public bool CanIncrease(StorageComponent storage)
+    public bool CanIncrease(Storage storage)
     {
         return _amount <= storage.Value;
     }
 
-    public void Decrease(StorageComponent storage)
+    public void Decrease(Storage storage)
     {
         _storageComponent = storage;
         if (CanDecrease())
@@ -43,7 +43,7 @@ public class WarehouseAdder : MonoBehaviour
         return _amount > 0;
     }
 
-    public void Add(IWarehouseComponent warehouseComponent,StorageComponent storageComponent)
+    public void Add(IWarehouseComponent warehouseComponent, Storage storageComponent)
     {   
         if(CanAdd(storageComponent))
         {
@@ -52,7 +52,7 @@ public class WarehouseAdder : MonoBehaviour
         }
     }
 
-    public bool CanAdd(StorageComponent storage)
+    public bool CanAdd(Storage storage)
     {
         return CanIncrease(storage) & CanDecrease();
     }

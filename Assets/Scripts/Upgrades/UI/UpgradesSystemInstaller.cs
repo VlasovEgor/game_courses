@@ -1,15 +1,15 @@
 using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 
 public class UpgradesSystemInstaller : MonoBehaviour, IConstructListener
 {
     [SerializeField] private GameContext _gameContext;
+    [SerializeField] private FactoryUpgradeCatalog[] _catalogs;
+    [ShowInInspector] private readonly UpgradesManager _upgradesManager = new();
 
-    [SerializeField] private UpgradeCatalog _catalog;
+    private Upgrade[][] _upgrades;
     
-    [ShowInInspector] private UpgradesManager _upgradesManager = new();
-
-    private Upgrade[] _upgrades;
 
     private void Awake()
     {
@@ -19,22 +19,26 @@ public class UpgradesSystemInstaller : MonoBehaviour, IConstructListener
     public void Construct(GameContext context)
     {
         var moneyStorage = context.GetService<MoneyStorage>();
-        _upgradesManager.Construct(moneyStorage);
+        _upgradesManager.Construct(moneyStorage, _catalogs);
         _upgradesManager.Setup(_upgrades);
         context.AddService(_upgradesManager);
     }
 
     private void CreateUpgrades()
     {
-        var configs = _catalog.GetAllUpgrades();
-        var count = configs.Length;
-        _upgrades = new Upgrade[count];
+        _upgrades = new Upgrade[_catalogs.Length][];
 
-        for (var i = 0; i < count; i++)
+        for (int i = 0; i < _upgrades.Length; i++)
         {
-            var config = configs[i];
-            _upgrades[i] = config.InstantiateUpgrade();
-            _gameContext.AddListener(_upgrades[i]);
+            var configs = _catalogs[i].GetAllUpgrades();
+
+            for (int j = 0; j < _upgrades[i].Length; j++)
+            {
+                var config = configs[j];
+                _upgrades[i][j] = config.InstantiateUpgrade();
+                _gameContext.AddListener(_upgrades[i][j]);
+
+            }
         }
     }
 }

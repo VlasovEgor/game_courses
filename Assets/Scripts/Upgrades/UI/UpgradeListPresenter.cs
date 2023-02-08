@@ -24,9 +24,9 @@ public class UpgradeListPresenter : MonoBehaviour, IConstructListener
 
 
     [Button]
-    public void Show()
+    public void Show(int factoryId)
     {
-        Upgrade[] upgrades = _upgradesManager.GetAllUpgrades();
+        Upgrade[] upgrades = _upgradesManager.GetAllUpgrades(factoryId);
 
         foreach (var upgrade in upgrades)
         {

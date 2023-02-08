@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class UnloadPlatformUpgrade : Upgrade, IConstructListener
+public class UnloadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListener
 {
     [SerializeField] private int _upgradeStep;
 
@@ -24,14 +24,18 @@ public class UnloadPlatformUpgrade : Upgrade, IConstructListener
 
     public void Construct(GameContext context)
     {
-        _conveyor = context.GetService<IEntity>().Get<IEntity>();
+        _conveyor = context.GetService<IFactoryService>().GetConveyor();
+
+    }
+
+    public void Initialization()
+    {
         OnUpgrade(Level);
     }
 
     protected override void OnUpgrade(int level)
     {
         var amount = _upgradeConfig.PlatformTable.GetAmount(level);
-        _conveyor.Get<UnloadZoneComponent>().MaxValue= amount;
+        _conveyor.Get<IUnloadZoneComponent>().MaxValue = amount;
     }
 }
-

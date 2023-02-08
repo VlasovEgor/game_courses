@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class IngredientShower : MonoBehaviour,IConstructListener
+public class IngredientShower : MonoBehaviour, IConstructListener
 {
     private PopupManager _popupManager;
     private IngredientPresentationModelFactory _presenerFactory;
@@ -13,7 +13,7 @@ public class IngredientShower : MonoBehaviour,IConstructListener
     }
 
     [Button]
-    public void ShowStorage(StorageComponent storage)
+    public void ShowStorage(Storage storage)
     {
         var presentationModel = _presenerFactory.CreatePresenter(storage);
         _popupManager.ShowPopup(PopupName.INGREDIENT, presentationModel);

@@ -15,7 +15,7 @@ public class WarehousePopup : Popup
 
 
     private IWarehousePresentationModel _presenter;
-    
+
 
 
     protected override void OnShow(object args)
@@ -39,8 +39,6 @@ public class WarehousePopup : Popup
         {
             _scrollView.ScrollStorageElements[i].OnStorageSelected += OnSelectButtonClicked;
         }
-
-        OnSelectButtonClicked(_scrollView.ScrollStorageElements[0].StorageComponent);//костыль
     }
 
 
@@ -101,8 +99,8 @@ public class WarehousePopup : Popup
         _presenter.OnAddClicked();
     }
 
-    private void OnSelectButtonClicked(StorageComponent component)
+    private void OnSelectButtonClicked(Storage storage)
     {
-        _presenter.OnButtonSelectionClicked(component);
+        _presenter.OnButtonSelectionClicked(storage);
     }
 }

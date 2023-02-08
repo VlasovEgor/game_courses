@@ -1,7 +1,6 @@
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
-public class CreationSpeedUpgrade : Upgrade, IConstructListener
+public class CreationSpeedUpgrade : Upgrade, IConstructListener, IInitGameListener
 {
     [SerializeField] private int _upgradeStep;
 
@@ -28,13 +27,17 @@ public class CreationSpeedUpgrade : Upgrade, IConstructListener
 
     public void Construct(GameContext context)
     {
-        _conveyor = context.GetService<IEntity>().Get<IEntity>();
+        _conveyor = context.GetService<IFactoryService>().GetConveyor();
+    }
+
+    public void Initialization()
+    {
         OnUpgrade(Level);
     }
 
     protected override void OnUpgrade(int level)
     {
         var amount = _upgradeConfig.CreationSpeedTable.GetAmount(level);
-        _conveyor.Get<TimeMultiplicationComponent>().SetMultiplier(amount);
+        _conveyor.Get<ITimeMultiplicationComponent>().SetMultiplier(amount);
     }
 }

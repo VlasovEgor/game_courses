@@ -57,6 +57,19 @@ public class GameContext : MonoBehaviour, IGameContext
         Debug.Log("Game construct");
     }
 
+    public void InitGame()
+    {
+        foreach (var listener in _listeners)
+        {
+            if (listener is IInitGameListener initListener)
+            {
+                initListener.Initialization();
+            }
+        }
+
+        Debug.Log("Game init");
+    }
+
     [Button]
     public void StartGame()
     {

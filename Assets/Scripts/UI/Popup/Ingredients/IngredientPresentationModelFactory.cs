@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class IngredientPresentationModelFactory : MonoBehaviour, IConstructListener
@@ -9,7 +10,7 @@ public class IngredientPresentationModelFactory : MonoBehaviour, IConstructListe
         _ingredientAdder = context.GetService<IngredientAdder>();
     }
 
-    public IngredientPresentationModel CreatePresenter(StorageComponent storage)
+    public IngredientPresentationModel CreatePresenter(Storage storage)
     {
         return new IngredientPresentationModel(storage, _ingredientAdder);
     }

@@ -3,19 +3,13 @@ using UnityEngine;
 
 public class FactoryTest : MonoBehaviour
 {
-    [SerializeField] private Entity _factory;
+    [SerializeField] private IFactoryService _factory;
 
     [Button]
-    private void LoadResources(int resourceCount, Ingredients type)
+    private void LoadResources(Ingredients type , int resourceCount)
     {
-        var loadComponents = _factory.Get<Warehouse>().GetComponent<Entity>().GetAll<IStorageComponent>();
+        var storagesComponent = _factory.GetWarehouse().Get<IFactoryStoragesComponent>();
 
-        for (int i = 0; i < loadComponents.Length; i++)
-        {
-            if (loadComponents[i].Type == type && loadComponents[i].CanLoad())
-            {
-                loadComponents[i].Load(resourceCount);
-            }
-        }
+        storagesComponent.Load(type, resourceCount);
     }
 }
