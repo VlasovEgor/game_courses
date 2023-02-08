@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class FactoryUpgradeConfig : UpgradeConfig
 {
-    [SerializeField] public string FactoryId;
+    [SerializeField] public int FactoryId;
 
     public override abstract Upgrade InstantiateUpgrade();
     

@@ -16,11 +16,13 @@
     public LoadPlatformUpgrade(LoadPlatformUpgradeConfig config) : base(config)
     {
         _upgradeConfig = config;
+        var id = config.FactoryId;
     }
 
     public void Construct(GameContext context)
     {
-        _factoryStorages=context.GetService<IFactoryService>().GetWarehouse().Get<IFactoryStoragesComponent>();
+        FactoryService factory = context.GetService<FactoryCatalog>().FactoryDictionary[_upgradeConfig.FactoryId];
+         _factoryStorages = factory.GetWarehouse().Get<IFactoryStoragesComponent>();
     }
 
     public void Initialization()

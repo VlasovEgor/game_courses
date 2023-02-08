@@ -24,8 +24,8 @@ public class UnloadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListe
 
     public void Construct(GameContext context)
     {
-        _conveyor = context.GetService<IFactoryService>().GetConveyor();
-
+        FactoryService factory = context.GetService<FactoryCatalog>().FactoryDictionary[_upgradeConfig.FactoryId];
+        _conveyor = factory.GetConveyor();
     }
 
     public void Initialization()

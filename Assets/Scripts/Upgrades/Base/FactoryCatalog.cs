@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FactoryCatalog : MonoBehaviour
 {
-    [ShowInInspector] private Dictionary<string, FactoryService> _factoryDictionary = new();
+    [ShowInInspector] private Dictionary<int, FactoryService> _factoryDictionary = new();
 
-    public Dictionary<string, FactoryService> FactoryDictionary
+    public Dictionary<int, FactoryService> FactoryDictionary
     { 
         get { return _factoryDictionary; } 
     }
