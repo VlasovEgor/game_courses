@@ -1,6 +1,7 @@
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class Equipment
 {
@@ -35,6 +36,13 @@ public class Equipment
     public void RemoveListener(IInventoryItemObserver listener)
     {
         _observers.Remove(listener);
+    }
+
+    public bool IsItemExists(InventoryItem item)
+    {
+        var equipTypeItem = item.GetComponent<EquipTypeComponent>();
+
+        return _items.ContainsKey(equipTypeItem.Type);
     }
 
     public bool AddItem(InventoryItem item)

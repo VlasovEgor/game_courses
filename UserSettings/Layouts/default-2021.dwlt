@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
-    y: 43.2
-    width: 1536
-    height: 820.8
+    x: 1536
+    y: 43
+    width: 1920
+    height: 1037
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -44,8 +44,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1536
-    height: 820.8
+    width: 1920
+    height: 1037
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1536
+    width: 1920
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 800.8
-    width: 1536
+    y: 1017
+    width: 1920
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -114,12 +114,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1536
-    height: 770.8
+    width: 1920
+    height: 987
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 88
+  controlID: 48
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,12 +139,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1172
-    height: 770.8
+    width: 1466
+    height: 987
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 103
+  controlID: 83
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,12 +165,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1172
-    height: 487.2
+    width: 1466
+    height: 624
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 104
+  controlID: 84
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,13 +188,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 380.8
-    height: 487.2
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 14}
+    width: 476
+    height: 624
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 15}
   m_Panes:
-  - {fileID: 14}
+  - {fileID: 15}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &9
@@ -207,21 +207,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: TestRunnerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 380.8
+    x: 476
     y: 0
-    width: 498.40002
-    height: 487.2
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 15}
+    width: 623
+    height: 624
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 13}
   m_Panes:
-  - {fileID: 15}
-  m_Selected: 0
+  - {fileID: 16}
+  - {fileID: 13}
+  m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -238,15 +239,15 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 879.2
+    x: 1099
     y: 0
-    width: 292.8
-    height: 487.2
+    width: 367
+    height: 624
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 13}
+  m_ActualView: {fileID: 14}
   m_Panes:
-  - {fileID: 13}
+  - {fileID: 14}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &11
@@ -259,23 +260,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 487.2
-    width: 1172
-    height: 283.59998
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+    y: 624
+    width: 1466
+    height: 363
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  - {fileID: 18}
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -291,18 +292,916 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1172
+    x: 1466
     y: 0
-    width: 364
-    height: 770.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 18}
+    width: 454
+    height: 987
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 19}
   m_Panes:
-  - {fileID: 18}
+  - {fileID: 19}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 2012
+    y: 73
+    width: 621
+    height: 603
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_Spl:
+    ID: 157
+    splitterInitialOffset: 0
+    currentActiveSplitter: -1
+    realSizes:
+    - 400
+    - 133
+    relativeSizes:
+    - 0.75
+    - 0.25
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 533
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 1
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 13}
+    m_NewResultList:
+    - id: 1008
+      uniqueId: '[HomeworkProject][suite]'
+      name: HomeworkProject
+      fullName: HomeworkProject
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    m_ResultText: 
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 054f68ecffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 13}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[HomeworkProject][suite]'
+      name: HomeworkProject
+      fullName: HomeworkProject
+      resultStatus: 2
+      duration: 0.1297867
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1003
+      uniqueId: '[InventoryTest][C:/Users/vlaso/Documents/GitHub/game_courses/Library/ScriptAssemblies/InventoryTest.dll][suite]'
+      name: InventoryTest.dll
+      fullName: C:/Users/vlaso/Documents/GitHub/game_courses/Library/ScriptAssemblies/InventoryTest.dll
+      resultStatus: 2
+      duration: 0.0659755
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[HomeworkProject][suite]'
+    - id: 1001
+      uniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+      name: InventoryTests
+      fullName: InventoryTests
+      resultStatus: 2
+      duration: 0.0632418
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1003
+      parentUniqueId: '[InventoryTest][C:/Users/vlaso/Documents/GitHub/game_courses/Library/ScriptAssemblies/InventoryTest.dll][suite]'
+    - id: 1002
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test1]
+      name: Test1
+      fullName: InventoryTests.Test1
+      resultStatus: 1
+      duration: 0.0105168
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1011
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test10]
+      name: Test10
+      fullName: InventoryTests.Test10
+      resultStatus: 1
+      duration: 0.00061
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1012
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test11]
+      name: Test11
+      fullName: InventoryTests.Test11
+      resultStatus: 1
+      duration: 0.0031334
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1013
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test12]
+      name: Test12
+      fullName: InventoryTests.Test12
+      resultStatus: 1
+      duration: 0.0004677
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1014
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test13]
+      name: Test13
+      fullName: InventoryTests.Test13
+      resultStatus: 1
+      duration: 0.0004318
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1015
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test14]
+      name: Test14
+      fullName: InventoryTests.Test14
+      resultStatus: 1
+      duration: 0.0004244
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1016
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test15]
+      name: Test15
+      fullName: InventoryTests.Test15
+      resultStatus: 1
+      duration: 0.0004472
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1017
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test16]
+      name: Test16
+      fullName: InventoryTests.Test16
+      resultStatus: 1
+      duration: 0.0004573
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1018
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test17]
+      name: Test17
+      fullName: InventoryTests.Test17
+      resultStatus: 1
+      duration: 0.0004501
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1019
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test18]
+      name: Test18
+      fullName: InventoryTests.Test18
+      resultStatus: 1
+      duration: 0.0004359
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1020
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test19]
+      name: Test19
+      fullName: InventoryTests.Test19
+      resultStatus: 1
+      duration: 0.0004462
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1003
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test2]
+      name: Test2
+      fullName: InventoryTests.Test2
+      resultStatus: 1
+      duration: 0.0003467
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1021
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test20]
+      name: Test20
+      fullName: InventoryTests.Test20
+      resultStatus: 1
+      duration: 0.0004143
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1022
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test21]
+      name: Test21
+      fullName: InventoryTests.Test21
+      resultStatus: 1
+      duration: 0.0009929
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1023
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test22]
+      name: Test22
+      fullName: InventoryTests.Test22
+      resultStatus: 1
+      duration: 0.0004014
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1024
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test23]
+      name: Test23
+      fullName: InventoryTests.Test23
+      resultStatus: 1
+      duration: 0.0003642
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1025
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test24]
+      name: Test24
+      fullName: InventoryTests.Test24
+      resultStatus: 1
+      duration: 0.0003668
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1026
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test25]
+      name: Test25
+      fullName: InventoryTests.Test25
+      resultStatus: 1
+      duration: 0.000368
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1027
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test26]
+      name: Test26
+      fullName: InventoryTests.Test26
+      resultStatus: 1
+      duration: 0.0003602
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1028
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test27]
+      name: Test27
+      fullName: InventoryTests.Test27
+      resultStatus: 1
+      duration: 0.0003714
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1029
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test28]
+      name: Test28
+      fullName: InventoryTests.Test28
+      resultStatus: 1
+      duration: 0.0003554
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1030
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test29]
+      name: Test29
+      fullName: InventoryTests.Test29
+      resultStatus: 1
+      duration: 0.0003392
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1004
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test3]
+      name: Test3
+      fullName: InventoryTests.Test3
+      resultStatus: 1
+      duration: 0.0003163
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1031
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test30]
+      name: Test30
+      fullName: InventoryTests.Test30
+      resultStatus: 1
+      duration: 0.0003522
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1032
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test31]
+      name: Test31
+      fullName: InventoryTests.Test31
+      resultStatus: 2
+      duration: 0.0048481
+      messages: 'System.Exception : Can not equip item Boots'
+      output: 
+      stacktrace: "  at EquipmentItemRecipient.PutOnEquipment (InventoryItem inventoryItem)
+        [0x0003e] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Inventory\\Equipment\\EquipmentItemRecipient.cs:26
+        \r\n  at InventoryTests.Test31 () [0x0003d] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Tests\\InventoryTests.cs:611
+        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x0006a] in <c2a97e0383e8404c9fc0ae19d58f57f1>:0 "
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1033
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test32]
+      name: Test32
+      fullName: InventoryTests.Test32
+      resultStatus: 2
+      duration: 0.000495
+      messages: 'System.Exception : Can not equip item Armor'
+      output: 
+      stacktrace: "  at EquipmentItemRecipient.PutOnEquipment (InventoryItem inventoryItem)
+        [0x0003e] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Inventory\\Equipment\\EquipmentItemRecipient.cs:26
+        \r\n  at InventoryTests.Test32 () [0x0003d] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Tests\\InventoryTests.cs:632
+        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x0006a] in <c2a97e0383e8404c9fc0ae19d58f57f1>:0 "
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1034
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test33]
+      name: Test33
+      fullName: InventoryTests.Test33
+      resultStatus: 2
+      duration: 0.0004696
+      messages: 'System.Exception : Can not equip item Crown'
+      output: 
+      stacktrace: "  at EquipmentItemRecipient.PutOnEquipment (InventoryItem inventoryItem)
+        [0x0003e] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Inventory\\Equipment\\EquipmentItemRecipient.cs:26
+        \r\n  at InventoryTests.Test33 () [0x0003d] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Tests\\InventoryTests.cs:653
+        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x0006a] in <c2a97e0383e8404c9fc0ae19d58f57f1>:0 "
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1035
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test34]
+      name: Test34
+      fullName: InventoryTests.Test34
+      resultStatus: 2
+      duration: 0.0004593
+      messages: 'System.Exception : Can not equip item MagicStaff'
+      output: 
+      stacktrace: "  at EquipmentItemRecipient.PutOnEquipment (InventoryItem inventoryItem)
+        [0x0003e] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Inventory\\Equipment\\EquipmentItemRecipient.cs:26
+        \r\n  at InventoryTests.Test34 () [0x0003d] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Tests\\InventoryTests.cs:675
+        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x0006a] in <c2a97e0383e8404c9fc0ae19d58f57f1>:0 "
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1036
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test35]
+      name: Test35
+      fullName: InventoryTests.Test35
+      resultStatus: 2
+      duration: 0.0004179
+      messages: 'System.Exception : Can not equip item Shield'
+      output: 
+      stacktrace: "  at EquipmentItemRecipient.PutOnEquipment (InventoryItem inventoryItem)
+        [0x0003e] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Inventory\\Equipment\\EquipmentItemRecipient.cs:26
+        \r\n  at InventoryTests.Test35 () [0x0003d] in C:\\Users\\vlaso\\Documents\\GitHub\\game_courses\\Assets\\Scripts\\Tests\\InventoryTests.cs:697
+        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
+        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x0006a] in <c2a97e0383e8404c9fc0ae19d58f57f1>:0 "
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1037
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test36]
+      name: Test36
+      fullName: InventoryTests.Test36
+      resultStatus: 1
+      duration: 0.0003517
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1038
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test37]
+      name: Test37
+      fullName: InventoryTests.Test37
+      resultStatus: 1
+      duration: 0.0003276
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1039
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test38]
+      name: Test38
+      fullName: InventoryTests.Test38
+      resultStatus: 1
+      duration: 0.0003611
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1040
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test39]
+      name: Test39
+      fullName: InventoryTests.Test39
+      resultStatus: 1
+      duration: 0.000351
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1005
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test4]
+      name: Test4
+      fullName: InventoryTests.Test4
+      resultStatus: 1
+      duration: 0.0003393
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1041
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test40]
+      name: Test40
+      fullName: InventoryTests.Test40
+      resultStatus: 1
+      duration: 0.0004357
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1006
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test5]
+      name: Test5
+      fullName: InventoryTests.Test5
+      resultStatus: 1
+      duration: 0.0002994
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1007
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test6]
+      name: Test6
+      fullName: InventoryTests.Test6
+      resultStatus: 1
+      duration: 0.0003083
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1008
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test7]
+      name: Test7
+      fullName: InventoryTests.Test7
+      resultStatus: 1
+      duration: 0.0003405
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1009
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test8]
+      name: Test8
+      fullName: InventoryTests.Test8
+      resultStatus: 1
+      duration: 0.0003148
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    - id: 1010
+      uniqueId: InventoryTest.dll/InventoryTests/[InventoryTest][InventoryTests.Test9]
+      name: Test9
+      fullName: InventoryTests.Test9
+      resultStatus: 1
+      duration: 0.0002931
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: InventoryTest.dll/[InventoryTest][InventoryTests][suite]
+    m_ResultText: Test16 (0,000s)
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 292}
+      m_SelectedIDs: 05b23c63
+      m_LastClickedID: 1664922117
+      m_ExpandedIDs: 054f68ece607796078b7e875ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+--- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,14 +1217,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
-    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 879.2
-    y: 73.6
-    width: 290.8
-    height: 466.2
+    x: 2635
+    y: 73
+    width: 365
+    height: 603
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -351,10 +1250,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -432
-    m_HBaseRangeMax: 432
-    m_VBaseRangeMin: -768
-    m_VBaseRangeMax: 768
+    m_HBaseRangeMin: -540
+    m_HBaseRangeMax: 540
+    m_VBaseRangeMin: -960
+    m_VBaseRangeMax: 960
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -372,29 +1271,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 290.8
-      height: 445.2
-    m_Scale: {x: 0.28984377, y: 0.28984377}
-    m_Translation: {x: 145.4, y: 222.6}
+      width: 365
+      height: 582
+    m_Scale: {x: 0.303125, y: 0.303125}
+    m_Translation: {x: 182.5, y: 291}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -501.64954
-      y: -768
-      width: 1003.2991
-      height: 1536
+      x: -602.0619
+      y: -960
+      width: 1204.1238
+      height: 1920
     m_MinimalGUI: 1
-  m_defaultScale: 0.28984377
-  m_LastWindowPixelSize: {x: 363.5, y: 582.75}
+  m_defaultScale: 0.303125
+  m_LastWindowPixelSize: {x: 365, y: 603}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &14
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,14 +1309,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
-    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 73.6
-    width: 379.8
-    height: 466.2
+    x: 1536
+    y: 73
+    width: 475
+    height: 603
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -427,7 +1326,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 10fbffffb05f00003e630000fc630000ae660000be67000004690000b86900002a6a0000
+      m_ExpandedIDs: 1eddffffdcddffffb2dfffff6ce1ffff12e3fffface4ffff34e6ffff1ee8ffff46ebffffaeecffffe4eeffff70f3ffffe6f4ffff2efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -451,7 +1350,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &15
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -467,14 +1366,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 8634526014445323508, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 380.80002
     y: 73.6
-    width: 496.40002
-    height: 466.2
+    width: 497.2
+    height: 465.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -484,8 +1383,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -100, y: -25.600006}
+      snapOffset: {x: -101, y: -26}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -676,9 +1575,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.31295717, y: -7.1023827, z: 0.4245882}
+    m_Target: {x: 11.821691, y: 2.7776163, z: -0.44859484}
     speed: 2
-    m_Value: {x: 0.31295717, y: -7.1023827, z: 0.4245882}
+    m_Value: {x: 11.821691, y: 2.7776163, z: -0.44859484}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -725,13 +1624,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.5887322, y: -0.07252339, z: 0.05364647, w: -0.80344856}
+    m_Target: {x: 0.07447036, y: 0.898014, z: -0.16802312, w: 0.4000971}
     speed: 2
-    m_Value: {x: -0.5886519, y: -0.072513506, z: 0.053639155, w: -0.803339}
+    m_Value: {x: 0.07445978, y: 0.89788634, z: -0.16799924, w: 0.4000402}
   m_Size:
-    m_Target: 14.07172
+    m_Target: 10
     speed: 2
-    m_Value: 14.07172
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -756,7 +1655,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -772,20 +1671,20 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
-    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 560.8
-    width: 1171
-    height: 262.59998
+    x: 1536
+    y: 697
+    width: 1465
+    height: 342
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SearchFilter:
-    m_NameFilter: InventoryItemObserver
+    m_NameFilter: equ
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -797,22 +1696,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Configs/Inventory
+    - Assets/Scripts/Tests
     m_Globs: []
-    m_OriginalText: InventoryItemObserver
+    m_OriginalText: equ
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Configs/Inventory
+  - Assets/Scripts/Tests
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\vlaso\Documents\GitHub\game_courses
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 397.40002}
-    m_SelectedIDs: 326e0000
-    m_LastClickedID: 28210
-    m_ExpandedIDs: 00000000506d0000526d0000546d0000566d0000586d00005a6d00005c6d00005e6d0000606d0000626d0000646d0000666d0000686d00006a6d00006c6d00006e6d0000706d0000726d0000746d0000846d000000ca9a3b
+    scrollPos: {x: 0, y: 428.6}
+    m_SelectedIDs: ba6d0000
+    m_LastClickedID: 28090
+    m_ExpandedIDs: 000000000a6d00000c6d00000e6d0000106d0000126d0000146d0000166d0000186d00001a6d00001c6d0000786d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -840,7 +1739,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000506d0000526d0000546d0000566d0000586d00005a6d00005c6d00005e6d0000606d0000626d0000646d0000666d0000686d00006a6d00006c6d00006e6d0000706d0000726d0000746d0000
+    m_ExpandedIDs: 000000000a6d00000c6d00000e6d0000106d0000126d0000146d0000166d0000186d00001a6d00001c6d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -865,24 +1764,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 6aceffff
-    m_LastClickedInstanceID: -12694
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: AbstractEffectParameter
-      m_OriginalName: AbstractEffectParameter
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 45012
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -896,7 +1795,7 @@ MonoBehaviour:
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -912,19 +1811,19 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
-    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 560.8
-    width: 1171
-    height: 262.59998
+    y: 560
+    width: 1171.8
+    height: 263.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -940,14 +1839,14 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
-    m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000, type: 0}
+    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1172
-    y: 73.6
-    width: 363
-    height: 749.8
+    x: 3002
+    y: 73
+    width: 453
+    height: 966
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

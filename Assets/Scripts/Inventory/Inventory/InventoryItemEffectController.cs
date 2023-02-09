@@ -2,12 +2,12 @@
 
 public class InventoryItemEffectController : IInventoryItemObserver
 {
-    private CharacterService _heroService;
-
-    public void Construct(CharacterService characterService)
-    {
-        _heroService= characterService;
-    }
+   // private CharacterService _heroService;
+   //
+   // public void Construct(CharacterService characterService)
+   // {
+   //     _heroService= characterService;
+   // }
 
     public void OnAddItem(InventoryItem inventoryItem)
     {
@@ -27,19 +27,19 @@ public class InventoryItemEffectController : IInventoryItemObserver
 
     private void ActivateEffect(InventoryItem inventoryItem)
     {
-        IEffect effect = inventoryItem.GetComponent<IGetEffectComponent>().Effect;
+      //  IEffect effect = inventoryItem.GetComponent<IGetEffectComponent>().Effect;
 
-        var hero = _heroService.GetCharacter();
-        var heroComponent = hero.Get<IEffectorComponent>();
-        heroComponent.AddEffect(effect);
+       // var hero = _heroService.GetCharacter();
+        //var heroComponent = hero.Get<IEffectorComponent>();
+       // heroComponent.AddEffect(effect);
     }
 
     private void DeactivateEffect(InventoryItem inventoryItem)
     {
-        IEffect effect = inventoryItem.GetComponent<IGetEffectComponent>().Effect;
+       // IEffect effect = inventoryItem.GetComponent<IGetEffectComponent>().Effect;
 
-        var hero = _heroService.GetCharacter();
-        var heroComponent = hero.Get<IEffectorComponent>();
-        heroComponent.RemoveEffect(effect);
+       // var hero = _heroService.GetCharacter();
+        //var heroComponent = hero.Get<IEffectorComponent>();
+       // heroComponent.RemoveEffect(effect);
     }
 }

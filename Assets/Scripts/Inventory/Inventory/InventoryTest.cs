@@ -1,21 +1,21 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class InventoryTest: MonoBehaviour, IConstructListener
+public class InventoryTest: MonoBehaviour//, IConstructListener
 {
     [ShowInInspector, ReadOnly] private readonly Inventory _inventory= new();
     [ShowInInspector, ReadOnly] private readonly Equipment _equipment = new();
 
-    private readonly EquipmentItemRecipient _itemRecipient= new();
+    private readonly InventoryItemEquipper _itemRecipient= new();
     private readonly InventoryItemEffectController _effectController= new();
 
-    public void Construct(GameContext context)
-    {
-        _effectController.Construct(context.GetService<CharacterService>());
-
-        _equipment.AddListener(_effectController);
-        _itemRecipient.Construct(_inventory, _equipment);
-    }
+    //public void Construct(GameContext context)
+    //{
+    //    _effectController.Construct(context.GetService<CharacterService>());
+    //
+    //    _equipment.AddListener(_effectController);
+    //    _itemRecipient.Construct(_inventory, _equipment);
+    //}
 
     [Button]
     public void AddItemInventory(InventoryItemConfig itemConfig)

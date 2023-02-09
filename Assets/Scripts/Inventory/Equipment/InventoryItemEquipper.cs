@@ -1,7 +1,6 @@
-using UnityEngine;
 using System;
 
-public class EquipmentItemRecipient
+public class InventoryItemEquipper
 {
     private Inventory _inventory;
     private Equipment _equipment;
@@ -43,7 +42,7 @@ public class EquipmentItemRecipient
 
         
         return (inventoryItem.Flags & InventoryItemFlags.EQIPPABLE) == InventoryItemFlags.EQIPPABLE &&
-            // _inventory.IsItemExists(inventoryItem) &&      for some reason it doesn't work with this
+             _inventory.IsItemExists(inventoryItem) &&     // for some reason it doesn't work with this
             _equipment.Items.ContainsKey(equipTypeItem.Type) ==false;
     }
 }

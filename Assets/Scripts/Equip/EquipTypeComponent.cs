@@ -1,4 +1,3 @@
-
 using System;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ public class EquipTypeComponent : IEquipTypeComponent
     public EquipType Type
     {
         get { return _type; }
+        set { _type = value; }
     }
 
     [SerializeField]

@@ -20,15 +20,11 @@ MonoBehaviour:
       Description: Do smth
       Icon: {fileID: 21300000, guid: d743dc765e2af0d429ee66bddb0e109e, type: 3}
     _components:
-    - rid: 5652697137635393536
+    - rid: 5652697249835909120
     - rid: 5652697137635393538
   references:
     version: 2
     RefIds:
-    - rid: 5652697137635393536
-      type: {class: EquipTypeComponent, ns: , asm: Assembly-CSharp}
-      data:
-        _type: 4
     - rid: 5652697137635393538
       type: {class: GetEffectComponent, ns: , asm: Assembly-CSharp}
       data:
@@ -44,3 +40,7 @@ MonoBehaviour:
       data:
         _name: 0
         _value: 2
+    - rid: 5652697249835909120
+      type: {class: EquipTypeComponent, ns: , asm: Equip}
+      data:
+        _type: 0
