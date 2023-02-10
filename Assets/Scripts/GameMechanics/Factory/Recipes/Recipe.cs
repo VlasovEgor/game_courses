@@ -51,9 +51,6 @@ public class Recipe : ScriptableObject
             amountIngredient.AmountIngredient = quantity;
             RecipeDictionary[type] = amountIngredient;
         }
-    
-    
-        Debug.Log($"»Õ√–»ƒ»≈Õ“¿ {RecipeDictionary[type].TypeIngredient} ¬ –≈÷≈œ“≈ {RecipeDictionary[type].AmountIngredient}  ÿ“” ");
     }
     
     [Button]
@@ -61,13 +58,9 @@ public class Recipe : ScriptableObject
     {
         if (RecipeDictionary.ContainsKey(type) == true)
         {
-            Debug.Log($"»Õ√–»ƒ»≈Õ“ {RecipeDictionary[type].TypeIngredient} ”ƒ¿À®Õ");
             RecipeDictionary.Remove(type);    
         }
-        else
-        {
-            Debug.Log("“¿ Œ√Œ »Õ√–»ƒ»≈Õ“¿ » Õ≈ ¡€ÀŒ");
-        }
+
     }
     
     [Button]

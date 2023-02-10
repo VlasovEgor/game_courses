@@ -24,8 +24,15 @@ public class UnloadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListe
 
     public void Construct(GameContext context)
     {
-        FactoryService factory = context.GetService<FactoryCatalog>().FactoryDictionary[_upgradeConfig.FactoryId];
-        _conveyor = factory.GetConveyor();
+        var factory = context.GetService<FactoryCatalog>().FactoryList;
+        for (int i = 0; i < factory.Count; i++)
+        {
+            if (factory[i].ID == _upgradeConfig.FactoryId)
+            {
+                _conveyor = factory[i].FactoryService.GetConveyor();
+                Debug.Log(_conveyor);
+            }
+        }
     }
 
     public void Initialization()
@@ -36,6 +43,7 @@ public class UnloadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListe
     protected override void OnUpgrade(int level)
     {
         var amount = _upgradeConfig.PlatformTable.GetAmount(level);
+        Debug.Log(_conveyor);
         _conveyor.Get<IUnloadZoneComponent>().MaxValue = amount;
     }
 }

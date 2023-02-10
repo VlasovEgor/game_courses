@@ -1,9 +1,8 @@
-
 using System.Collections.Generic;
 
 public interface IFactoryStoragesComponent
 {
-    public Dictionary<Ingredients, Storage> StoragesDictionary { get; }
+    public List<SerializedStorageData> StoragesList { get; }
 
     bool CanLoad(Ingredients storageType);
 

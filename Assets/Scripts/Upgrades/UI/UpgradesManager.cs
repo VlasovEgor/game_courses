@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 [Serializable]
 public class UpgradesManager
@@ -26,6 +26,8 @@ public class UpgradesManager
 
         for (int i = 0; i < _upgrades.Length; i++)
         {
+            _upgrades[i] = _catalogs[i].GetAllUpgrades();
+
             for (int j = 0; j < _upgrades[i].Length; j++)
             {
                 var upgrade = upgrades[i][j];
@@ -60,7 +62,7 @@ public class UpgradesManager
 
     public bool CanLevelUp(Upgrade upgrade)
     {
-        if (upgrade.IsMaxLevel)
+        if (upgrade.IsMaxLevel == true)
         {
             return false;
         }
@@ -82,6 +84,4 @@ public class UpgradesManager
         upgrade.LevelUp();
         OnLevelUp?.Invoke(upgrade);
     }
-
-   
 }

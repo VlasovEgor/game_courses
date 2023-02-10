@@ -5,7 +5,7 @@ using UnityEngine;
 public class FactoryUpgradeCatalog : ScriptableObject
 {
     [SerializeField] private FactoryUpgradeConfig[] _configs;
-    [SerializeField] private string _factoryId;
+    [SerializeField] private int _factoryId;
 
     private void Awake()
     {
@@ -15,9 +15,21 @@ public class FactoryUpgradeCatalog : ScriptableObject
         }
     }
 
-    public UpgradeConfig[] GetAllUpgrades()
+    public UpgradeConfig[] GetAllUpgradeConfigs()
     {
         return _configs;
+    }
+
+    public Upgrade[] GetAllUpgrades()
+    {
+        var upgrades = new Upgrade[_configs.Length];
+
+        for (int i = 0; i < _configs.Length; i++)
+        {
+            upgrades[i] = _configs[i].InstantiateUpgrade();
+        }
+
+        return upgrades;
     }
 
     public UpgradeConfig FindUpgrade(int id)

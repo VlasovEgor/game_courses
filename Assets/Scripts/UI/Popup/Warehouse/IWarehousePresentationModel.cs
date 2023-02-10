@@ -8,6 +8,8 @@ public interface IWarehousePresentationModel
 
     event Action OnStatsChanged;
 
+    IFactoryStoragesComponent GetFactoryStorages();
+
     string GetTitle();
 
     string GetAmount();

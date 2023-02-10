@@ -10,12 +10,19 @@ public class WarehousePresentationModel : IWarehousePresentationModel
 
     private readonly WarehouseAdder _warehouseAdder;
     private readonly IWarehouseComponent _warehouseComponent;
+    private readonly IFactoryStoragesComponent _factoryStorages;
     private Storage _storage;
 
-    public WarehousePresentationModel(WarehouseAdder warehouseAdder, IWarehouseComponent warehouseComponent)
+    public WarehousePresentationModel(WarehouseAdder warehouseAdder, IWarehouseComponent warehouseComponent, IFactoryStoragesComponent factoryStorages)
     {
         _warehouseAdder = warehouseAdder;
         _warehouseComponent = warehouseComponent;
+        _factoryStorages= factoryStorages;
+    }
+
+    public IFactoryStoragesComponent GetFactoryStorages()
+    {
+        return _factoryStorages;
     }
 
     public string GetTitle()

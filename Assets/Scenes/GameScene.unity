@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 6364605}
   - component: {fileID: 6364604}
   m_Layer: 0
-  m_Name: Factory (2)
+  m_Name: Factory (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2628,7 +2628,7 @@ GameObject:
   - component: {fileID: 110307518}
   - component: {fileID: 110307517}
   m_Layer: 0
-  m_Name: Factory (3)
+  m_Name: Factory (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7558,7 +7558,7 @@ GameObject:
   - component: {fileID: 350809059}
   - component: {fileID: 350809058}
   m_Layer: 0
-  m_Name: Factory (1)
+  m_Name: Factory (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12461,6 +12461,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc1729f1814dc84e9fa0b82b26b8f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _storagesList:
+  - Ingredients: 0
+    Storage: {fileID: 1021927467}
+  - Ingredients: 1
+    Storage: {fileID: 1536937123}
+  - Ingredients: 2
+    Storage: {fileID: 697180464}
+  - Ingredients: 3
+    Storage: {fileID: 1662575922}
+  - Ingredients: 4
+    Storage: {fileID: 880298609}
 --- !u!1 &602434282
 GameObject:
   m_ObjectHideFlags: 0
@@ -34929,7 +34940,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scrollElementPrefab: {fileID: 506006839335646316, guid: 8c7359dff2778fc4792af1d9f4262857, type: 3}
   _transform: {fileID: 896744879}
-  _storages: {fileID: 2099241651}
 --- !u!1 &1555762229
 GameObject:
   m_ObjectHideFlags: 0
@@ -42154,6 +42164,7 @@ MonoBehaviour:
   - {fileID: 225990638}
   - {fileID: 1709520835}
   - {fileID: 1053779163}
+  - {fileID: 2114485087}
   - {fileID: 350809059}
 --- !u!114 &1960813548
 MonoBehaviour:
@@ -42447,6 +42458,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc1729f1814dc84e9fa0b82b26b8f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _storagesList:
+  - Ingredients: 0
+    Storage: {fileID: 2126911026}
+  - Ingredients: 1
+    Storage: {fileID: 452446076}
+  - Ingredients: 2
+    Storage: {fileID: 1352779598}
+  - Ingredients: 3
+    Storage: {fileID: 1042306997}
+  - Ingredients: 4
+    Storage: {fileID: 1393634204}
 --- !u!1 &1969568985
 GameObject:
   m_ObjectHideFlags: 0
@@ -46212,6 +46234,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc1729f1814dc84e9fa0b82b26b8f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _storagesList:
+  - Ingredients: 0
+    Storage: {fileID: 287646018}
+  - Ingredients: 1
+    Storage: {fileID: 201859514}
+  - Ingredients: 2
+    Storage: {fileID: 1915647407}
+  - Ingredients: 3
+    Storage: {fileID: 1126324560}
+  - Ingredients: 4
+    Storage: {fileID: 218658489}
 --- !u!1 &2102113786
 GameObject:
   m_ObjectHideFlags: 0
@@ -46641,6 +46674,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d70f62330464d4897e3d39f48f242c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _factoryList:
+  - ID: 0
+    FactoryService: {fileID: 350809059}
+  - ID: 1
+    FactoryService: {fileID: 6364605}
+  - ID: 2
+    FactoryService: {fileID: 110307518}
 --- !u!1 &2116503335
 GameObject:
   m_ObjectHideFlags: 0

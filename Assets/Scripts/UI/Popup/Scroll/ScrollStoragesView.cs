@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +5,8 @@ public class ScrollStoragesView : MonoBehaviour
 {
     [SerializeField] private GameObject _scrollElementPrefab;
     [SerializeField] private Transform _transform;
-    [SerializeField] private FactoryStoragesComponent _storages;
+
+    private IFactoryStoragesComponent _storages;
 
     private List<ScrollStorageElement> _scrollStorageElements = new();
 
@@ -18,18 +18,21 @@ public class ScrollStoragesView : MonoBehaviour
         }
     }
 
+    public void SetFactoryStorages(IFactoryStoragesComponent factoryStorages)
+    {
+        _storages = factoryStorages;
+    }
+
     private void Start()
     {   
-        foreach (var storage in _storages.StoragesDictionary)
+        foreach (var storageStruct in _storages.StoragesList)
         {
             var view = Instantiate(_scrollElementPrefab, _transform);
 
             var variables = view.GetComponent<ScrollStorageElement>();
 
-            variables.Storage = storage.Value;
+            variables.Storage = storageStruct.Storage;
             _scrollStorageElements.Add(variables);
         }
     }
-
-   
 }

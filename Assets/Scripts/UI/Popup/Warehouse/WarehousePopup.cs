@@ -34,6 +34,7 @@ public class WarehousePopup : Popup
         _decreaseButton.AddListener(OnDecreaseButtonCliced);
         _addButton.AddListener(OnAddButtonCliced);
 
+        _scrollView.SetFactoryStorages(_presenter.GetFactoryStorages());
 
         for (int i = 0; i < _scrollView.ScrollStorageElements.Count; i++)
         {

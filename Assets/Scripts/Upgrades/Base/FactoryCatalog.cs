@@ -1,13 +1,14 @@
-using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class FactoryCatalog : MonoBehaviour
 {
-    [ShowInInspector] private Dictionary<int, FactoryService> _factoryDictionary = new();
+    [SerializeField] private List<SerializedFactoryData> _factoryList = new();
 
-    public Dictionary<int, FactoryService> FactoryDictionary
-    { 
-        get { return _factoryDictionary; } 
+    public List<SerializedFactoryData> FactoryList
+    {
+        get { return _factoryList; }
     }
 }

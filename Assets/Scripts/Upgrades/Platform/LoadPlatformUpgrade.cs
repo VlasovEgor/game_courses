@@ -1,4 +1,6 @@
-﻿public class LoadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListener
+﻿using UnityEngine;
+
+public class LoadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListener
 {   
     private IFactoryStoragesComponent _factoryStorages;
     private readonly LoadPlatformUpgradeConfig _upgradeConfig;
@@ -16,13 +18,19 @@
     public LoadPlatformUpgrade(LoadPlatformUpgradeConfig config) : base(config)
     {
         _upgradeConfig = config;
-        var id = config.FactoryId;
     }
 
     public void Construct(GameContext context)
     {
-        FactoryService factory = context.GetService<FactoryCatalog>().FactoryDictionary[_upgradeConfig.FactoryId];
-         _factoryStorages = factory.GetWarehouse().Get<IFactoryStoragesComponent>();
+        var factory = context.GetService<FactoryCatalog>().FactoryList;
+        for (int i = 0; i < factory.Count; i++)
+        {
+            if (factory[i].ID == _upgradeConfig.FactoryId)
+            {
+                _factoryStorages = factory[i].FactoryService.GetWarehouse().Get<IFactoryStoragesComponent>();
+                Debug.Log(_factoryStorages);
+            }
+        }
     }
 
     public void Initialization()
@@ -33,6 +41,7 @@
     protected override void OnUpgrade(int level)
     {
         var amount = _upgradeConfig.PlatformTable.GetAmount(level);
+        Debug.Log(_factoryStorages);
         _factoryStorages.SetupMaxValueAllStorages(amount);
     }
 }
