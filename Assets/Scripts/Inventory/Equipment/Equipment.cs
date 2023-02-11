@@ -1,21 +1,12 @@
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using System;
-using System.Linq;
 
 public class Equipment
 {
     public event Action<InventoryItem> OnItemAdded;
 
     public event Action<InventoryItem> OnItemRemoved;
-
-    public Dictionary<EquipType, InventoryItem> Items
-    {
-        get
-        {
-            return _items;
-        }
-    }
 
     [ReadOnly, ShowInInspector]
     private readonly Dictionary<EquipType, InventoryItem> _items;
@@ -84,5 +75,10 @@ public class Equipment
         }
 
         return false;
+    }
+
+    public bool ContainsItem(EquipType equipType)
+    {
+        return _items.ContainsKey(equipType);
     }
 }

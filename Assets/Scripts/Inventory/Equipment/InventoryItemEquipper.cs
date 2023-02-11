@@ -29,7 +29,7 @@ public class InventoryItemEquipper
     {
         var equipTypeItem = inventoryItem.GetComponent<EquipTypeComponent>();
 
-        if (_equipment.Items.ContainsKey(equipTypeItem.Type)==true)
+        if (_equipment.ContainsItem(equipTypeItem.Type) == true)
         {
             _equipment.RemoveItem(inventoryItem);
             _inventory.AddItem(inventoryItem);
@@ -40,9 +40,8 @@ public class InventoryItemEquipper
     {
        var equipTypeItem = inventoryItem.GetComponent<EquipTypeComponent>();
 
-        
         return (inventoryItem.Flags & InventoryItemFlags.EQIPPABLE) == InventoryItemFlags.EQIPPABLE &&
              _inventory.IsItemExists(inventoryItem) &&     // for some reason it doesn't work with this
-            _equipment.Items.ContainsKey(equipTypeItem.Type) ==false;
+            _equipment.ContainsItem(equipTypeItem.Type) == false;
     }
 }
