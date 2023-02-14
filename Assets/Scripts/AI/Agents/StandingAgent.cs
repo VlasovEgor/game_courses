@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class StandingAgent : Agent
 {
-    [ShowInInspector, ReadOnly]
-    private IEntity _unit;
-
     private float _stoppingTime = 0;
 
     private Coroutine _stoppingCoroutine;
@@ -15,12 +12,6 @@ public class StandingAgent : Agent
     public void SetStoppingTime(float time)
     {
         _stoppingTime = time;
-    }
-
-    [Button]
-    public void SetUnit(IEntity unit)
-    {
-        _unit = unit;
     }
 
     protected override void OnStart()
