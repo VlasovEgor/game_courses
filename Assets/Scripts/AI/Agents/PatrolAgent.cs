@@ -122,13 +122,18 @@ public class PatrolAgent : Agent
 
     private void StopIsOver()
     {
+        SetNewTargetPointIndex();
+    }
+
+    private void SetNewTargetPointIndex()
+    {
         _counter++;
 
         _indexArray = _counter / _targetsArray.Length;
-        if(_indexArray == _targetsArray.Length)
+        if (_indexArray == _targetsArray.Length)
         {
             _indexArray = 0;
-            _counter= 0;
+            _counter = 0;
         }
     }
 
