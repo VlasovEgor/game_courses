@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class FightWithEnemyComponent : MonoBehaviour, IFightWithEnemyComponent
+public class FightWithEnemyComponent : MonoBehaviour,IFightWithEnemyComponent
 {
     public event Action<FightWihtEnemyOperation> OnStarted
     {
@@ -27,7 +27,7 @@ public class FightWithEnemyComponent : MonoBehaviour, IFightWithEnemyComponent
 
     public bool CanFight(FightWihtEnemyOperation operation)
     {
-       return _fightEngine.CanFight(operation);
+        return _fightEngine.CanFight(operation);
     }
 
     public void StartFight(FightWihtEnemyOperation operation)
