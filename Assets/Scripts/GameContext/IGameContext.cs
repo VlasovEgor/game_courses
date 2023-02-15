@@ -13,6 +13,8 @@ public interface IGameContext
 
     public void ConstructGame();
 
+    public void InitializationGame();
+
     public void StartGame();
 
     public void FinishGame();

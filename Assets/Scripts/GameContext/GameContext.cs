@@ -58,6 +58,20 @@ public class GameContext : MonoBehaviour, IGameContext
     }
 
     [Button]
+    public void InitializationGame()
+    {
+        foreach (var listener in _listeners)
+        {
+            if (listener is IInitGameListener initializationListener)
+            {
+                initializationListener.OnInitGame();
+            }
+        }
+
+        Debug.Log("Game init");
+    }
+
+    [Button]
     public void StartGame()
     {
         foreach (var listener in _listeners)
@@ -85,4 +99,6 @@ public class GameContext : MonoBehaviour, IGameContext
 
         Debug.Log("Game finished");
     }
+
+
 }
