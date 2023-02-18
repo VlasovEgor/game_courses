@@ -30,6 +30,11 @@ public abstract class Chest
         {
             return _countdown.RemainingTime;
         }
+        set
+        {
+            _countdown.RemainingTime = value;
+        }
+
     }
 
     public float DurationSeconds

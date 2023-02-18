@@ -11,7 +11,8 @@ public class ChestManager : MonoBehaviour, IConstructListener, IStartGameListene
 
     public event Action<Chest> OnChestFinished;
 
-    [ShowInInspector] private Dictionary<string, Chest> _chests = new();
+    [PropertySpace(8), ReadOnly, ShowInInspector] 
+    private Dictionary<string, Chest> _chests = new();
 
     private readonly ChestFactory _factory = new();
 
@@ -27,7 +28,12 @@ public class ChestManager : MonoBehaviour, IConstructListener, IStartGameListene
         var ChestConfigs = chestCatalog.GetAllChests();
 
         for (int i = 0; i < ChestConfigs.Length; i++)
-        {
+        {   
+            if (_chests.ContainsKey(ChestConfigs[i].Id))
+            {
+                continue;
+            }
+                
             var chest = _factory.CreateChest(ChestConfigs[i], this, _gameContext);
             chest.OnCompleted += OnEndChest;
 
@@ -35,6 +41,22 @@ public class ChestManager : MonoBehaviour, IConstructListener, IStartGameListene
         }
     }
 
+
+    public List<Chest> GetActiveChests()
+    {
+        var activeChests = new List<Chest>();
+
+        foreach (var currentChest in _chests)
+        {
+
+            if (currentChest.Value.IsActive == true)
+            {
+                activeChests.Add(currentChest.Value);
+            }
+        }
+
+        return activeChests;
+    }
     public void OpenChest(string chestId)
     {
         if (_chests[chestId].IsActive==true)

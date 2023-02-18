@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: BigChestConfig
   m_EditorClassIdentifier: 
   Id: BigChest
-  DurationSeconds: 10
+  DurationSeconds: 100
   Rewards:
-  - Amount: 10
+  - Amount: 86
     RewardType: 0
-  - Amount: 20
+  - Amount: 52
     RewardType: 0
-  - Amount: 30
+  - Amount: 61
     RewardType: 0
-  - Amount: 40
+  - Amount: 17
     RewardType: 0
   MaxNumbersOfReward: 6
   MinNumbersOfReward: 4
