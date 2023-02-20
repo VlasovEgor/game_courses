@@ -130,8 +130,6 @@ public class InventoryTests
         var equipmentRecipient = new InventoryItemEquipper();
         equipmentRecipient.Construct(inventory, equiip);
 
-        equipmentRecipient.PutOnEquipment(bootsItem);
-
        Assert.Catch(typeof(Exception), () => equipmentRecipient.PutOnEquipment(bootsItem));
     }
 
