@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class FightWithEnemyComponent : MonoBehaviour,IFightWithEnemyComponent
+public class FightWithEnemyComponent : MonoBehaviour, IFightWithEnemyComponent
 {
     public event Action<FightWihtEnemyOperation> OnStarted
     {

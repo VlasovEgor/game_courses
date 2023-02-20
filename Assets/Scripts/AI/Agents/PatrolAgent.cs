@@ -5,11 +5,12 @@ using UnityEngine;
 public class PatrolAgent : Agent
 {
     [SerializeField] private MoveAgent _moveAgent;
-    [SerializeField] private StandingAgent _standingAgent;
 
     [ShowInInspector, ReadOnly] private IEntity _unit;
 
-    [ShowInInspector, ReadOnly] private float _stoppingDistance;
+    [ShowInInspector, ReadOnly] private float _stoppingDistance = 0.2f;
+
+    [ShowInInspector, ReadOnly] private float _stoppingTime = 0.2f;
 
     [SerializeField] private Transform[] _targetsArray;
 
@@ -47,8 +48,7 @@ public class PatrolAgent : Agent
     [Button]
     public void SetStoppingTime(float time)
     {
-        _standingAgent.SetStoppingTime(time);
-        _standingAgent.OnStopped += StopIsOver;
+        _stoppingTime=time;
     }
 
     protected override void OnStart()
@@ -70,7 +70,7 @@ public class PatrolAgent : Agent
     private IEnumerator PatrolRoutine()
     {
         var period = new WaitForFixedUpdate();
-
+        _moveAgent.Play();
 
         while (true)
         {
@@ -93,52 +93,44 @@ public class PatrolAgent : Agent
         var distance = unitPosiiton - targetPosition;
         var distanceReached = distance.sqrMagnitude < _stoppingDistance * _stoppingDistance;
 
-        if (distanceReached == true)
+        if (distanceReached == true && _moveAgent.IsPlaying == true)
         {
-            if (_moveAgent.IsPlaying == true)
-            {
-                _moveAgent.Stop();
-            }
-
-            if (_standingAgent.IsPlaying == false)
-            {
-                _standingAgent.Play();
-            }
+            _moveAgent.Stop();
+            StartCoroutine(StoppingRoutine());
         }
-        else
-        {
-            if (_moveAgent.IsPlaying == false)
-            {
-                _moveAgent.Play();
-            }
+       // else
+       // {
+       //     if (_moveAgent.IsPlaying == false)
+       //     {
+       //         _moveAgent.Play();
+       //     } 
+       // }
 
-            if (_standingAgent.IsPlaying == true)
-            {
-                _standingAgent.Stop();
-            }
-        }
+    }
 
+    private IEnumerator StoppingRoutine()
+    {
+        yield return new WaitForSeconds(_stoppingTime);
+        StopIsOver();
+        
     }
 
     private void StopIsOver()
     {
         SetNewTargetPointIndex();
+        _moveAgent.Play();
     }
 
     private void SetNewTargetPointIndex()
     {
         _counter++;
-
+        
         _indexArray = _counter / _targetsArray.Length;
+
         if (_indexArray == _targetsArray.Length)
         {
             _indexArray = 0;
             _counter = 0;
         }
-    }
-
-    private void OnDisable()
-    {
-        _standingAgent.OnStopped -= StopIsOver;
     }
 }

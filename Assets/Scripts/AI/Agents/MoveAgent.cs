@@ -8,7 +8,7 @@ public class MoveAgent : Agent
     private IEntity _unit;
 
     [ShowInInspector, ReadOnly]
-    private float _stoppingDistance;
+    private float _stoppingDistance = 0.2f;
 
     [ShowInInspector, ReadOnly]
     private Vector3 _targetPosiiton;
