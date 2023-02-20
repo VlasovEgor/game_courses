@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -9,10 +10,14 @@ public class SceneInstaller : MonoInstaller
     [SerializeField] private RealtimeManager _realtimeManager;
     [SerializeField] private TimeShiftEmitter _timeShiftEmitter;
     [SerializeField] private ChestManager _chestManager;
+    [SerializeField] private ChestSystemInstaller _chestSystemInstaller;
+    [SerializeField] private MonoBehaviour _monoBehaviour;
 
     public override void InstallBindings()
     {
+        BindInstallerInterfaces();
         BindGameContext();
+        BindMonoBehaviour();
         BindChestFactory();
         BindMoneyStorage();
         BindRewardSystem();
@@ -20,6 +25,20 @@ public class SceneInstaller : MonoInstaller
         BindRealtimeRepository();
         BindTimeShiftEmitter();
         BindChestManager();
+    }
+
+    public void BindInstallerInterfaces()
+    {
+       Container.BindInterfacesTo<SceneInstaller>().
+           FromInstance(this).
+           AsSingle();
+    }
+
+    private void BindMonoBehaviour()
+    {
+        Container.Bind<MonoBehaviour>().
+           FromInstance(_monoBehaviour).
+           AsSingle();
     }
 
     private void BindGameContext()
@@ -31,8 +50,15 @@ public class SceneInstaller : MonoInstaller
     }
 
     private void BindChestFactory()
-    {
+    {   
         Container.Bind<ChestFactory>().
+            AsSingle().NonLazy();
+    }
+
+    private void BindChestSystemInstaller()
+    {
+        Container.Bind<ChestSystemInstaller>().
+            FromInstance(_chestSystemInstaller).
             AsSingle();
     }
 
@@ -72,9 +98,9 @@ public class SceneInstaller : MonoInstaller
 
     private void BindChestManager()
     {
-        Container.Bind<ChestManager>().
-            FromInstance(_chestManager).
-           AsSingle();
+        Container.Bind(typeof(ChestManager), typeof(IInitializable), typeof(IDisposable))
+            .To<ChestManager>()
+            .AsSingle();
     }
 
 }

@@ -1,9 +1,11 @@
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Zenject;
 
-public class ChestManager : MonoBehaviour, IConstructListener, IStartGameListener, IFinishGameListener
+public class ChestManager : IInitializable, IDisposable
 {
     public event Action<Chest> OnChestLaunched;
 
@@ -11,36 +13,20 @@ public class ChestManager : MonoBehaviour, IConstructListener, IStartGameListene
 
     public event Action<Chest> OnChestFinished;
 
+    [Inject] private RewardSystem _rewardSystem;
+
+    public Dictionary<string, Chest> Chests
+    {
+        get { return _chests; }
+    }
+
     [PropertySpace(8), ReadOnly, ShowInInspector] 
     private Dictionary<string, Chest> _chests = new();
 
-    private readonly ChestFactory _factory = new();
-
-    private IGameContext _gameContext;
-
-    public void Construct(GameContext context)
+    public void Construct(Chest[] chests)
     {
-        _gameContext = context;
+        _chests = chests.ToDictionary(it => it.Id);
     }
-
-    public void CreateChests(ChestCatalog chestCatalog)
-    {
-        var ChestConfigs = chestCatalog.GetAllChests();
-
-        for (int i = 0; i < ChestConfigs.Length; i++)
-        {   
-            if (_chests.ContainsKey(ChestConfigs[i].Id))
-            {
-                continue;
-            }
-                
-            var chest = _factory.CreateChest(ChestConfigs[i], this, _gameContext);
-            chest.OnCompleted += OnEndChest;
-
-            _chests.Add(ChestConfigs[i].Id, chest);
-        }
-    }
-
 
     public List<Chest> GetActiveChests()
     {
@@ -57,29 +43,37 @@ public class ChestManager : MonoBehaviour, IConstructListener, IStartGameListene
 
         return activeChests;
     }
+
     public void OpenChest(string chestId)
     {
-        if (_chests[chestId].IsActive==true)
+        if (_chests[chestId].IsActive == true)
         {
             Debug.Log("≈Ÿ® –¿ÕŒ Œ“ –€¬¿“‹");
         }
         else
         {
             _chests[chestId].Open();
+            ReceivingReward(_chests[chestId].Rewards);
+            _chests[chestId].GeneratingNewReward();
         }
     }
 
-    void IStartGameListener.OnStartGame()
+    private void ReceivingReward(List<Reward> rewards)
+    {
+        _rewardSystem.AccrueReward(rewards);
+    }
+
+    public void Initialize()
     {
         StartAllChests();
     }
 
-    void IFinishGameListener.OnFinishGame()
+    public void Dispose()
     {
         StopAllChests();
     }
 
-    private void StartAllChests()
+    public void StartAllChests()
     {
         foreach (var currentChest in _chests)
         {
@@ -89,7 +83,10 @@ public class ChestManager : MonoBehaviour, IConstructListener, IStartGameListene
                 continue;
             }
 
+            currentChest.Value.GeneratingNewReward();
+
             currentChest.Value.Start();
+
             OnChestStarted?.Invoke(currentChest.Value);
             OnChestLaunched?.Invoke(currentChest.Value);
         }

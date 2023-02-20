@@ -1,55 +1,59 @@
 using Elementary;
 using System;
 using UnityEngine;
+using Sirenix.OdinInspector;
+using Zenject;
+using System.Collections.Generic;
 
-public abstract class Chest
+public class Chest
 {
     public event Action<Chest> OnStarted;
     public event Action<Chest, float> OnTimeChanged;
     public event Action<Chest> OnCompleted;
 
+    [ShowInInspector, ReadOnly]
     public string Id
     {
-        get
-        {
-            return _config.Id;
-        }
+        get { return _config.Id; }
     }
 
+    [ShowInInspector, ReadOnly]
     public bool IsActive
     {
-        get
-        {
-            return _countdown.IsPlaying;
-        }
+        get { return _countdown.IsPlaying; }
     }
 
+    [ShowInInspector, ReadOnly]
     public float RemainingSeconds
     {
-        get
-        {
-            return _countdown.RemainingTime;
-        }
-        set
-        {
-            _countdown.RemainingTime = value;
-        }
+        get { return _countdown.RemainingTime; }
+        set { _countdown.RemainingTime = value; }
+    }
 
+    [ShowInInspector, ReadOnly]
+    public List<Reward> Rewards 
+    { 
+        get { return _rewards; }
     }
 
     public float DurationSeconds
     {
-        get
-        {
-            return _config.DurationSeconds;
-        }
+        get { return _config.DurationSeconds; }
     }
 
-    protected System.Random random = new System.Random();
+    public ChestConfig ChestConfig
+    {
+        get { return _config; }
+        set { _config = value; }
+    }
 
-    private readonly ChestConfig _config;
+    [Inject] private RewardSystem _rewardSystem;
+
+    private List<Reward> _rewards = new();
+    private ChestConfig _config;
+
     private readonly Countdown _countdown;
-    
+
 
     public Chest(ChestConfig chest, MonoBehaviour context)
     {
@@ -67,34 +71,39 @@ public abstract class Chest
         _countdown.OnEnded += OnEndTime;
         _countdown.OnTimeChanged += OnChangeTime;
 
-        OnStart();
         OnStarted?.Invoke(this);
 
         _countdown.Reset();
         _countdown.Play();
     }
 
+    public void Open()
+    {
+        Start();
+    }
+
     public void Stop()
     {
         _countdown.OnEnded -= OnEndTime;
         _countdown.OnTimeChanged -= OnChangeTime;
-        OnStop();
     }
 
-    public void Open()
+    public void GeneratingNewReward()
     {
-        OnOpen();
-        GeneratingNewReward();
-        Start();
+        _rewards.Clear();
+        var chestConfig = ChestConfig;
+
+        var numberRewards = UnityEngine.Random.Range(chestConfig.MinNumbersOfReward, chestConfig.MaxNumbersOfReward);
+
+        for (int i = 0; i < numberRewards; i++)
+        {
+            var newReward = new Reward();
+            newReward.RewardType = RewardType.MONEY;
+            newReward.Amount = UnityEngine.Random.Range(chestConfig.MinRewardAmount, chestConfig.MaxRewardAmount);
+
+            _rewards.Add(newReward);
+        }
     }
-
-    protected abstract void OnStart();
-
-    protected abstract void OnStop();
-
-    protected abstract void OnOpen();
-
-    protected abstract void GeneratingNewReward();
 
     private void OnChangeTime()
     {

@@ -1,17 +1,19 @@
 
 using UnityEngine;
+using Zenject;
 
-public class TimeShiftObserver_SyncChest : MonoBehaviour,  IConstructListener,
+public class TimeShiftObserver_SyncChest : MonoBehaviour, 
     IStartGameListener,
     IFinishGameListener
 {
-    private ChestManager _chestManager;
-    private TimeShiftEmitter _emitter;
+    [Inject] private ChestManager _chestManager;
+    [Inject] private TimeShiftEmitter _emitter;
 
-    public virtual void Construct(GameContext context)
-    {
-        _emitter = context.GetService<TimeShiftEmitter>();
-        _chestManager = context.GetService<ChestManager>();
+    [Inject]
+    public void Construct(ChestManager  chestManager, TimeShiftEmitter timeShiftEmitter)
+    {   
+        _chestManager= chestManager;
+        _emitter = timeShiftEmitter;
     }
 
     public void OnStartGame()

@@ -1,15 +1,22 @@
 using UnityEngine;
 using Zenject;
 
-public class ChestFactory : MonoInstaller
+public class ChestFactory
 {
-    [Inject] private MonoBehaviour _monoContext;
+    private DiContainer _container;
 
-    [Inject] private IGameContext _gameContext;
+    private MonoBehaviour _monoContext;
 
-    public Chest CreateChest(ChestConfig config, MonoBehaviour monoContext, IGameContext gameContext)
-    {   
-        var chest = config.InstatiateChest(monoContext, gameContext);
+    public ChestFactory(DiContainer diContainer)
+    {
+        _container = diContainer;
+
+        _monoContext = _container.Resolve<MonoBehaviour>();
+    }
+
+    public Chest CreateChest(ChestConfig config)
+    {
+        var chest = config.InstatiateChest(_monoContext);
         return chest;
     }
 }

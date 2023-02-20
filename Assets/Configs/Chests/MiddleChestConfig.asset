@@ -9,17 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a274801583bac449010d13362285a2, type: 3}
+  m_Script: {fileID: 11500000, guid: e1879af0d1f03bb48971fb2410e172db, type: 3}
   m_Name: MiddleChestConfig
   m_EditorClassIdentifier: 
   Id: MiddleChest
-  DurationSeconds: 5
-  Rewards:
-  - Amount: 10
-    RewardType: 0
-  - Amount: 20
-    RewardType: 0
-  - Amount: 30
-    RewardType: 0
-  MaxNumbersOfReward: 3
-  MinNumbersOfReward: 1
+  DurationSeconds: 10
+  Rewards: []
+  MaxNumbersOfReward: 4
+  MinNumbersOfReward: 2
+  MaxRewardAmount: 75
+  MinRewardAmount: 25

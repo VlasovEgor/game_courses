@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ChestCatalog
   m_EditorClassIdentifier: 
   _configs:
-  - {fileID: 11400000, guid: c41965caf9bef3845980f6184b2706c3, type: 2}
-  - {fileID: 11400000, guid: 1879946cfa6001c498b4d6af64bd85a3, type: 2}
   - {fileID: 11400000, guid: 1b6cba865ea7b6945baef4a5823b2825, type: 2}
+  - {fileID: 11400000, guid: 1879946cfa6001c498b4d6af64bd85a3, type: 2}
+  - {fileID: 11400000, guid: c41965caf9bef3845980f6184b2706c3, type: 2}
