@@ -73,7 +73,7 @@ public class ChestManager : IInitializable, IDisposable
         StopAllChests();
     }
 
-    public void StartAllChests()
+    private void StartAllChests()
     {
         foreach (var currentChest in _chests)
         {

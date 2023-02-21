@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class ChestSystemInstaller : MonoBehaviour, IInitGameListener
+public class ChestSystemInstaller : MonoBehaviour, IInitializable
 {
     [SerializeField] private ChestCatalog _chestCatalog;
 
@@ -21,11 +21,10 @@ public class ChestSystemInstaller : MonoBehaviour, IInitGameListener
         _factory = chestFactory;
     }
 
-    public void OnInitGame()
+    public void Initialize()
     {
         _manager.Construct(CreateChests());
         _chests = _manager.Chests;
-        _manager.StartAllChests();
     }
 
     public Chest[] CreateChests()

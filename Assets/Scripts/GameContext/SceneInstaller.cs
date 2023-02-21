@@ -24,7 +24,8 @@ public class SceneInstaller : MonoInstaller
         BindRealtimeManager();
         BindRealtimeRepository();
         BindTimeShiftEmitter();
-        BindChestManager();
+        BindChestSystemInstaller();
+        BindChestManager();    
     }
 
     public void BindInstallerInterfaces()
@@ -57,9 +58,9 @@ public class SceneInstaller : MonoInstaller
 
     private void BindChestSystemInstaller()
     {
-        Container.Bind<ChestSystemInstaller>().
-            FromInstance(_chestSystemInstaller).
-            AsSingle();
+        Container.Bind(typeof(ChestSystemInstaller), typeof(IInitializable)).
+            FromInstance(_chestSystemInstaller)
+           .AsSingle();
     }
 
     private void BindMoneyStorage()
