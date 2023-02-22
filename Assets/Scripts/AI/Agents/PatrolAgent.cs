@@ -12,7 +12,7 @@ public class PatrolAgent : Agent
 
     [ShowInInspector, ReadOnly] private float _stoppingTime = 0.2f;
 
-    [SerializeField] private Transform[] _targetsArray;
+    [SerializeField] private Transform[] _waypointsArray;
 
     private IGetPositionComponent _unitComponent;
 
@@ -33,9 +33,11 @@ public class PatrolAgent : Agent
     }
 
     [Button]
-    public void SetTargets(Transform[] targets)
+    public void SetWaypoints(Transform[] waypoints)
     {
-        _targetsArray = targets;
+        _waypointsArray = waypoints;
+        _counter = 0;
+        _indexArray = 0;
     }
 
     [Button]
@@ -74,10 +76,12 @@ public class PatrolAgent : Agent
 
         while (true)
         {
-            if (_targetsArray != null && _unitComponent != null)
+            if (_waypointsArray != null && _unitComponent != null)
             {
-                _moveAgent.SetTargetPosiiton(_targetsArray[_indexArray]);
-                UpdateBehaviour(_unitComponent.GetPosition(), _targetsArray[_indexArray].position);
+                var currentPoint = _waypointsArray[_indexArray];
+                _moveAgent.SetTargetPosiiton(currentPoint);
+
+                yield return UpdateBehaviour(_unitComponent.GetPosition(), _waypointsArray[_indexArray].position);
             }
             else
             {
@@ -88,7 +92,7 @@ public class PatrolAgent : Agent
         }
     }
 
-    private void UpdateBehaviour(Vector3 unitPosiiton, Vector3 targetPosition)
+    private IEnumerator UpdateBehaviour(Vector3 unitPosiiton, Vector3 targetPosition)
     {
         var distance = unitPosiiton - targetPosition;
         var distanceReached = distance.sqrMagnitude < _stoppingDistance * _stoppingDistance;
@@ -96,41 +100,19 @@ public class PatrolAgent : Agent
         if (distanceReached == true && _moveAgent.IsPlaying == true)
         {
             _moveAgent.Stop();
-            StartCoroutine(StoppingRoutine());
+
+            yield return new WaitForSeconds(_stoppingTime);
+
+            SetNewTargetPointIndex();
+            _moveAgent.Play();
+
         }
-       // else
-       // {
-       //     if (_moveAgent.IsPlaying == false)
-       //     {
-       //         _moveAgent.Play();
-       //     } 
-       // }
-
-    }
-
-    private IEnumerator StoppingRoutine()
-    {
-        yield return new WaitForSeconds(_stoppingTime);
-        StopIsOver();
-        
-    }
-
-    private void StopIsOver()
-    {
-        SetNewTargetPointIndex();
-        _moveAgent.Play();
     }
 
     private void SetNewTargetPointIndex()
     {
         _counter++;
         
-        _indexArray = _counter / _targetsArray.Length;
-
-        if (_indexArray == _targetsArray.Length)
-        {
-            _indexArray = 0;
-            _counter = 0;
-        }
+        _indexArray = _counter % _waypointsArray.Length;
     }
 }
