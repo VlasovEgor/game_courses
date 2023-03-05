@@ -13,18 +13,18 @@ public class CharacterMediator
     {
         _characterRepository.TryLoadStats(out CharacterData data, id);
         
-        IEntity character = context.GetService<PlayersGroup>().FindPlayer(id).GetEntity();
+       // IEntity character = context.GetService<PlayersGroup>().FindPlayer(id).GetEntity();
 
-        _characterConverter.SetupStats(character, data);
+       // _characterConverter.SetupStats(character, data);
         
     }
 
 
     public void SaveData(IGameContext context, int id)
     {
-        IEntity character = context.GetService<PlayersGroup>().FindPlayer(id).GetEntity();
-        var data = _characterConverter.ConvertToData(character);
+        //IEntity character = context.GetService<PlayersGroup>().FindPlayer(id).GetEntity();
+       // var data = _characterConverter.ConvertToData(character);
        
-        _characterRepository.SaveStats(data,id);
+        //_characterRepository.SaveStats(data,id);
     }
 } 

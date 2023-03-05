@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using UnityEngine;
 using Zenject;
 
-public class RewardSystem : MonoBehaviour
+public class RewardSystem
 {
     [Inject] private MoneyStorage _moneyStorage;
 

@@ -1,16 +1,18 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
-public class FactoryShower : MonoBehaviour, IConstructListener
+public class FactoryShower : MonoBehaviour
 {
     private PopupManager _popupManager;
     private FactoryPresentationModelFactory _presenerFactory;
 
-    public void Construct(GameContext context)
-    {
-        _presenerFactory = context.GetService<FactoryPresentationModelFactory>();
-        _popupManager = context.GetService<PopupManager>();
-    }
+   // [Inject]
+   // public void Construct(FactoryPresentationModelFactory factoryPresentationModelFactory, PopupManager popupManager)
+   // {
+   //     _presenerFactory = factoryPresentationModelFactory;
+   //     _popupManager = popupManager;
+   // }
 
     [Button]
     public void ShowWarehouse()

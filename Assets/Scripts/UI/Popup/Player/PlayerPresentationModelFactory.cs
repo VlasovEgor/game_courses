@@ -7,8 +7,8 @@ public class PlayerPresentationModelFactory : MonoBehaviour, IConstructListener
 
     public void Construct(GameContext context)
     {
-        _playerUpgrader = context.GetService<PlayerUpgrader>();
-        _moneyStorage = context.GetService<MoneyStorage>();
+       // _playerUpgrader = context.GetService<PlayerUpgrader>();
+       // _moneyStorage = context.GetService<MoneyStorage>();
     }
 
     public PlayerPresentationModel CreatePresenter(PlayerInfo player)

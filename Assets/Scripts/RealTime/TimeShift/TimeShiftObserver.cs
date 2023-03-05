@@ -1,15 +1,16 @@
 using UnityEngine;
+using Zenject;
 
 public abstract class TimeShiftObserver : MonoBehaviour,
-    IConstructListener,
     IStartGameListener,
     IFinishGameListener
 {
     private TimeShiftEmitter _emitter;
 
-    public virtual void Construct(GameContext context)
+    [Inject]
+    public virtual void Construct(TimeShiftEmitter timeShiftEmitter)
     {
-        _emitter = context.GetService<TimeShiftEmitter>();
+        _emitter = timeShiftEmitter;
     }
 
     public void OnStartGame()

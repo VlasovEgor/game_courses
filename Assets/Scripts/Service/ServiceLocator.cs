@@ -16,19 +16,4 @@ public static class ServiceLocator
     {
         instance = context;
     }
-
-    public static T GetService<T>()
-    {
-        return instance.GetService<T>();
-    }
-
-    public static void AddService(object service)
-    {
-        instance.AddService(service);
-    }
-
-    public static void RemoveService(object service)
-    {
-        instance.RemoveService(service);
-    }
 }

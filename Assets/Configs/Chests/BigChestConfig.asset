@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: BigChestConfig
   m_EditorClassIdentifier: 
   Id: BigChest
-  DurationSeconds: 20
-  Rewards: []
+  DurationSeconds: 100
   MaxNumbersOfReward: 6
   MinNumbersOfReward: 4
   MaxRewardAmount: 100

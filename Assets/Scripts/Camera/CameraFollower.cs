@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class CameraFollower : MonoBehaviour, IConstructListener, IStartGameListener, IFinishGameListener
+public class CameraFollower : MonoBehaviour, IStartGameListener, IFinishGameListener
 {
     private Transform _targetCamera;
     private IGetPositionComponent _PositionComponent;
@@ -16,10 +16,11 @@ public class CameraFollower : MonoBehaviour, IConstructListener, IStartGameListe
         _targetCamera.position = _PositionComponent.GetPosition();
     }
 
-    public void Construct(GameContext context)
+    [Inject]
+    public void Construct(CameraService cameraService, CharacterService characterService)
     {
-        _targetCamera = context.GetService<CameraService>().CameraTransfrom;
-        _PositionComponent = context.GetService<CharacterService>().GetCharacter().Get<IGetPositionComponent>();
+        _targetCamera = cameraService.CameraTransfrom;
+        _PositionComponent = characterService.GetCharacter().Get<IGetPositionComponent>();
     }
 
     public void OnStartGame()

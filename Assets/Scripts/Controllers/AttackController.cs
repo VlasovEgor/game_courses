@@ -1,14 +1,16 @@
 using UnityEngine;
+using Zenject;
 
-public class AttackController : MonoBehaviour, IConstructListener, IStartGameListener, IFinishGameListener
+public class AttackController : MonoBehaviour, IStartGameListener, IFinishGameListener
 {
     private IShotComponent _shotComponent;
     private ManipulatorsInput _manipulatorsInput;
 
-    public void Construct(GameContext context)
+    [Inject]
+    public void Construct(ManipulatorsInput manipulatorsInput, CharacterService characterService)
     {
-        _manipulatorsInput = context.GetService<ManipulatorsInput>();
-        _shotComponent = context.GetService<CharacterService>().GetCharacter().Get<IShotComponent>();
+        _manipulatorsInput = manipulatorsInput;
+        _shotComponent = characterService.GetCharacter().Get<IShotComponent>();
     }
     public void OnStartGame()
     {

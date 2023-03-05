@@ -1,37 +1,12 @@
 using Sirenix.OdinInspector;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class GameContext : MonoBehaviour, IGameContext
 {
 
     [ReadOnly] [ShowInInspector] private List<object> _listeners = new List<object>();
-
-    private readonly List<object> _services = new();
-
-    public T GetService<T>()
-    {
-        foreach (var service in _services)
-        {
-            if (service is T result)
-            {
-                return result;
-            } 
-        }
-
-        throw new Exception($"Service of type {typeof(T).Name} is not found");
-    }
-
-    public void AddService(object sercvice)
-    {
-        _services.Add(sercvice);
-    }
-
-    public void RemoveService(object sercvice)
-    {
-        _services.Remove(sercvice);
-    }
 
     public void AddListener(object listener)
     {

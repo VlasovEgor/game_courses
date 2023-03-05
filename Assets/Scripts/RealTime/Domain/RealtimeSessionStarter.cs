@@ -6,7 +6,6 @@ using Zenject;
 public sealed class RealtimeSessionStarter
 {
     [Inject] private RealtimeManager _realtimeManager;
-
     [Inject] private RealtimeRepository _repository;
 
     public async Task StartSessionAsync()

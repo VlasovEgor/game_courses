@@ -7,7 +7,7 @@ public sealed class ProductBuyer : MonoBehaviour, IConstructListener
 
     void IConstructListener.Construct(GameContext context)
     {
-        moneyStorage = context.GetService<MoneyStorage>();
+       // moneyStorage = context.GetService<MoneyStorage>();
     }
 
     [Button]

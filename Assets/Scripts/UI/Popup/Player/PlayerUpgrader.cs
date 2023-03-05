@@ -10,7 +10,7 @@ public class PlayerUpgrader : MonoBehaviour, IConstructListener
 
     void IConstructListener.Construct(GameContext context)
     {
-        _moneyStorage = context.GetService<MoneyStorage>();
+       // _moneyStorage = context.GetService<MoneyStorage>();
     }
 
     [Button]

@@ -7,8 +7,8 @@ public class ProductPresentationModelFactory : MonoBehaviour,IConstructListener
 
     public void Construct(GameContext context)
     {
-        _productBuyer = context.GetService<ProductBuyer>();
-        _moneyStorage = context.GetService<MoneyStorage>();
+        //_productBuyer = context.GetService<ProductBuyer>();
+        //_moneyStorage = context.GetService<MoneyStorage>();
     }
 
     public ProductPresentationModel CreatePresenter(ProductInfo product)

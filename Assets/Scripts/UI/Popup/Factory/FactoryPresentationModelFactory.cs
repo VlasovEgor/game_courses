@@ -8,7 +8,7 @@ public class FactoryPresentationModelFactory : MonoBehaviour,IConstructListener
 
     public void Construct(GameContext context)
     {
-        _objectCreator = context.GetService<ObjectCreator>();
+        //_objectCreator = context.GetService<ObjectCreator>();
         //_conveyorComponent = context.GetService<IConveyorComponent>();
         //_workComponent=context.GetService<WorkComponent>();
     }

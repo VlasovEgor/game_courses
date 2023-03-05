@@ -7,7 +7,7 @@ public class WarehousePresentationModelFactory : MonoBehaviour,IConstructListene
 
     public void Construct(GameContext context)
     {
-        _warehouseAdder = context.GetService<WarehouseAdder>();
+        //_warehouseAdder = context.GetService<WarehouseAdder>();
         //_warehouseComponent= context.GetService<IWarehouseComponent>();
     }
 

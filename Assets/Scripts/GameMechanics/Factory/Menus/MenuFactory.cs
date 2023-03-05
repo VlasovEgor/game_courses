@@ -1,6 +1,7 @@
 using UnityEngine;
+using Zenject;
 
-public class MenuFactory : MonoBehaviour,IConstructListener
+public class MenuFactory : MonoBehaviour
 {
     [SerializeField] private EventReceiver_Trigger _platformTrigger;
 
@@ -16,9 +17,10 @@ public class MenuFactory : MonoBehaviour,IConstructListener
         _platformTrigger.OnTriggerEntered -= OnTriggerEntered;
     }
 
-    public void Construct(GameContext context)
+    [Inject]
+    public void Construct(FactoryShower factoryShower)
     {
-        _factoryShower = context.GetService<FactoryShower>();
+        _factoryShower = factoryShower;
     }
 
     private void OnTriggerEntered(Collider obj)

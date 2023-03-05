@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: SmallChestConfig
   m_EditorClassIdentifier: 
   Id: SmallChest
-  DurationSeconds: 5
-  Rewards: []
+  DurationSeconds: 30
   MaxNumbersOfReward: 3
   MinNumbersOfReward: 1
   MaxRewardAmount: 50

@@ -6,7 +6,7 @@ public class IngredientPresentationModelFactory : MonoBehaviour, IConstructListe
 
     public void Construct(GameContext context)
     {
-        _ingredientAdder = context.GetService<IngredientAdder>();
+        //_ingredientAdder = context.GetService<IngredientAdder>();
     }
 
     public IngredientPresentationModel CreatePresenter(StorageComponent storage)

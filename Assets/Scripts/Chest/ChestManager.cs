@@ -14,18 +14,26 @@ public class ChestManager : IInitializable, IDisposable
     public event Action<Chest> OnChestFinished;
 
     [Inject] private RewardSystem _rewardSystem;
-
-    public Dictionary<string, Chest> Chests
-    {
-        get { return _chests; }
-    }
+    [Inject] private ChestRewardGenerator _chestRewardGenerator;
 
     [PropertySpace(8), ReadOnly, ShowInInspector] 
     private Dictionary<string, Chest> _chests = new();
 
-    public void Construct(Chest[] chests)
+    public void Setup(List<Chest> chests)
     {
         _chests = chests.ToDictionary(it => it.Id);
+    }
+
+    public List<Chest> GetAllChests()
+    {
+        var activeChests = new List<Chest>();
+
+        foreach (var currentChest in _chests)
+        {
+            activeChests.Add(currentChest.Value);
+        }
+
+        return activeChests;
     }
 
     public List<Chest> GetActiveChests()
@@ -46,64 +54,60 @@ public class ChestManager : IInitializable, IDisposable
 
     public void OpenChest(string chestId)
     {
-        if (_chests[chestId].IsActive == true)
+        var currentChest = _chests[chestId];
+
+        if (currentChest.IsActive == true)
         {
             Debug.Log("≈Ÿ® –¿ÕŒ Œ“ –€¬¿“‹");
         }
         else
         {
-            _chests[chestId].Open();
-            ReceivingReward(_chests[chestId].Rewards);
-            _chests[chestId].GeneratingNewReward();
+            var rewards = _chestRewardGenerator.GenerateRewards(currentChest);
+            _rewardSystem.AccrueReward(rewards);
+            currentChest.Start();
         }
     }
 
-    private void ReceivingReward(List<Reward> rewards)
-    {
-        _rewardSystem.AccrueReward(rewards);
-    }
-
-    public void Initialize()
+    void IInitializable.Initialize()
     {
         StartAllChests();
     }
 
-    public void Dispose()
+    void IDisposable.Dispose()
     {
         StopAllChests();
     }
 
     private void StartAllChests()
     {
-        foreach (var currentChest in _chests)
+        foreach (var keyValue in _chests)
         {
-
-            if (currentChest.Value.IsActive == true)
+            var currentChest = keyValue.Value;
+            if (currentChest.IsActive == true)
             {
                 continue;
             }
 
-            currentChest.Value.GeneratingNewReward();
+            currentChest.Start();
 
-            currentChest.Value.Start();
-
-            OnChestStarted?.Invoke(currentChest.Value);
-            OnChestLaunched?.Invoke(currentChest.Value);
+            OnChestStarted?.Invoke(currentChest);
+            OnChestLaunched?.Invoke(currentChest);
         }
     }
 
     private void StopAllChests()
     {
-        foreach (var currentChest in _chests)
+        foreach (var keyValue in _chests)
         {
+            var currentChest = keyValue.Value;
 
-            if (currentChest.Value.IsActive == false)
+            if (currentChest.IsActive == false)
             {
                 continue;
             }
 
-            currentChest.Value.OnCompleted -= OnEndChest;
-            currentChest.Value.Stop();
+            currentChest.OnCompleted -= OnEndChest;
+            currentChest.Stop();
         }
     }
 

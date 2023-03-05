@@ -1,14 +1,16 @@
 using UnityEngine;
+using Zenject;
 
-public class MoneyPanelAdapter : MonoBehaviour,IConstructListener,IStartGameListener,IFinishGameListener
+public class MoneyPanelAdapter : MonoBehaviour,IStartGameListener,IFinishGameListener
 {
     [SerializeField] private MoneyPanel _moneyPanel;
 
     private MoneyStorage _moneyStorage;
-    
-    public void Construct(GameContext context)
+
+    [Inject]
+    public void Construct(MoneyStorage moneyStorage)
     {
-        _moneyStorage = context.GetService<MoneyStorage>();
+        _moneyStorage = moneyStorage;
         _moneyPanel.SetupMoney(_moneyStorage.Money.ToString());
     }
 

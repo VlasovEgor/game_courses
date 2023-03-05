@@ -17,9 +17,9 @@ public class UpgradeListPresenter : MonoBehaviour, IConstructListener
 
     public void Construct(GameContext context)
     {
-        _upgradesManager = context.GetService<UpgradesManager>();
-        _moneyStorage = context.GetService<MoneyStorage>();
-        _context = context;
+       // _upgradesManager = context.GetService<UpgradesManager>();
+       // _moneyStorage = context.GetService<MoneyStorage>();
+       // _context = context;
     }
 
 

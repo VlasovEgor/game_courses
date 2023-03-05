@@ -1,27 +1,19 @@
+using System;
 using UnityEngine;
 using Zenject;
 
-public sealed class RealtimeSynchronizer : MonoBehaviour,  
-        IAppStartListener,
-        IAppStopListener,
-        IGameLoadDataListener
+public sealed class RealtimeSynchronizer : IInitializable, IDisposable
 {
     [Inject] private RealtimeManager _realtimeManager;
+    [Inject] private TimeShiftEmitter _timeShiftEmitter;
 
-    private TimeShiftEmitter _timeShiftEmitter;
-
-    public void OnLoadData(GameContext gameContext)
-    {
-        _timeShiftEmitter = gameContext.GetService<TimeShiftEmitter>();
-    }
-
-    void IAppStartListener.Start()
+    public void Initialize()
     {
         _realtimeManager.OnStarted += OnSessionStarted;
         _realtimeManager.OnResumed += OnSessionResumed;
     }
 
-    void IAppStopListener.Stop()
+    public void Dispose()
     {
         _realtimeManager.OnStarted -= OnSessionStarted;
         _realtimeManager.OnResumed -= OnSessionResumed;

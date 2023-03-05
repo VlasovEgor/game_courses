@@ -18,10 +18,10 @@ public class UpgradesSystemInstaller : MonoBehaviour, IConstructListener
 
     public void Construct(GameContext context)
     {
-        var moneyStorage = context.GetService<MoneyStorage>();
-        _upgradesManager.Construct(moneyStorage);
-        _upgradesManager.Setup(_upgrades);
-        context.AddService(_upgradesManager);
+      //  var moneyStorage = context.GetService<MoneyStorage>();
+      //  _upgradesManager.Construct(moneyStorage);
+      //  _upgradesManager.Setup(_upgrades);
+      //  context.AddService(_upgradesManager);
     }
 
     private void CreateUpgrades()

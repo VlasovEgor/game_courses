@@ -8,8 +8,8 @@ public class PlayerShower : MonoBehaviour, IConstructListener
 
     public void Construct(GameContext context)
     {
-        _presenerFactory = context.GetService<PlayerPresentationModelFactory>();
-        _popupManager = context.GetService<PopupManager>();
+        //_presenerFactory = context.GetService<PlayerPresentationModelFactory>();
+        //_popupManager = context.GetService<PopupManager>();
     }
 
     [Button]

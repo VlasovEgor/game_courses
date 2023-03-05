@@ -3,42 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class ChestSystemInstaller : MonoBehaviour, IInitializable
+public class ChestSystemInstaller : MonoInstaller
 {
     [SerializeField] private ChestCatalog _chestCatalog;
 
-    [ShowInInspector, ReadOnly]
-    private Dictionary<string, Chest> _chests;
-
+    [ShowInInspector]
     private ChestManager _manager;
-    private ChestFactory _factory;
 
+    private Chest.Factory _chestFactory;
 
-    [Inject]
-    public void Construct(ChestManager chestManager, ChestFactory chestFactory)
+    public override void InstallBindings()
     {
-        _manager = chestManager;
-        _factory = chestFactory;
+        BindChestManager();
+        BindChestFactory();
+        CreateChests();
+        BindChestsMediator();
+        SetupTMP();
     }
 
-    public void Initialize()
+    private void BindChestManager()
     {
-        _manager.Construct(CreateChests());
-        _chests = _manager.Chests;
+        _manager = Container.Instantiate<ChestManager>();
+
+         Container.BindInterfacesAndSelfTo<ChestManager>().
+            FromInstance(_manager).
+            AsSingle().
+            NonLazy();
     }
 
-    public Chest[] CreateChests()
+    private void BindChestFactory()
+    {
+        Container.BindFactory<ChestConfig, Chest, Chest.Factory>();
+        _chestFactory = Container.Resolve<Chest.Factory>();
+    }
+
+    private void BindChestsMediator()
+    {
+        Container.BindInterfacesAndSelfTo<ChestsMediator>().
+            AsSingle().
+            NonLazy();
+    }
+
+    [Button]
+    public void SetupTMP()
+    {
+        if (_manager.GetAllChests().Count == 0)
+        {
+            _manager.Setup(CreateChests());
+        }
+    }
+
+    public List<Chest> CreateChests()
     {
         var chestConfigs = _chestCatalog.GetAllChests();
-        var chestsArray = new Chest[chestConfigs.Length];
+        var chestList = new List<Chest>();
 
-        for (int i = 0; i < chestsArray.Length; i++)
+        for (int i = 0; i < chestConfigs.Length; i++)
         {
-            var chest = _factory.CreateChest(chestConfigs[i]);
-            chestsArray[i] = chest;
+            var chest = _chestFactory.Create(chestConfigs[i]);
+            chestList.Add(chest);
         }
 
-        return chestsArray;
+        return chestList;
     }
 
     [Button]

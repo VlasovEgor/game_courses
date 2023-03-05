@@ -22,7 +22,7 @@ public class LoadPlatformUpgrade : Upgrade,IConstructListener
 
     public void Construct(GameContext context)
     {
-        _factory=context.GetService<IEntity>().Get<Storages>();
+       // _factory=context.GetService<IEntity>().Get<Storages>();
         OnUpgrade(Level);
     }
 

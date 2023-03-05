@@ -1,21 +1,19 @@
+using System;
+using UnityEngine;
 using Zenject;
 
-public sealed class RealtimeSessionSaver :
-    IAppStartListener,
-    IAppStopListener
+public sealed class RealtimeSessionSaver: IInitializable , IDisposable
 {
-
     [Inject] private RealtimeRepository _repository;
-
     [Inject] private RealtimeManager _realtimeManager;
 
-    void IAppStartListener.Start()
+    public void Initialize()
     {
         _realtimeManager.OnPaused += SaveSession;
         _realtimeManager.OnEnded += SaveSession;
     }
 
-    void IAppStopListener.Stop()
+    public void Dispose()
     {
         _realtimeManager.OnPaused -= SaveSession;
         _realtimeManager.OnEnded -= SaveSession;

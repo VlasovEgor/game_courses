@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: MiddleChestConfig
   m_EditorClassIdentifier: 
   Id: MiddleChest
-  DurationSeconds: 10
-  Rewards: []
+  DurationSeconds: 50
   MaxNumbersOfReward: 4
   MinNumbersOfReward: 2
   MaxRewardAmount: 75

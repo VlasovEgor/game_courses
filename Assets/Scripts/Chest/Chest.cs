@@ -30,12 +30,6 @@ public class Chest
         set { _countdown.RemainingTime = value; }
     }
 
-    [ShowInInspector, ReadOnly]
-    public List<Reward> Rewards 
-    { 
-        get { return _rewards; }
-    }
-
     public float DurationSeconds
     {
         get { return _config.DurationSeconds; }
@@ -44,13 +38,9 @@ public class Chest
     public ChestConfig ChestConfig
     {
         get { return _config; }
-        set { _config = value; }
     }
 
-    [Inject] private RewardSystem _rewardSystem;
-
-    private List<Reward> _rewards = new();
-    private ChestConfig _config;
+    private readonly ChestConfig _config;
 
     private readonly Countdown _countdown;
 
@@ -77,32 +67,10 @@ public class Chest
         _countdown.Play();
     }
 
-    public void Open()
-    {
-        Start();
-    }
-
     public void Stop()
     {
         _countdown.OnEnded -= OnEndTime;
         _countdown.OnTimeChanged -= OnChangeTime;
-    }
-
-    public void GeneratingNewReward()
-    {
-        _rewards.Clear();
-        var chestConfig = ChestConfig;
-
-        var numberRewards = UnityEngine.Random.Range(chestConfig.MinNumbersOfReward, chestConfig.MaxNumbersOfReward);
-
-        for (int i = 0; i < numberRewards; i++)
-        {
-            var newReward = new Reward();
-            newReward.RewardType = RewardType.MONEY;
-            newReward.Amount = UnityEngine.Random.Range(chestConfig.MinRewardAmount, chestConfig.MaxRewardAmount);
-
-            _rewards.Add(newReward);
-        }
     }
 
     private void OnChangeTime()
@@ -117,4 +85,8 @@ public class Chest
 
         OnCompleted?.Invoke(this);
     }
+
+    public class Factory : PlaceholderFactory<ChestConfig, Chest>
+    { }
+
 }

@@ -1,14 +1,16 @@
 using UnityEngine;
+using Zenject;
 
-public class MoveController : MonoBehaviour,  IConstructListener, IStartGameListener, IFinishGameListener
+public class MoveController : MonoBehaviour, IStartGameListener, IFinishGameListener
 {
     private IMovingComponent _movingComponent;
     private ManipulatorsInput _manipulatorsInput;
 
-    public void Construct(GameContext context)
+    [Inject]
+    public void Construct(ManipulatorsInput manipulatorsInput, CharacterService characterService)
     {
-        _manipulatorsInput = context.GetService<ManipulatorsInput>();
-        _movingComponent = context.GetService<CharacterService>().GetCharacter().Get<IMovingComponent>();
+        _manipulatorsInput = manipulatorsInput;
+        _movingComponent = characterService.GetCharacter().Get<IMovingComponent>();
     }
 
     public void OnStartGame()

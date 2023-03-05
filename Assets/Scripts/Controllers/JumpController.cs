@@ -1,14 +1,16 @@
 using UnityEngine;
+using Zenject;
 
-public class JumpController : MonoBehaviour, IConstructListener, IStartGameListener, IFinishGameListener
+public class JumpController : MonoBehaviour, IStartGameListener, IFinishGameListener
 {
     private IJumpComponent _jumpComponent;
     private ManipulatorsInput _manipulatorsInput;
 
-    public void Construct(GameContext context)
+    [Inject]
+    public void Construct(ManipulatorsInput manipulatorsInput, CharacterService characterService)
     {
-        _manipulatorsInput = context.GetService<ManipulatorsInput>();
-        _jumpComponent = context.GetService<CharacterService>().GetCharacter().Get<IJumpComponent>();
+        _manipulatorsInput = manipulatorsInput;
+        _jumpComponent = characterService.GetCharacter().Get<IJumpComponent>();
     }
 
     public void OnStartGame()

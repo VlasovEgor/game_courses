@@ -8,8 +8,8 @@ public class IngredientShower : MonoBehaviour,IConstructListener
 
     public void Construct(GameContext context)
     {
-        _presenerFactory = context.GetService<IngredientPresentationModelFactory>();
-        _popupManager = context.GetService<PopupManager>();
+        //_presenerFactory = context.GetService<IngredientPresentationModelFactory>();
+        //_popupManager = context.GetService<PopupManager>();
     }
 
     [Button]

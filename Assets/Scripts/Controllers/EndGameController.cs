@@ -1,14 +1,16 @@
 using UnityEngine;
+using Zenject;
 
-public class EndGameController : MonoBehaviour, IConstructListener,IStartGameListener,IFinishGameListener
+public class EndGameController : MonoBehaviour, IStartGameListener, IFinishGameListener
 {
-    private GameContext _context;
+    private IGameContext _context;
     private ITriggerComponent _playerComponent;
 
-    public void Construct(GameContext context)
+    [Inject]
+    public void Construct(IGameContext gameContext,CharacterService characterService)
     {
-        _context = context;
-        _playerComponent = _context.GetService<CharacterService>().GetCharacter().Get<ITriggerComponent>();
+        _context = gameContext;
+        _playerComponent = characterService.GetCharacter().Get<ITriggerComponent>();
     }
 
     public void OnStartGame()

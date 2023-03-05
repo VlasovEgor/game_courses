@@ -1,6 +1,7 @@
 using UnityEngine;
+using Zenject;
 
-public class MenuWarehouse : MonoBehaviour,IConstructListener
+public class MenuWarehouse : MonoBehaviour
 {
 
     [SerializeField] private EventReceiver_Trigger _platformTrigger;
@@ -17,9 +18,10 @@ public class MenuWarehouse : MonoBehaviour,IConstructListener
         _platformTrigger.OnTriggerEntered -= OnTriggerEntered;
     }
 
-    public void Construct(GameContext context)
+    [Inject]
+    public void Construct(WarehouseShower warehouseShower)
     {
-        _warehouseShower = context.GetService<WarehouseShower>();
+        _warehouseShower = warehouseShower;
     }
 
     private void OnTriggerEntered(Collider obj)

@@ -28,7 +28,7 @@ public class CreationSpeedUpgrade : Upgrade, IConstructListener
 
     public void Construct(GameContext context)
     {
-        _conveyor = context.GetService<IEntity>().Get<IEntity>();
+       // _conveyor = context.GetService<IEntity>().Get<IEntity>();
         OnUpgrade(Level);
     }
 
