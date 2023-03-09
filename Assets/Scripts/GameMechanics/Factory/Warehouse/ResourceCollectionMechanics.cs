@@ -4,7 +4,7 @@ using UnityEngine;
 public class ResourceCollectionMechanics : MonoBehaviour
 {
     [SerializeField] private Warehouse _warehouse;
-    [SerializeField] private ConveyorService _conveyorService;
+    [SerializeField] private Conveyor _conveyorService;
 
     private IFactoryStoragesComponent _storagesComponent;
 

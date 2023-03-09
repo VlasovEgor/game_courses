@@ -7,11 +7,11 @@ public struct SerializedConveyorData
 
     [SerializeField] public string ID;
 
-    [SerializeField] public ConveyorService ConveyorService;
+    [SerializeField] public Conveyor Conveyor;
 
-    public SerializedConveyorData(string id, ConveyorService conveyorService)
+    public SerializedConveyorData(string id, Conveyor conveyorService)
     {
        ID = id;
-       ConveyorService = conveyorService;
+       Conveyor = conveyorService;
     }
 }

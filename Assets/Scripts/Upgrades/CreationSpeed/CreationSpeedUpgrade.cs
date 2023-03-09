@@ -25,7 +25,7 @@ public class CreationSpeedUpgrade : Upgrade
     public CreationSpeedUpgrade(CreationSpeedUpgradeConfig config, GameContext gameContext) : base(config)
     {
         _upgradeConfig = config;
-        _conveyorList = gameContext.GetService<ConveyorCatalog>().ConveyorList;
+        _conveyorList = gameContext.GetService<ConveyorCatalog>().GetAllConveyorsData();
         OnUpgrade(Level);
     }
 
@@ -35,7 +35,8 @@ public class CreationSpeedUpgrade : Upgrade
         {
             if (_conveyorList[i].ID == _upgradeConfig.FactoryId)
             {
-                var timeMultiplicationComponent = _conveyorList[i].ConveyorService.Get<ITimeMultiplicationComponent>();
+                Debug.Log(_conveyorList.Count);
+                var timeMultiplicationComponent = _conveyorList[i].Conveyor.Get<ITimeMultiplicationComponent>();
                 var amount = _upgradeConfig.CreationSpeedTable.GetAmount(level);
                 timeMultiplicationComponent.SetMultiplier(amount);
             }

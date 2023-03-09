@@ -21,7 +21,7 @@ public class UnloadPlatformUpgrade : Upgrade
     public UnloadPlatformUpgrade(UnloadPlatformUpgradeConfig config, GameContext gameContext) : base(config)
     {
         _upgradeConfig = config;
-        _conveyorList = gameContext.GetService<ConveyorCatalog>().ConveyorList;
+        _conveyorList = gameContext.GetService<ConveyorCatalog>().GetAllConveyorsData();
         OnUpgrade(Level);
     }
 
@@ -31,7 +31,7 @@ public class UnloadPlatformUpgrade : Upgrade
         {
             if (_conveyorList[i].ID == _upgradeConfig.FactoryId)
             {   
-                var unloadZoneComponent = _conveyorList[i].ConveyorService.Get<IUnloadZoneComponent>();
+                var unloadZoneComponent = _conveyorList[i].Conveyor.Get<IUnloadZoneComponent>();
                 var amount = _upgradeConfig.PlatformTable.GetAmount(level);
                 unloadZoneComponent.MaxValue = amount;
             }

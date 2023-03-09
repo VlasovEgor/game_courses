@@ -7417,7 +7417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _warehouse: {fileID: 1348682716}
-  _conveyorService: {fileID: 1193103997}
+  _conveyorService: {fileID: 1193103999}
 --- !u!1 &391051498
 GameObject:
   m_ObjectHideFlags: 0
@@ -11656,50 +11656,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634947762}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &638404780
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 638404782}
-  - component: {fileID: 638404781}
-  m_Layer: 0
-  m_Name: FactoryTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &638404781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638404780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e09d539ca798c44ba73b633aef8361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &638404782
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638404780}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.025019, y: -5.805885, z: 8.852682}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641564315
 GameObject:
   m_ObjectHideFlags: 0
@@ -16891,7 +16847,7 @@ Transform:
   m_Children:
   - {fileID: 1709149973}
   - {fileID: 123049933}
-  - {fileID: 1041310318}
+  - {fileID: 1846878167}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18206,51 +18162,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975734939}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &978058217
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 978058219}
-  - component: {fileID: 978058218}
-  m_Layer: 0
-  m_Name: ConveyorTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &978058218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978058217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a56d32b61266dbd4c8d6143d951e1bdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _conveyor: {fileID: 2055707174}
---- !u!4 &978058219
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978058217}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9201151, y: -2.900511, z: 0.2946396}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &983804015
 GameObject:
   m_ObjectHideFlags: 0
@@ -19204,37 +19115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _platformTrigger: {fileID: 799905350}
---- !u!1 &1041310317
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1041310318}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1041310318
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041310317}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 899469369}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1045388146
 GameObject:
   m_ObjectHideFlags: 0
@@ -20938,7 +20818,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1162789199}
-  - component: {fileID: 1162789198}
+  - component: {fileID: 1162789200}
   - component: {fileID: 1162789197}
   m_Layer: 0
   m_Name: Conveyor (2)
@@ -20959,25 +20839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8115f4f821a8df641aafd02daa226852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1162789198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162789195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3a1cbdde9651c4ba5ecbdfc1cdef4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 777809271}
-  - {fileID: 331622626}
-  - {fileID: 1500763347}
-  - {fileID: 1650912057}
-  - {fileID: 790369741}
-  - {fileID: 2138606291}
 --- !u!4 &1162789199
 Transform:
   m_ObjectHideFlags: 0
@@ -20997,6 +20858,25 @@ Transform:
   m_Father: {fileID: 1555538256}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1162789200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162789195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6dbf7821c65c345935b4792674eb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 777809271}
+  - {fileID: 331622626}
+  - {fileID: 1500763347}
+  - {fileID: 1650912057}
+  - {fileID: 790369741}
+  - {fileID: 2138606291}
 --- !u!1 &1169452634
 GameObject:
   m_ObjectHideFlags: 0
@@ -21471,7 +21351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1193103998}
-  - component: {fileID: 1193103997}
+  - component: {fileID: 1193103999}
   - component: {fileID: 1193103996}
   m_Layer: 0
   m_Name: Conveyor (3)
@@ -21492,25 +21372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8115f4f821a8df641aafd02daa226852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1193103997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193103994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3a1cbdde9651c4ba5ecbdfc1cdef4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 1689768688}
-  - {fileID: 1446230136}
-  - {fileID: 558076406}
-  - {fileID: 1769886438}
-  - {fileID: 864341385}
-  - {fileID: 1138848411}
 --- !u!4 &1193103998
 Transform:
   m_ObjectHideFlags: 0
@@ -21530,6 +21391,25 @@ Transform:
   m_Father: {fileID: 1555538256}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1193103999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193103994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6dbf7821c65c345935b4792674eb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 1689768688}
+  - {fileID: 1446230136}
+  - {fileID: 558076406}
+  - {fileID: 1769886438}
+  - {fileID: 864341385}
+  - {fileID: 1138848411}
 --- !u!1 &1198898208
 GameObject:
   m_ObjectHideFlags: 0
@@ -26079,7 +25959,7 @@ Transform:
   - {fileID: 705507995}
   - {fileID: 1326938766}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1383204944
 GameObject:
@@ -28873,8 +28753,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1514086860}
-  - component: {fileID: 1514086859}
   - component: {fileID: 1514086858}
+  - component: {fileID: 1514086861}
   m_Layer: 0
   m_Name: Conveyor (1)
   m_TagString: Untagged
@@ -28894,25 +28774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8115f4f821a8df641aafd02daa226852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1514086859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514086856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3a1cbdde9651c4ba5ecbdfc1cdef4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 1009941785}
-  - {fileID: 797183087}
-  - {fileID: 1698109226}
-  - {fileID: 927718719}
-  - {fileID: 406766600}
-  - {fileID: 329785548}
 --- !u!4 &1514086860
 Transform:
   m_ObjectHideFlags: 0
@@ -28932,6 +28793,25 @@ Transform:
   m_Father: {fileID: 1555538256}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1514086861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514086856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6dbf7821c65c345935b4792674eb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 1009941785}
+  - {fileID: 797183087}
+  - {fileID: 1698109226}
+  - {fileID: 927718719}
+  - {fileID: 406766600}
+  - {fileID: 329785548}
 --- !u!1 &1526843459
 GameObject:
   m_ObjectHideFlags: 0
@@ -29483,7 +29363,7 @@ Transform:
   - {fileID: 1162789199}
   - {fileID: 1193103998}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1572096816
 GameObject:
@@ -34238,13 +34118,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846878164}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0847094, y: -2.5909295, z: -2.6847718}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 899469369}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847573163
 GameObject:
@@ -36631,11 +36511,8 @@ MonoBehaviour:
   - {fileID: 1980640580}
   - {fileID: 1448514065}
   - {fileID: 1265347051}
-  - {fileID: 1514086859}
-  - {fileID: 1162789198}
-  - {fileID: 0}
-  - {fileID: 1193103997}
   - {fileID: 2114485087}
+  - {fileID: 1514086861}
 --- !u!114 &1960813548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37328,7 +37205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _warehouse: {fileID: 1976039380}
-  _conveyorService: {fileID: 1514086859}
+  _conveyorService: {fileID: 1514086861}
 --- !u!1 &1998243434
 GameObject:
   m_ObjectHideFlags: 0
@@ -37859,7 +37736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _warehouse: {fileID: 1348682716}
-  _conveyorService: {fileID: 1162789198}
+  _conveyorService: {fileID: 1162789200}
 --- !u!1 &2028522485
 GameObject:
   m_ObjectHideFlags: 0
@@ -40357,11 +40234,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _conveyorList:
   - ID: first
-    ConveyorService: {fileID: 1514086859}
+    Conveyor: {fileID: 1514086861}
   - ID: second
-    ConveyorService: {fileID: 1162789198}
+    Conveyor: {fileID: 1162789200}
   - ID: third
-    ConveyorService: {fileID: 1193103997}
+    Conveyor: {fileID: 1193103999}
 --- !u!1 &2116503335
 GameObject:
   m_ObjectHideFlags: 0

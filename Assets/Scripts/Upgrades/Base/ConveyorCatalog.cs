@@ -7,8 +7,8 @@ public class ConveyorCatalog : MonoBehaviour
 {
     [SerializeField] private List<SerializedConveyorData> _conveyorList = new();
 
-    public List<SerializedConveyorData> ConveyorList
+    public List<SerializedConveyorData> GetAllConveyorsData()
     {
-        get { return _conveyorList; }
+        return _conveyorList;
     }
 }

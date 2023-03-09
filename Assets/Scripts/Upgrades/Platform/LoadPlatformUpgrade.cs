@@ -20,7 +20,7 @@ public class LoadPlatformUpgrade : Upgrade
     public LoadPlatformUpgrade(LoadPlatformUpgradeConfig config, GameContext gameContext) : base(config)
     {
         _upgradeConfig = config;
-        _conveyorList = gameContext.GetService<ConveyorCatalog>().ConveyorList;
+        _conveyorList = gameContext.GetService<ConveyorCatalog>().GetAllConveyorsData();
         OnUpgrade(Level);
     }
 
@@ -30,7 +30,7 @@ public class LoadPlatformUpgrade : Upgrade
         {
             if (_conveyorList[i].ID == _upgradeConfig.FactoryId)
             {
-                var factoryStorages = _conveyorList[i].ConveyorService.Get<IFactoryStoragesComponent>();
+                var factoryStorages = _conveyorList[i].Conveyor.Get<IFactoryStoragesComponent>();
                 var amount = _upgradeConfig.PlatformTable.GetAmount(level);
 
                 factoryStorages.SetupMaxValueAllStorages(amount);
