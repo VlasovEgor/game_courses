@@ -4,12 +4,13 @@ using UnityEngine;
 public class ResourceCollectionMechanics : MonoBehaviour
 {
     [SerializeField] private Warehouse _warehouse;
+    [SerializeField] private ConveyorService _conveyorService;
 
     private IFactoryStoragesComponent _storagesComponent;
 
     private void Awake()
     {
-        _storagesComponent = _warehouse.GetComponent<Entity>().Get<IFactoryStoragesComponent>();
+        _storagesComponent = _conveyorService.GetComponent<IFactoryStoragesComponent>();
     }
 
     [Button]

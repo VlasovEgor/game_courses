@@ -1,11 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class CreationSpeedUpgrade : Upgrade, IConstructListener, IInitGameListener
+public class CreationSpeedUpgrade : Upgrade
 {
     [SerializeField] private int _upgradeStep;
 
-    private IEntity _conveyor;
     private readonly CreationSpeedUpgradeConfig _upgradeConfig;
+    private List<SerializedConveyorData> _conveyorList;
 
     public override string CurrentStats
     {
@@ -20,33 +22,23 @@ public class CreationSpeedUpgrade : Upgrade, IConstructListener, IInitGameListen
         get { return _upgradeConfig.CreationSpeedTable.UpgradeStep.ToString(); }
     }
 
-    public CreationSpeedUpgrade(CreationSpeedUpgradeConfig config) : base(config)
+    public CreationSpeedUpgrade(CreationSpeedUpgradeConfig config, GameContext gameContext) : base(config)
     {
         _upgradeConfig = config;
-    }
-
-    public void Construct(GameContext context)
-    {
-        var factory = context.GetService<FactoryCatalog>().FactoryList;
-        for (int i = 0; i < factory.Count; i++)
-        {
-            if (factory[i].ID == _upgradeConfig.FactoryId)
-            {
-                _conveyor = factory[i].FactoryService.GetConveyor();
-                Debug.Log(_conveyor);
-            }
-        }
-    }
-
-    public void Initialization()
-    {
+        _conveyorList = gameContext.GetService<ConveyorCatalog>().ConveyorList;
         OnUpgrade(Level);
     }
 
     protected override void OnUpgrade(int level)
     {
-        var amount = _upgradeConfig.CreationSpeedTable.GetAmount(level);
-        Debug.Log(_conveyor);
-        _conveyor.Get<ITimeMultiplicationComponent>().SetMultiplier(amount);
+        for (int i = 0; i < _conveyorList.Count; i++)
+        {
+            if (_conveyorList[i].ID == _upgradeConfig.FactoryId)
+            {
+                var timeMultiplicationComponent = _conveyorList[i].ConveyorService.Get<ITimeMultiplicationComponent>();
+                var amount = _upgradeConfig.CreationSpeedTable.GetAmount(level);
+                timeMultiplicationComponent.SetMultiplier(amount);
+            }
+        }
     }
 }

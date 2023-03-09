@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UpgradeCatalog 2
   m_EditorClassIdentifier: 
   _configs:
-  - {fileID: 11400000, guid: d06a01dde7c919648812980025d6507a, type: 2}
-  - {fileID: 11400000, guid: b92235df6e4f6cc409ac8e2117539f48, type: 2}
-  - {fileID: 11400000, guid: e098a9b3585f6bf47a3bc95dea402c0e, type: 2}
-  _factoryId: 2
+  - {fileID: 11400000, guid: bf3cc6d95c3b0eb43a9eece77d1419e7, type: 2}
+  - {fileID: 11400000, guid: ff5646242a7aa7d45bcf3569277e283c, type: 2}
+  - {fileID: 11400000, guid: ca3c65ad9f4cae7488ae65828f1347a3, type: 2}
+  _conveyorID: second

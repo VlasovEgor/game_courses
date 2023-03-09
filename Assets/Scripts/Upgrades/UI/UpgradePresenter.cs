@@ -1,4 +1,3 @@
-using UnityEngine;
 
 public class UpgradePresenter
 {
@@ -38,6 +37,7 @@ public class UpgradePresenter
     {
         _upgradeView.UpgradeButton.RemoveListener(OnButtonClicked);
         _upgrade.OnLevelUp -= OnLevelUp;
+        _moneyStorage.OnMoneyChanged -= OnMoneyChanged;
     }
 
     private void OnMoneyChanged(int obj)
@@ -81,7 +81,6 @@ public class UpgradePresenter
     private void UpdateStats()
     {
         var text = $"Value: {_upgrade.CurrentStats}";
-        Debug.Log("Ý");
        if (!_upgrade.IsMaxLevel)
        {
            text += $" (+{_upgrade.NextImprovement})";

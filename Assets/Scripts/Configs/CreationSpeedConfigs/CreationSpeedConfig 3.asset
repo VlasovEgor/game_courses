@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aee26719ad07e046900ff26e5238427, type: 3}
+  m_Name: CreationSpeedConfig 3
+  m_EditorClassIdentifier: 
+  Id: CreationSpeedUpgrade
+  MaxLevel: 3
+  PriceTable:
+    _basePrice: 0
+    _levels: 000000000200000004000000
+  UpgradeInfo: {fileID: 11400000, guid: 418c68eda7611c64e83bd7dfe02e19f7, type: 2}
+  FactoryId: 
+  CreationSpeedTable:
+    _startAmount: 1
+    _upgradeStep: 0.33

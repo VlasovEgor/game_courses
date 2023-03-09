@@ -16,6 +16,6 @@ public class FactoryShower : MonoBehaviour, IConstructListener
     public void ShowWarehouse()
     {
         var presentationModel = _presenerFactory.CreatePresenter();
-        _popupManager.ShowPopup(PopupName.FACTORY, presentationModel);
+        _popupManager.ShowPopup(PopupName.CONVEYOR, presentationModel);
     }
 }

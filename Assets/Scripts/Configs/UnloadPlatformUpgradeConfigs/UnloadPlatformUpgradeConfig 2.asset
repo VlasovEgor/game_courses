@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf01d98d6f34ab34ea0f4aef1e45a958, type: 3}
   m_Name: UnloadPlatformUpgradeConfig 2
   m_EditorClassIdentifier: 
-  Id: UnloadPlatform2
-  MaxLevel: 5
+  Id: UnloadPlatformUpgrade
+  MaxLevel: 3
   PriceTable:
     _basePrice: 0
-    _levels: 0100000002000000030000000400000005000000
+    _levels: 01000000020000000400000008000000
   UpgradeInfo: {fileID: 11400000, guid: 13257dcf783d79547a3c59128a407624, type: 2}
-  FactoryId: 
+  FactoryId: first
   PlatformTable:
-    _startAmount: 5
-    _upgradeStep: 2
+    _startAmount: 1
+    _upgradeStep: 3

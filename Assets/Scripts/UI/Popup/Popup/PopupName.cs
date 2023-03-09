@@ -5,5 +5,6 @@ public enum PopupName
     PLAYER=2,
     INGREDIENT=3,
     WAREHOUSE=4,
-    FACTORY=5
+    CONVEYOR=5,
+    UPGRADES = 6
 }

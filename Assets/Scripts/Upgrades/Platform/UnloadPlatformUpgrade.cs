@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class UnloadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListener
+public class UnloadPlatformUpgrade : Upgrade
 {
     [SerializeField] private int _upgradeStep;
 
-    private IEntity _conveyor;
+    private List<SerializedConveyorData> _conveyorList;
     private readonly UnloadPlatformUpgradeConfig _upgradeConfig;
 
     public override string CurrentStats
@@ -17,33 +18,23 @@ public class UnloadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListe
         get { return _upgradeConfig.PlatformTable.UpgradeStep.ToString(); }
     }
 
-    public UnloadPlatformUpgrade(UnloadPlatformUpgradeConfig config) : base(config)
+    public UnloadPlatformUpgrade(UnloadPlatformUpgradeConfig config, GameContext gameContext) : base(config)
     {
         _upgradeConfig = config;
-    }
-
-    public void Construct(GameContext context)
-    {
-        var factory = context.GetService<FactoryCatalog>().FactoryList;
-        for (int i = 0; i < factory.Count; i++)
-        {
-            if (factory[i].ID == _upgradeConfig.FactoryId)
-            {
-                _conveyor = factory[i].FactoryService.GetConveyor();
-                Debug.Log(_conveyor);
-            }
-        }
-    }
-
-    public void Initialization()
-    {
+        _conveyorList = gameContext.GetService<ConveyorCatalog>().ConveyorList;
         OnUpgrade(Level);
     }
 
     protected override void OnUpgrade(int level)
-    {
-        var amount = _upgradeConfig.PlatformTable.GetAmount(level);
-        Debug.Log(_conveyor);
-        _conveyor.Get<IUnloadZoneComponent>().MaxValue = amount;
+    { 
+        for (int i = 0; i < _conveyorList.Count; i++)
+        {
+            if (_conveyorList[i].ID == _upgradeConfig.FactoryId)
+            {   
+                var unloadZoneComponent = _conveyorList[i].ConveyorService.Get<IUnloadZoneComponent>();
+                var amount = _upgradeConfig.PlatformTable.GetAmount(level);
+                unloadZoneComponent.MaxValue = amount;
+            }
+        }
     }
 }

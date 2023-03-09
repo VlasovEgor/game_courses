@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using Zenject;
 
-public class LoadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListener
+public class LoadPlatformUpgrade : Upgrade
 {   
-    private IFactoryStoragesComponent _factoryStorages;
     private readonly LoadPlatformUpgradeConfig _upgradeConfig;
+    private List<SerializedConveyorData> _conveyorList;
 
     public override string CurrentStats
     {
@@ -15,33 +17,24 @@ public class LoadPlatformUpgrade : Upgrade, IConstructListener, IInitGameListene
         get { return _upgradeConfig.PlatformTable.UpgradeStep.ToString(); }
     }
 
-    public LoadPlatformUpgrade(LoadPlatformUpgradeConfig config) : base(config)
+    public LoadPlatformUpgrade(LoadPlatformUpgradeConfig config, GameContext gameContext) : base(config)
     {
         _upgradeConfig = config;
-    }
-
-    public void Construct(GameContext context)
-    {
-        var factory = context.GetService<FactoryCatalog>().FactoryList;
-        for (int i = 0; i < factory.Count; i++)
-        {
-            if (factory[i].ID == _upgradeConfig.FactoryId)
-            {
-                _factoryStorages = factory[i].FactoryService.GetWarehouse().Get<IFactoryStoragesComponent>();
-                Debug.Log(_factoryStorages);
-            }
-        }
-    }
-
-    public void Initialization()
-    {
+        _conveyorList = gameContext.GetService<ConveyorCatalog>().ConveyorList;
         OnUpgrade(Level);
     }
 
     protected override void OnUpgrade(int level)
     {
-        var amount = _upgradeConfig.PlatformTable.GetAmount(level);
-        Debug.Log(_factoryStorages);
-        _factoryStorages.SetupMaxValueAllStorages(amount);
+        for (int i = 0; i < _conveyorList.Count; i++)
+        {
+            if (_conveyorList[i].ID == _upgradeConfig.FactoryId)
+            {
+                var factoryStorages = _conveyorList[i].ConveyorService.Get<IFactoryStoragesComponent>();
+                var amount = _upgradeConfig.PlatformTable.GetAmount(level);
+
+                factoryStorages.SetupMaxValueAllStorages(amount);
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FactoryPresentationModelFactory : MonoBehaviour,IConstructListener
+public class FactoryPresentationModelFactory : MonoBehaviour, IConstructListener
 {
     private ObjectCreator _objectCreator;
     private IConveyorComponent _conveyorComponent;
@@ -9,8 +9,8 @@ public class FactoryPresentationModelFactory : MonoBehaviour,IConstructListener
     public void Construct(GameContext context)
     {
         _objectCreator = context.GetService<ObjectCreator>();
-        _conveyorComponent = context.GetService<IConveyorComponent>();
-        _workComponent=context.GetService<WorkComponent>();
+        _conveyorComponent = context.GetService<ConveyorService>().GetComponent<IConveyorComponent>();
+        _workComponent = context.GetService<ConveyorService>().GetComponent<IWorkComponent>();
     }
 
     public FactoryPresentationModel CreatePresenter()

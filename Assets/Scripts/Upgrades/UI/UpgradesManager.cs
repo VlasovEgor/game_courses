@@ -1,6 +1,6 @@
 using Sirenix.OdinInspector;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -9,54 +9,44 @@ public class UpgradesManager
     public event Action<Upgrade> OnLevelUp;
 
     [ReadOnly, ShowInInspector]
-    private Upgrade[][] _upgrades;
+    private Dictionary<string, List<Upgrade>> _ugradesDictionary = new();
 
     private MoneyStorage _moneyStorage;
-    private FactoryUpgradeCatalog[] _catalogs;
+    private ConveyorUpgradeCatalog[] _catalogs;
+    
 
-    public void Construct(MoneyStorage moneyStorage, FactoryUpgradeCatalog[] catalogs)
+    public void Construct(MoneyStorage moneyStorage, ConveyorUpgradeCatalog[] catalogs)
     {
         _moneyStorage = moneyStorage;
         _catalogs = catalogs;
     }
 
-    public void Setup(Upgrade[][] upgrades)
+    public void Setup()
     {
-        _upgrades = new Upgrade[_catalogs.Length][];
-
-        for (int i = 0; i < _upgrades.Length; i++)
+        for (int i = 0; i < _catalogs.Length; i++)
         {
-            _upgrades[i] = _catalogs[i].GetAllUpgrades();
-
-            for (int j = 0; j < _upgrades[i].Length; j++)
-            {
-                var upgrade = upgrades[i][j];
-                _upgrades[i][upgrade.Id] = upgrade;
-            }
+            List<Upgrade> upgradeList = _catalogs[i].GetAllUpgrades();
+            _ugradesDictionary.Add(_catalogs[i].GetConveyorId(), upgradeList);
         }
     }
 
-    public Upgrade GetUpgrades(int factoryId,int upgradeId)
+    public Upgrade[] GetAllUpgrades(string conveyorId)
     {
-        return _upgrades[factoryId][upgradeId];
-    }
-
-    public Upgrade[] GetAllUpgrades(int factoryId)
-    {
-        return _upgrades[factoryId].ToArray();
+        return _ugradesDictionary[conveyorId].ToArray();
     }
 
     [Button]
-    public bool CanLevelUp(int factoryId,int upgradeId)
-    {   
-        var upgrade = _upgrades[factoryId][upgradeId];
+    public bool CanLevelUp(string conveyorId, string upgradeId)
+    {
+        var upgrade = GetUpgrades(conveyorId, upgradeId);
         return CanLevelUp(upgrade);
+        
     }
 
     [Button]
-    public void LevelUp(int factoryId, int upgradeId)
+    public void LevelUp(string conveyorId, string upgradeId)
     {
-        var upgrade = _upgrades[factoryId][upgradeId];
+        var upgrade = GetUpgrades(conveyorId, upgradeId);
         LevelUp(upgrade);
     }
 
@@ -73,9 +63,9 @@ public class UpgradesManager
 
     public void LevelUp(Upgrade upgrade)
     {
-        if (!CanLevelUp(upgrade))
+        if (CanLevelUp(upgrade) == false)
         {
-            throw new Exception($"Can not level up {upgrade.Id}");
+            Debug.LogWarning($"Can not level up {upgrade.Id}");
         }
 
         var price = upgrade.NextPrice;
@@ -83,5 +73,20 @@ public class UpgradesManager
 
         upgrade.LevelUp();
         OnLevelUp?.Invoke(upgrade);
+    }
+
+    private Upgrade GetUpgrades(string conveyorId, string upgradeId)
+    {
+        var upgradesList = _ugradesDictionary[conveyorId];
+
+        for (int i = 0; i < upgradesList.Count; i++)
+        {
+            if (upgradesList[i].Id == upgradeId)
+            {
+                return upgradesList[i];
+            }
+        }
+
+        throw new Exception($"Unable to find an upgrade {conveyorId}, {upgradeId}");
     }
 }

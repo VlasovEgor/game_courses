@@ -1,10 +1,11 @@
 using System;
+using UnityEngine;
 
 public abstract class Upgrade
 {
     public event Action OnLevelUp;
 
-    public int Id
+    public string Id
     {
         get
         {
@@ -80,6 +81,7 @@ public abstract class Upgrade
         _currentLevel++;
         OnLevelUp?.Invoke();
         OnUpgrade(_currentLevel);
+        Debug.Log(_currentLevel);
     }
 
     protected abstract void OnUpgrade(int level);
