@@ -9,6 +9,4 @@ public class StartRealtimeSession : MonoBehaviour
     {
         await _sessionStarter.StartSessionAsync();
     }
-
-    
 }

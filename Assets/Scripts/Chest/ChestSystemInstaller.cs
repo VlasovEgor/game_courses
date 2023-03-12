@@ -14,11 +14,17 @@ public class ChestSystemInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        BindChestManager();
         BindChestFactory();
-        CreateChests();
-        BindChestsMediator();
-        SetupTMP();
+        BindChestManager();
+        BindChestsMediator(); 
+        BindChestsCatalog();
+        BindChestsAssetSupplier();
+    }
+
+    private void BindChestFactory()
+    {
+        Container.BindFactory<ChestConfig, Chest, Chest.Factory>();
+        _chestFactory = Container.Resolve<Chest.Factory>();
     }
 
     private void BindChestManager()
@@ -31,12 +37,6 @@ public class ChestSystemInstaller : MonoInstaller
             NonLazy();
     }
 
-    private void BindChestFactory()
-    {
-        Container.BindFactory<ChestConfig, Chest, Chest.Factory>();
-        _chestFactory = Container.Resolve<Chest.Factory>();
-    }
-
     private void BindChestsMediator()
     {
         Container.BindInterfacesAndSelfTo<ChestsMediator>().
@@ -44,13 +44,19 @@ public class ChestSystemInstaller : MonoInstaller
             NonLazy();
     }
 
-    [Button]
-    public void SetupTMP()
+    private void BindChestsCatalog()
     {
-        if (_manager.GetAllChests().Count == 0)
-        {
-            _manager.Setup(CreateChests());
-        }
+        Container.Bind<ChestCatalog>().
+            FromInstance(_chestCatalog).
+            AsSingle().
+            NonLazy();
+    }
+
+    private void BindChestsAssetSupplier()
+    {
+        Container.BindInterfacesAndSelfTo<ChestsAssetSupplier>().
+          AsSingle().
+          NonLazy();
     }
 
     public List<Chest> CreateChests()
@@ -65,6 +71,12 @@ public class ChestSystemInstaller : MonoInstaller
         }
 
         return chestList;
+    }
+
+    [Button]
+    public void SetupChest()
+    {
+        _manager.Setup(CreateChests());
     }
 
     [Button]

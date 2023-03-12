@@ -7,14 +7,29 @@ public class BootstrapInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+       // BindGameSceneContext();
+
         BindRealtimeManager();
         BindRealtimeRepository();
+       // BindRealtimeSynchronizer();
+      //  BindRealtimeSessionStarter();
         BindRealtimeSessionSaver();
-
+        
         BindChestsData();
         BindChestsRepository();
+       // BindChestsMediator();
+       // BindChestsAssetSupplier();
+
     }
-    
+
+    private void BindGameSceneContext()
+    {  
+       // Container.Bind<SceneContext>().
+       //     AsSingle().
+       //     NonLazy();
+    }
+
+
     private void BindRealtimeManager()
     {
         Container.Bind<RealtimeManager>().
@@ -30,12 +45,27 @@ public class BootstrapInstaller : MonoInstaller
             NonLazy();
     }
 
+    private void BindRealtimeSynchronizer()
+    {
+        Container.BindInterfacesAndSelfTo<RealtimeSynchronizer>().
+            AsSingle().
+            NonLazy();
+    }
+
+    private void BindRealtimeSessionStarter()
+    {
+        Container.BindInterfacesAndSelfTo<RealtimeSessionStarter>().
+            AsSingle().
+            NonLazy();
+    }
+
     private void BindRealtimeSessionSaver()
     {
         Container.BindInterfacesAndSelfTo<RealtimeSessionSaver>().
             AsSingle().
             NonLazy();
     }
+
     private void BindChestsData()
     {
         Container.Bind<ChestsData>().
@@ -48,5 +78,19 @@ public class BootstrapInstaller : MonoInstaller
         Container.Bind<ChestsRepository>().
             AsSingle().
             NonLazy();
+    }
+
+    private void BindChestsMediator()
+    {
+        Container.BindInterfacesAndSelfTo<ChestsMediator>().
+            AsSingle().
+            NonLazy();
+    }
+
+    private void BindChestsAssetSupplier()
+    {
+        Container.BindInterfacesAndSelfTo<ChestsAssetSupplier>().
+          AsSingle().
+          NonLazy();
     }
 }

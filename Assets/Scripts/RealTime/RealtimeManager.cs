@@ -130,7 +130,6 @@ public sealed class RealtimeManager : MonoBehaviour
 
         _realtimeSinceStartupCache = Time.realtimeSinceStartup;
         _isPaused = true;
-        Debug.Log("PIZDA");
         OnPaused?.Invoke();
     }
 

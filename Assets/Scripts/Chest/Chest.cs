@@ -30,11 +30,6 @@ public class Chest
         set { _countdown.RemainingTime = value; }
     }
 
-    public float DurationSeconds
-    {
-        get { return _config.DurationSeconds; }
-    }
-
     public ChestConfig ChestConfig
     {
         get { return _config; }

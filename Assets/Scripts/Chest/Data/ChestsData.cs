@@ -1,8 +1,10 @@
 using System;
-using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public struct ChestsData
 {
-    public List<Chest> ChestsList;
+    [SerializeField] public string Id;
+
+    [SerializeField] public float RemainingTime;
 }

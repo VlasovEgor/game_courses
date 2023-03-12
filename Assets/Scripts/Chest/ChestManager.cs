@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class ChestManager : IInitializable, IDisposable
+public class ChestManager :IDisposable
 {
     public event Action<Chest> OnChestLaunched;
 
@@ -15,6 +15,7 @@ public class ChestManager : IInitializable, IDisposable
 
     [Inject] private RewardSystem _rewardSystem;
     [Inject] private ChestRewardGenerator _chestRewardGenerator;
+    [Inject] private Chest.Factory _factory;
 
     [PropertySpace(8), ReadOnly, ShowInInspector] 
     private Dictionary<string, Chest> _chests = new();
@@ -22,6 +23,18 @@ public class ChestManager : IInitializable, IDisposable
     public void Setup(List<Chest> chests)
     {
         _chests = chests.ToDictionary(it => it.Id);
+        StartAllChests();
+    }
+
+    public Chest LoadChest(ChestConfig chestConfig)
+    {
+        var chest = _factory.Create(chestConfig);
+        chest.OnCompleted += OnEndChest;
+
+        _chests.Add(chest.Id, chest);
+        StartAllChests();
+
+        return chest;
     }
 
     public List<Chest> GetAllChests()
@@ -66,11 +79,6 @@ public class ChestManager : IInitializable, IDisposable
             _rewardSystem.AccrueReward(rewards);
             currentChest.Start();
         }
-    }
-
-    void IInitializable.Initialize()
-    {
-        StartAllChests();
     }
 
     void IDisposable.Dispose()

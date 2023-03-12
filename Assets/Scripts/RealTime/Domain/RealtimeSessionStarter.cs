@@ -3,10 +3,18 @@ using System.Threading.Tasks;
 using Asyncoroutine;
 using Zenject;
 
-public sealed class RealtimeSessionStarter
+public sealed class RealtimeSessionStarter : IInitializable
 {
+    //[Inject] private SceneContext _gameSceneContext;
+
     [Inject] private RealtimeManager _realtimeManager;
     [Inject] private RealtimeRepository _repository;
+
+    public void Initialize()
+    {
+        //_realtimeManager = _gameSceneContext.Container.Resolve<RealtimeManager>();
+        //_repository = _gameSceneContext.Container.Resolve<RealtimeRepository>();   
+    }
 
     public async Task StartSessionAsync()
     {
