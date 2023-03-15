@@ -35,8 +35,8 @@ public class AttackTask : Task, ITaskCallback
 
     protected override void OnCancel()
     {
-        _moveTask.Cansel();
-        _combatTask.Cansel();
+        _moveTask.Canñel();
+        _combatTask.Canñel();
     }
 
     void ITaskCallback.OnComplete(Task task, bool success)

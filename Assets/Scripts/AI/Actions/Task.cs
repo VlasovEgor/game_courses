@@ -26,7 +26,7 @@ public abstract class Task : MonoBehaviour
     }
 
     [Button]
-    public void Cansel()
+    public void Canñel()
     {
         if (IsPlaying == false)
         {
